@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>start</title>
+</head>
+<style>
+    body{
+        background-image:url("yello.jpg"); text-align: center;
+    }
+    .one{
+      display: flex;
+      justify-content:space-between; font-size:20px; margin:20px;
+    }
+  .btn1{
+    width:110px;
+    height:40px;
+    background:rgb(20, 98, 20);border:none; border-radius:7px; 
+  }
+  .btn2{
+    width:110px;
+    height:40px;
+    background:rgb(211, 23, 23); border:none; border-radius:7px; 
+  }
+  #count{
+    font-size:90px;
+    animation: move 3s infinite;
+  }
+  @keyframes move{
+    from{transform:translateX(-15px);}
+    to{transform:translateX(15px);}
+  }
+  .up{
+    font-size:80px;
+    animation: up 3s infinite;
+  }
+  @keyframes up{
+    from{transform:translateY(-40px);}
+    to{transform:translateY(40px);}
+  }
+  .site{
+    display: flex;
+       justify-content:space-between;
+  }
+  .btn3{
+    width:90px;
+    height:40px;border:none; background-color: rgb(96, 92, 100); border-radius:4px;
+  }
+  .btn4{
+    width:90px;
+    height:50px;border:none; background-color: rgb(127, 89, 160); border-radius:4px;
+  }
+  #settingone{
+    display:none;
+  }
+  #settingtwo{
+     width:300px;
+    height:500px;
+    background:rgb(166, 9, 9); border-radius:10px;
+  }
+</style>
+<body> 
+  <div class="one">
+     <i class="fa-solid fa-gear" id="setting"></i>
+     <div id="settingone">
+      <div id="settingtwo">
+        <h1>SETTINGS</h1>
+        <p style="color:white;"> SOUNDS</p>
+        <p style="color:white;"> VIBRATION </p>
+        <p style="color:white;"> LEFT  HAND </p>
+        <img src="nagad.png" style="width:150px; height:100px"><br><br><br>
+        <button id="close">Close</button>
+      </div>
+     </div>
+     <i class="fa-solid fa-user"></i>
+  </div>
+   
+       <h1 id="count"> One Two   </h1>
+         <p>Hit</p>
+         <p class="up">  <i class="fa-solid fa-person-running"></i> </p>
+        <div class="site">
+          <button class="btn3">Tournament</button>
+          <button class="btn4">SHOP <br><i class="fa-solid fa-cart-shopping"></i></button>
+        </div><br>
+        <button onclick="window.location.href ='Shop.html'"; class="btn1"> <i class="fa-solid fa-gift"></i> GIFT  </button>
+        <button onclick="window.location.href ='index.html'"; class="btn2">  PLAY  </button>
+
+
+        <script>
+          document.getElementById("setting").addEventListener("click",function(){
+            document.getElementById("settingone").style.display ="flex";
+          })
+          document.getElementById("close").addEventListener("click",function(){
+            document.getElementById("settingone").style.display ="none";
+          })
+        </script>
+</body>
+</html>

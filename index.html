@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>One Two</title>
+</head>
+<style>
+    body{
+        background:rgb(64, 62, 62);
+    }
+    .box{
+        width:100%;
+        height:250px;
+        background:black;
+    }
+    .one{
+        display: flex;
+    }
+    .fa-person-running{
+        font-size:35px;
+        color:white;
+          margin-top:145px;
+          margin-left:20px;
+          position: relative;
+          animation: up 0.3s;
+    }
+    @keyframes up{
+        from{transform:translateX(20px);}
+        to{transform:translateX(-20px);}
+    }
+     .fa-tree{
+      color:white;
+      font-size:10px;
+        margin-top:175px;
+      margin-left:85%;
+      animation: col  3s infinite;
+     }
+     @keyframes col{
+        from{transform: translateX(10px);}
+        to{transform: translateX(-550px);}
+     }
+     p{
+        color:white; padding:15px;
+     }
+</style>
+<body>
+    <div class="box">
+        <p id="count">Count - 0 </p>
+   <div class="one">
+        <i class="fa-solid fa-person-running" id="man"></i>
+       
+      <i class="fa-solid fa-tree" id="tree"></i>
+   </div>
+    </div>
+
+    <script>
+   let man = document.getElementById("man");
+   let tree = document.getElementById("tree");
+   let count =0;
+   let countText = document.getElementById("count");
+document.addEventListener("keydown", function(e){
+  if(e.code === "Space"){
+    count ++;
+    countText.innerText = "Count - " + count;
+
+    man.style.top = "-100px";   // up
+    setTimeout(function(){
+      man.style.top = "0px";    // down
+    },200);
+  }
+});
+
+//collision check
+
+setInterval(function(){
+  let manRect = man.getBoundingClientRect();
+  let treeRect = tree.getBoundingClientRect();
+
+  if(
+  manRect.right > treeRect.left &&
+manRect.left < treeRect.right &&
+manRect.bottom > treeRect.top &&
+manRect.top < treeRect.bottom
+
+  ){
+    
+     window.location.href="test.html";
+  }
+},50);
+    </script>
+</body>
+</html>
