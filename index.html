@@ -4,91 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>One Two</title>
+    <title>Game1</title>
 </head>
 <style>
     body{
-        background:rgb(64, 62, 62);
-    }
-    .box{
-        width:100%;
-        height:250px;
-        background:black;
+        background-image:url("yello.jpg"); text-align: center;
     }
     .one{
-        display: flex;
+      display: flex;
+      justify-content:space-between; font-size:20px; margin:20px;
     }
-    .fa-person-running{
-        font-size:35px;
-        color:white;
-          margin-top:145px;
-          margin-left:20px;
-          position: relative;
-          animation: up 0.3s;
-    }
-    @keyframes up{
-        from{transform:translateX(20px);}
-        to{transform:translateX(-20px);}
-    }
-     .fa-tree{
-      color:white;
-      font-size:10px;
-        margin-top:175px;
-      margin-left:85%;
-      animation: col  3s infinite;
-     }
-     @keyframes col{
-        from{transform: translateX(10px);}
-        to{transform: translateX(-550px);}
-     }
-     p{
-        color:white; padding:15px;
-     }
+  .btn1{
+    width:110px;
+    height:40px;
+    background:rgb(20, 98, 20);border:none; border-radius:7px; 
+  }
+  .btn2{
+    width:110px;
+    height:40px;
+    background:rgb(211, 23, 23); border:none; border-radius:7px; 
+  }
+  #count{
+    font-size:90px;
+    animation: move 3s infinite;
+  }
+  @keyframes move{
+    from{transform:translateX(-15px);}
+    to{transform:translateX(15px);}
+  }
+  .up{
+    font-size:80px;
+    animation: up 3s infinite;
+  }
+  @keyframes up{
+    from{transform:translateY(-40px);}
+    to{transform:translateY(40px);}
+  }
+  .site{
+    display: flex;
+       justify-content:space-between;
+  }
+  .btn3{
+    width:90px;
+    height:40px;border:none; background-color: rgb(96, 92, 100); border-radius:4px;
+  }
+  .btn4{
+    width:90px;
+    height:50px;border:none; background-color: rgb(127, 89, 160); border-radius:4px;
+  }
+  #settingone{
+    display:none;
+  }
+  #settingtwo{
+     width:300px;
+    height:500px;
+    background:rgb(166, 9, 9); border-radius:10px;
+  }
 </style>
-<body>
-    <div class="box">
-        <p id="count">Count - 0 </p>
-   <div class="one">
-        <i class="fa-solid fa-person-running" id="man"></i>
-       
-      <i class="fa-solid fa-tree" id="tree"></i>
-   </div>
-    </div>
+<body> 
+  <div class="one">
+     <i class="fa-solid fa-gear" id="setting"></i>
+     <div id="settingone">
+      <div id="settingtwo">
+        <h1>SETTINGS</h1>
+        <p style="color:white;"> SOUNDS</p>
+        <p style="color:white;"> VIBRATION </p>
+        <p style="color:white;"> LEFT  HAND </p>
+        <img src="nagad.png" style="width:150px; height:100px"><br><br><br>
+        <button id="close">Close</button>
+      </div>
+     </div>
+     <i class="fa-solid fa-user"></i>
+  </div>
+   
+       <h1 id="count"> One Two   </h1>
+         <p>Hit</p>
+         <p class="up">  <i class="fa-solid fa-person-running"></i> </p>
+        <div class="site">
+          <button class="btn3">Tournament</button>
+          <button class="btn4">SHOP <br><i class="fa-solid fa-cart-shopping"></i></button>
+        </div><br>
+        <button onclick="window.location.href ='Shop.html'"; class="btn1"> <i class="fa-solid fa-gift"></i> GIFT  </button>
+        <button onclick="window.location.href ='indexf.html'"; class="btn2">  PLAY  </button>
 
-    <script>
-   let man = document.getElementById("man");
-   let tree = document.getElementById("tree");
-   let count =0;
-   let countText = document.getElementById("count");
-document.addEventListener("keydown", function(e){
-  if(e.code === "Space"){
-    count ++;
-    countText.innerText = "Count - " + count;
 
-    man.style.top = "-100px";   // up
-    setTimeout(function(){
-      man.style.top = "0px";    // down
-    },200);
-  }
-});
-
-//collision check
-
-setInterval(function(){
-  let manRect = man.getBoundingClientRect();
-  let treeRect = tree.getBoundingClientRect();
-
-  if(
-  manRect.right > treeRect.left &&
-manRect.left < treeRect.right &&
-manRect.bottom > treeRect.top &&
-manRect.top < treeRect.bottom
-
-  ){
-    
-     window.location.href="test.html";
-  }
-},50);
-    </script>
+        <script>
+          document.getElementById("setting").addEventListener("click",function(){
+            document.getElementById("settingone").style.display ="flex";
+          })
+          document.getElementById("close").addEventListener("click",function(){
+            document.getElementById("settingone").style.display ="none";
+          })
+        </script>
 </body>
 </html>
