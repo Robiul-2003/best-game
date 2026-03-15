@@ -24,18 +24,15 @@
           margin-top:145px;
           margin-left:20px;
           position: relative;
-          animation: up 0.3s;
+          
     }
-    @keyframes up{
-        from{transform:translateX(20px);}
-        to{transform:translateX(-20px);}
-    }
+    
      .fa-tree{
       color:white;
-      font-size:10px;
-        margin-top:175px;
+      font-size:20px;
+        margin-top:165px;
       margin-left:85%;
-      animation: col  3s infinite;
+      animation: col  1s infinite;
      }
      @keyframes col{
         from{transform: translateX(10px);}
@@ -47,7 +44,7 @@
 </style>
 <body>
     <div class="box">
-        <p id="count">Count - 0 </p>
+        <p id="count"> Score - 0 </p>
    <div class="one">
         <i class="fa-solid fa-person-running" id="man"></i>
        
@@ -58,20 +55,32 @@
     <script>
    let man = document.getElementById("man");
    let tree = document.getElementById("tree");
-   let count =0;
+   let count = 0 ;
    let countText = document.getElementById("count");
-document.addEventListener("keydown", function(e){
-  if(e.code === "Space"){
+
+ function jump(){
+  
     count ++;
-    countText.innerText = "Count - " + count;
+    countText.innerText = "Score - " + count;
 
     man.style.top = "-100px";   // up
+    man.style.left = "130px";
     setTimeout(function(){
       man.style.top = "0px";    // down
+      man.style.left = "0px";
     },200);
   }
-});
 
+// PC space key
+document.addEventListener("keydown", function(e){
+  if(e.code === "Space"){
+    jump();
+  }
+});
+// Phone touch
+document.addEventListener("touchstart", function(){
+  jump();
+});
 //collision check
 
 setInterval(function(){
