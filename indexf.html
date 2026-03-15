@@ -21,16 +21,16 @@
     .fa-person-running{
         font-size:35px;
         color:white;
-          margin-top:145px;
+          margin-top:160px;
           margin-left:20px;
           position: relative;
           
     }
     
      .fa-tree{
-      color:white;
+      color:white;   
       font-size:20px;
-        margin-top:165px;
+        margin-top:180px;
       margin-left:85%;
       animation: col  1s infinite;
      }
@@ -39,12 +39,17 @@
         to{transform: translateX(-550px);}
      }
      p{
-        color:white; padding:15px;
+        color:white; padding-left:10px; padding-right:20px;
+     }
+     .shoja{
+      display: flex; justify-content: space-between;
      }
 </style>
 <body>
     <div class="box">
-        <p id="count"> Score - 0 </p>
+       <div class="shoja">
+         <p id="count"> Score - 0 </p> <p id="height"> Height - 0</p>
+       </div>
    <div class="one">
         <i class="fa-solid fa-person-running" id="man"></i>
        
@@ -57,14 +62,22 @@
    let tree = document.getElementById("tree");
    let count = 0 ;
    let countText = document.getElementById("count");
+   let heightText = document.getElementById("height");
+   
+   let height = 0;
 
  function jump(){
   
     count ++;
     countText.innerText = "Score - " + count;
-
+   
+    if(count >  height){
+      height = count;
+      heightText.innerText = "Height - " + height;
+    }
+     
     man.style.top = "-100px";   // up
-    man.style.left = "130px";
+    man.style.left = "50px";
     setTimeout(function(){
       man.style.top = "0px";    // down
       man.style.left = "0px";
@@ -94,7 +107,9 @@ manRect.bottom > treeRect.top &&
 manRect.top < treeRect.bottom
 
   ){
-    
+    // গেম শেষ হলে score save করো
+    localStorage.setItem("score", count);
+
      window.location.href="test.html";
   }
 },50);
