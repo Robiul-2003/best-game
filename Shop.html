@@ -3,9 +3,87 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Document</title>
 </head>
+<style>
+    body{
+        background:wheat;
+    }
+    .header{
+        width:100%;
+        height:70px;
+        background:tomato; display: flex;
+        justify-content: space-around;
+        overflow:hidden;
+       position: fixed;
+       top:0;
+       left:0;
+    }
+    input{
+        margin-top:13px;
+        width:80%;
+        height:40px;
+    }
+    .btn{
+        position: fixed;
+        margin-top:62px;
+        justify-content: center;text-align: center; align-items: center;
+    }
+    .bttn{
+        width:174px;
+        height:30px;
+      
+    }
+    .boody{
+        display: flex;
+      flex-wrap: wrap;
+        
+    }
+     *{
+        box-sizing:border-box;
+     }
+</style>
 <body>
-    <h1>ecommers business</h1>
+   <div class="header">
+   <p>Robi</p>
+   <input tyupe="text" placeholder=" Search you products">
+    <i class="fa-solid fa-list"></i><br><br>
+   </div>
+   <div class="btn">
+    <button onclick="window.location.href='index.html'" class="bttn"> GAME </button>
+    <button onclick="window.location. href='gift.html'" class="bttn"> GIFT</button>
+   </div><br><br><br><br>
+    <div class="boody">
+        <div class="product" style="width:47%;height:270px; border:1px solid rgb(150, 143, 143); margin:5px;">
+            <img src="yello.jpg" alt="" style="width:100%; height:200px;">
+            <p>Name : abcd <br> <span>Price : 250 tk </span> </p>
+            
+        </div>
+        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+        </div>
+        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+        </div>
+        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+           <img src="yello.jpg" alt="" style="width:100%; height:200px;">
+            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+        </div>
+        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+           <img src="yello.jpg" alt="" style="width:100%; height:200px;">
+            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+        </div>
+        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+           <img src="" alt="" style="width:100%; height:200px;">
+            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+        </div>
+        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+           <img src="" alt="" style="width:100%; height:200px;">
+            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+        </div>
+        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+           <img src="yello.jpg" alt="" style="width:100%; height:200px;">
+            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+        </div>
+    </div>
 </body>
 </html>
