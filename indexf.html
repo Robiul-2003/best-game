@@ -8,7 +8,7 @@
 </head>
 <style>
     body{
-        background:rgb(64, 62, 62);
+        background:rgb(64, 62, 62);overflow: hidden;
     }
     .box{
         width:100%;
@@ -27,22 +27,34 @@
           
     }
     
-     .fa-tree{
-      color:white;   
+     .fa-star{
+      color:red;   
       font-size:20px;
-        margin-top:180px;
-      margin-left:85%;
-      animation: col  1s infinite;
+        margin-top:180px;  
+     margin-left:100%;
+      animation: col  1s linear infinite;
      }
      @keyframes col{
-        from{transform: translateX(10px);}
-        to{transform: translateX(-550px);}
+        from{transform: translateX(0px) rotate(0deg);}
+        to{transform: translateX(-1000px) rotate(360deg);}
      }
+  
      p{
         color:white; padding-left:10px; padding-right:20px;
      }
      .shoja{
       display: flex; justify-content: space-between;
+     }
+    
+     .fa-empire{
+      color:gold;
+      margin-top:150px;
+     margin-left:100%;
+      animation: lef 3s linear infinite;
+     }
+     @keyframes lef{
+      from{transform:translateX(0px);}
+      to{transform:translateX(-1000px);}
      }
 </style>
 <body>
@@ -52,14 +64,15 @@
        </div>
    <div class="one">
         <i class="fa-solid fa-person-running" id="man"></i>
-       
-      <i class="fa-solid fa-tree" id="tree"></i>
+       <i class="fa-brands fa-empire" id="empire"></i>
+       <i class="fa-solid fa-star" id="star"></i>
+        
    </div>
     </div>
 
     <script>
    let man = document.getElementById("man");
-   let tree = document.getElementById("tree");
+   let star = document.getElementById("star");
    let count = 0 ;
    let countText = document.getElementById("count");
    let heightText = document.getElementById("height");
@@ -98,13 +111,13 @@ document.addEventListener("touchstart", function(){
 
 setInterval(function(){
   let manRect = man.getBoundingClientRect();
-  let treeRect = tree.getBoundingClientRect();
+  let starRect = star.getBoundingClientRect();
 
   if(
-  manRect.right > treeRect.left &&
-manRect.left < treeRect.right &&
-manRect.bottom > treeRect.top &&
-manRect.top < treeRect.bottom
+anRect.right > starRect.left &&
+manRect.left < starRect.right &&
+manRect.bottom > starRect.top && 
+manRect.top < starRect.bottom
 
   ){
     // গেম শেষ হলে score save করো
@@ -115,4 +128,4 @@ manRect.top < treeRect.bottom
 },50);
     </script>
 </body>
-</html>
+</html> 
