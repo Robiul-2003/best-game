@@ -12,7 +12,7 @@
     }
     .header{
         width:100%;
-        height:90px;
+        height:85px;
         background:tomato;
         overflow:hidden;
        position: fixed;
@@ -24,7 +24,7 @@
         justify-content: space-around;
     }
     input{
-        margin-top:13px;
+        margin-top:5px;
         width:70%;
         height:40px;
         border-radius:8px;
@@ -34,6 +34,7 @@
         display: flex;
     }
     .bttn{
+        margin-top:5px;
           width:50%;
          height:35px;
         
@@ -50,17 +51,24 @@
      }
     
      p{
-        margin-top:23px;
+        margin-top:15px; margin-left:10px;
      }
      #list{
-        margin-top:20px;
+        margin-top:15px;
      }
+     .message{
+        width:40px;
+        height:40px;
+        border-radius:40%;border:2px solid white; background:green;
+       position: fixed; top:80%; left:85%; text-align: center;
+     }
+     
 </style>
 <body>
    <div class="header">
    <div id="head">
     <p>Robi</p>
-   <input tyupe="text" placeholder=" Search you products">
+   <input tyupe="text" id="searchBox" placeholder=" Search you products">
      <i class="fa-solid fa-list" id="list"></i>
    
    </div>
@@ -69,6 +77,7 @@
     <button onclick="window.location. href='gift.html'" class="bttn"> GIFT</button>
    </div>
    </div>
+             <div class="message" onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'"> Chat </div>
     <div class="boody">
         <div class="product" style="width:47%;height:270px; border:1px solid rgb(150, 143, 143); margin:5px;">
             <img src="yello.jpg" alt="" style="width:100%; height:200px;">
@@ -81,32 +90,43 @@
         </div>
         <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
            <img src="yello.jpg" alt="" style="width:100%; height:200px;">
-            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+            <p>Name : cycle <br> <span>Price : 250 tk </span> </p> 
         </div>
         <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
            <img src="yello.jpg" alt="" style="width:100%; height:200px;">
-            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+            <p>Name : car <br> <span>Price : 250 tk </span> </p> 
         </div>
         <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
            <img src="" alt="" style="width:100%; height:200px;">
-            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+            <p>Name : Ti shart <br> <span>Price : 250 tk </span> </p> 
         </div>
         <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
            <img src="" alt="" style="width:100%; height:200px;">
-            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+            <p>Name : pant <br> <span>Price : 250 tk </span> </p> 
         </div>
         <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
            <img src="yello.jpg" alt="" style="width:100%; height:200px;">
-            <p>Name : abcd <br> <span>Price : 250 tk </span> </p> 
+            <p>Name : shoes <br> <span>Price : 250 tk </span> </p> 
         </div>
     </div>
-<script>
-    document.getElementById("list").addEventListener("click", function(){
-         document.getElementById("listopen").style.display = "flex";
-    })
-     document.getElementById("close").addEventListener("click",function(){
-            document.getElementById("listopen").style.display ="none";
-  })
-</script>
+
 </body>
+<script>
+let searchBox = document.getElementById("searchBox");
+
+searchBox.addEventListener("keyup", function () {
+    let value = searchBox.value.toLowerCase();
+    let products = document.querySelectorAll(".product");
+
+    products.forEach(function (product) {
+        let name = product.innerText.toLowerCase(); // 👈 change here
+
+        if (name.includes(value)) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+});
+</script>
 </html>
