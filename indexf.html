@@ -34,10 +34,13 @@
       animation: col  2s linear infinite;
      }
      @keyframes col{
-        from{transform: translateX(0px) rotate(0deg);}
-        to{transform: translateX(-1000px) rotate(1000deg);}
+        from{
+             transform: translateX(0px) rotate(0deg)
+        ;}
+        to{
+           transform: translateX(-1000px) rotate(1000deg);
+        }
      }
-  
      p{
         color:white; padding-left:10px; padding-right:20px;
      }
@@ -66,21 +69,14 @@
         <i class="fa-solid fa-person-running" id="man"></i>
        <i class="fa-brands fa-empire" id="empire"></i>
        <i class="fa-solid fa-star" id="star"></i>
-        
    </div>
     </div>
-
     <script>
    let man = document.getElementById("man");
    let star = document.getElementById("star");
    let count = 0 ;
    let countText = document.getElementById("count");
-   
 
-
-
- 
-     
  function jump(){
     count ++;
     countText.innerText = "Score - " + count;
@@ -122,6 +118,8 @@ manRect.top < starRect.bottom
    window.location.href="test.html";
   }
 },50);
-    </script>
+
+
+</script>
 </body>
 </html> 
