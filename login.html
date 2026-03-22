@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Login</title>
+</head>
+<style>
+    .fa-xmark{
+        margin-top:15px;
+     margin-left:92%; font-size:20px;
+    }
+    .box{
+        border-radius:15px;
+        margin: auto;
+        width:360px;
+        height:450px;
+        background:rgb(224, 217, 217); text-align: center;
+    }
+    input{
+        margin-top:15px;
+        width:60%;
+        height:30px;
+        border-radius:10px;
+    }
+    #btn1{
+        margin-top:50px;
+        width:60%;
+        height:30px;
+        border-radius:15px; border:none;
+        background:tomato;color:white;font-size:17px;
+    }
+    #btn2{
+        margin-top:20px;
+      width:50%;
+      height:30px; color:black; font-size:15px;
+      border:2px solid tomato; border-radius:15px;
+    }
+</style>
+<body>
+    <i class="fa-solid fa-xmark" onclick="window.location.href='Shop.html'"></i><br><br>
+   <div class="box">
+    <h1>Log in your Account</h1>
+
+    <!-- Form start -->
+    <form action="login.php" method="post">
+        <input type="text" name="username" placeholder="Your Name" required><br><br>
+        <input type="password" name="password" placeholder="Password" required><br><br>
+        <button type="submit" name="login" id="btn1">Login</button><br><br>
+    </form>
+
+    <button id="btn2" onclick="window.location.href='register.html'">Create new Account</button>
+</div>
+</body>
+</html>

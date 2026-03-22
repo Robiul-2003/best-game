@@ -8,7 +8,7 @@
 </head>
 <style>
     body{
-        background:wheat;
+       background:rgb(245, 238, 238);
     }
     .header{
         width:100%;
@@ -61,52 +61,57 @@
         height:40px;
         border-radius:40%;border:2px solid white; background:green;
        position: fixed; top:80%; left:85%; text-align: center;
+       color:white;padding-top:8px;
      }
-     
+     .product{
+         width:47%;height:270px; border:1px solid rgb(150, 143, 143); margin:5px;
+     }
 </style>
 <body>
    <div class="header">
    <div id="head">
     <p>Robi</p>
-   <input tyupe="text" id="searchBox" placeholder=" Search you products">
-     <i class="fa-solid fa-list" id="list"></i>
+   <input type="text" id="searchBox" placeholder=" Search you products">
+     <i class="fa-solid fa-list" id="list" onclick="window.location.href='login.html'"></i>
    
    </div>
     <div class="btn">
+     <button onclick="window.location.href=''" class="bttn"> HOME </button>   
+     <button onclick="window.location.href=''" class="bttn"> Reels </button>
     <button onclick="window.location.href='index.html'" class="bttn"> GAME </button>
     <button onclick="window.location. href='gift.html'" class="bttn"> GIFT</button>
    </div>
    </div>
              <div class="message" onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'"> Chat </div>
     <div class="boody">
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(150, 143, 143); margin:5px;">
+        <div class="product" onclick="viewProduct('light','850 tk','light.png')" >
             <img src="light.png" alt="" style="width:100%; height:200px;">
-            <p>Name : abcd <br> <span>Price : 250 tk </span> </p>
+            <p>Name : Light <br> <span>Price : 850 tk </span> </p>
             
         </div>
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+        <div class="product" onclick="viewProduct('Amazon','250 tk','amazon.png')">
         </div>
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
-             <img src="" alt="" style="width:100%; height:200px;">
-            <p>Name : cycle <br> <span>Price : 250 tk </span> </p> 
+        <div class="product" onclick="viewProduct('Amazon','250 tk','amazon.png')">
+             <img src="amazon.png" alt="" style="width:100%; height:200px;">
+            <p>Name : Amazon <br> <span>Price : 250 tk </span> </p> 
         </div>
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+        <div class="product">
            <img src="night light.png" alt="" style="width:100%; height:200px;">
             <p>Name : cycle <br> <span>Price : 250 tk </span> </p> 
         </div>
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+        <div class="product" onclick="viewProduct('abcd','250 tk','light.png')" >
            <img src="light.png" alt="" style="width:100%; height:200px;">
-            <p>Name : car <br> <span>Price : 250 tk </span> </p> 
+            <p>Name : light <br> <span>Price : 250 tk </span> </p> 
         </div>
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+        <div class="product" onclick="viewProduct('','tk','.png')">
            <img src="" alt="" style="width:100%; height:200px;">
             <p>Name : Ti shart <br> <span>Price : 250 tk </span> </p> 
         </div>
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
-           <img src="" alt="" style="width:100%; height:200px;">
-            <p>Name : pant <br> <span>Price : 250 tk </span> </p> 
+        <div class="product" onclick="viewProduct('abcd','250 tk','bkash.png')" >
+           <img src="bkash.png" alt="" style="width:100%; height:200px;">
+            <p>Name : Bkash <br> <span>Price : 250 tk </span> </p> 
         </div>
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
+        <div class="product" onclick="viewProduct('abcd','250 tk','light.png')" >
            <img src="night light.png" alt="" style="width:100%; height:200px;">
             <p>Name : shoes <br> <span>Price : 250 tk </span> </p> 
         </div>
@@ -129,5 +134,17 @@ searchBox.addEventListener("keyup", function () {
         }
     });
 });
+function viewProduct(name, price, image){
+    let product = {
+        name: name,
+        price: price,
+        image: image
+    };
+
+    localStorage.setItem("product", JSON.stringify(product));
+
+    window.location.href = "product.html";
+}
+
 </script>
 </html>

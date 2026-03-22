@@ -83,6 +83,7 @@
        </div>
    <div class="one">
         <i class="fa-solid fa-person-running" id="man"></i>
+        <audio id="sound" src="sound.mp3"></audio>
        <i class="fa-brands fa-empire" id="empire"></i>
        <i class="fa-solid fa-star" id="star"></i>
    </div>
@@ -156,6 +157,10 @@ function autoSlide(){
 }
 setInterval(autoSlide,2000);
 
+
+          document.getElementById("man").addEventListener("click",function(){
+            document.getElementById("sound").play();
+          });
 </script>
 </body>
 </html> 

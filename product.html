@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Details</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    img{
+        margin-top:15px;
+        width:100%;
+        border:1px solid black;
+    }
+    .fa-xmark{
+        margin-top:5px;
+        margin-left:92%;
+        font-size:20px;
+    }
+    button{
+       margin:auto;
+    }
+</style>
+<body>
+ <i class="fa-solid fa-xmark" onclick="window.location.href='Shop.html'"></i>
+<img id="img">
+<h2 id="name"></h2>
+<p id="price"></p>
+<button onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">Chat</button>
+<script>
+let data = JSON.parse(localStorage.getItem("product"));
+
+document.getElementById("name").innerText = data.name;
+document.getElementById("price").innerText = "Price: " + data.price;
+document.getElementById("img").src = data.image;
+</script>
+</body>
+</html>
