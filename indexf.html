@@ -31,7 +31,7 @@
       color:red;   
       font-size:20px;
         margin-top:180px;  
-         
+          margin-left:85%;
       animation: col  2s linear infinite;
      }
      @keyframes col{
@@ -48,18 +48,21 @@
      .shoja{
       display: flex; justify-content: space-between;
      }
-     
-     #empire{
-      
-      color:gold;
-      margin-top:180px;
-     margin-left:85%;
-      animation: lef 5s linear infinite;
-     }
-     @keyframes lef{
-      from{transform:translateX(0px);} 
-      to{transform:translateX(-1000px);}
-     }
+     .fa-coins{
+      margin-left:85%;
+  color: gold;
+  font-size:20px;
+  margin-top:180px;
+  animation: coinMove 5s linear infinite;
+}
+
+@keyframes coinMove{
+  from{transform: translateX(0px);}
+  to{transform: translateX(-1000px);}
+}
+   
+   
+   
      .slider{
       width:50%;
       height:120px;
@@ -79,12 +82,13 @@
 <body>
     <div class="box">
        <div class="shoja">
-         <p id="count"> Score - 0 </p> <p id="">Coin - 0</p>
+         <p id="count"> Score - 0 </p> <p id="coinText">Coin - 0</p>
        </div>
    <div class="one">
         <i class="fa-solid fa-person-running" id="man"></i>
-        <audio id="sound" src="sound.mp3"></audio>
-       <i class="fa-brands fa-empire" id="empire"></i>
+        <audio id="sound" src="click.mp3"></audio>
+
+      <i class="fa-solid fa-coins" id="coin"></i>
        <i class="fa-solid fa-star" id="star"></i>
    </div>
     </div><br>
@@ -98,12 +102,45 @@
     <script>
    let man = document.getElementById("man");
    let star = document.getElementById("star");
+   let coin = document.getElementById("coin");
    let count = 0 ;
    let countText = document.getElementById("count");
+   let coinCount = 0;
+   let coinText = document.getElementById("coinText");
+let canTakeCoin = true;
+
+setInterval(function(){
+  let manRect = man.getBoundingClientRect();
+  let coinRect = coin.getBoundingClientRect();
+
+  if(
+    canTakeCoin &&
+    manRect.right > coinRect.left &&
+    manRect.left < coinRect.right &&
+    manRect.bottom > coinRect.top &&
+    manRect.top < coinRect.bottom
+  ){
+    coinCount++;
+    coinText.innerText = "Coin - " + coinCount;
+
+    canTakeCoin = false;
+    coin.style.display = "none";
+
+    setTimeout(function(){
+      coin.style.display = "block";
+      canTakeCoin = true;
+    },2000);
+  }
+},50);
+
 
  function jump(){
     count ++;
     countText.innerText = "Score - " + count;
+    // 🔊 sound play
+    let sound = document.getElementById("sound");
+    sound.currentTime = 0; // আবার শুরু থেকে বাজবে
+    sound.play();
     man.style.top = "-100px";   // up
     man.style.left = "50px";
     setTimeout(function(){
@@ -123,13 +160,17 @@ document.addEventListener("keydown", function(e){
 document.addEventListener("touchstart", function(){
   jump();
 });
+document.addEventListener("touchstart", function(){
+  let sound = document.getElementById("sound");
+  sound.play();
+}, { once: true });
 //collision check
 
 setInterval(function(){
   let manRect = man.getBoundingClientRect();
   let starRect = star.getBoundingClientRect();
 
-  if( 
+  if(   
 manRect.right > starRect.left &&
 manRect.left < starRect.right &&
 manRect.bottom > starRect.top && 
