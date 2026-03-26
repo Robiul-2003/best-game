@@ -42,14 +42,24 @@
      #list{
         margin-top:15px;
      }
- *{
-    box-sizing: border-box;
+   
+.profile-box{
+   
+    text-align: center;
+    display: inline-block;
+    padding:10px;
+    border-radius: 25px;
+    cursor: pointer;
+}
+#profileImage{
     
- }
-.big{
-    display: flex;
-    flex-wrap: wrap;
- }
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid red;
+}
+
 </style>
 <body>
      <div class="header">
@@ -61,25 +71,44 @@
    </div>
     <div class="btn">
      <button onclick="window.location.href='Shop.html'" class="bttn"> HOME </button>   
-     <button onclick="window.location.href=''" class="bttn"> Reels </button>
+     <button onclick="window.location.href='Reels.html'" class="bttn"> Reels </button>
     <button onclick="window.location.href='index.html'" class="bttn"> GAME </button>
-    <button onclick="window.location. href='gift.html'" class="bttn"> GIFT</button>
+    <button onclick="window.location. href='gift.html'" class="bttn"> ID </button>
    </div>
    </div><br><br><br><br><br>
-   <div class="Big">
-     <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
-           <img src="yello.jpg" alt="" style="width:100%; height:200px;">
-            <p>Name : shoes <br> <span>Price : 250 tk </span> </p> 
-        </div>
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
-           <img src="yello.jpg" alt="" style="width:100%; height:200px;">
-            <p>Name : shoes <br> <span>Price : 250 tk </span> </p> 
-        </div>
-        <div class="product" style="width:47%;height:270px; border:1px solid rgb(176, 169, 169); margin:5px;">
-           <img src="yello.jpg" alt="" style="width:100%; height:200px;">
-            <p>Name : shoes <br> <span>Price : 250 tk </span> </p> 
-        </div>
-   </div>
+    <div class="profile-box" id="profileBox">
+    <img id="profileImage" src="default.png" alt="Profile">
+    <input type="file" id="fileInput" accept="image/*" hidden>
+</div>
+<script>
+    const fileInput = document.getElementById("fileInput");
+const profileImage = document.getElementById("profileImage");
+const saveBtn = document.getElementById("profileBox");
+
+// Load saved image
+const savedImage = localStorage.getItem("myProfile");
+if (savedImage) {
+    profileImage.src = savedImage;
+}
+
+// Click on border → open file picker
+profileBox.addEventListener("click", () => {
+    fileInput.click();
+});
+
+// Auto preview + auto save to localStorage
+fileInput.addEventListener("change", () => {
+    const file = fileInput.files[0];
+    if (file) {
+        const reader = new FileReader();
+        reader.onload = (e) => {
+            profileImage.src = e.target.result;
+            localStorage.setItem("myProfile", e.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+});
+</script>
 </body>
 </html>
 
