@@ -59,7 +59,14 @@
     object-fit: cover;
     border: 2px solid red;
 }
-
+#like{
+    width:40px;
+    height:25px;
+    border-radius:8px; border:1px solid black; margin-top:20px; margin-left:10px;
+}
+#count{
+    font-size:20px; font-weight:900;
+}
 </style>
 <body>
      <div class="header">
@@ -79,12 +86,18 @@
     <div class="profile-box" id="profileBox">
     <img id="profileImage" src="default.png" alt="Profile">
     <input type="file" id="fileInput" accept="image/*" hidden>
+</div><br>
+<h3>Robiul Awal</h3> <div class="soja" style="display: flex;">
+    <p id="count">0</p> <button id="like">like</button> 
 </div>
+
+
 <script>
     const fileInput = document.getElementById("fileInput");
 const profileImage = document.getElementById("profileImage");
 const saveBtn = document.getElementById("profileBox");
-
+let count = document.getElementById("count");
+let likeBtn = document.getElementById("like");
 // Load saved image
 const savedImage = localStorage.getItem("myProfile");
 if (savedImage) {
@@ -107,6 +120,25 @@ fileInput.addEventListener("change", () => {
         };
         reader.readAsDataURL(file);
     }
+});
+  likeBtn.addEventListener("click",() =>{
+    likeBtn.style.backgroundColor = "tomato";
+    likeBtn.style.color = "white";
+  });
+// Load saved count
+let savedCount = localStorage.getItem("likeCount");
+if(savedCount){
+    count.textContent = savedCount;
+}
+
+// Button click → count increase
+likeBtn.addEventListener("click", () => {
+    let current = parseInt(count.textContent);
+    current += 1;
+    count.textContent = current;
+
+    // Save to localStorage
+    localStorage.setItem("likeCount", current);
 });
 </script>
 </body>
