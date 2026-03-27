@@ -74,14 +74,47 @@
      .product{
          width:47%;height:270px; border:1px solid rgb(150, 143, 143); margin:5px;
      }
+     #topMenu{
+        position:fixed;
+        top:-250px;
+           left: 0;
+    width:50%;
+    background: #222;
+    color: white;
+    padding:20px;
+    transition: 0.4s;
+    z-index: 999;
+    margin-left:50%;
+     }
+     #topMenu ul li{
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid gray;
+    cursor: pointer; 
+}
+.fa-xmark{
+    color:red;
+    font-size:25px;
+    margin-left:90%;
+}
 </style>
 <body>
    <div class="header">
    <div id="head">
-    <p>Robi</p>
+    <p>ABCD</p>
    <input type="text" id="searchBox" placeholder=" Search you products">
   
-        <i class="fa-solid fa-list" id="list" onclick="window.location.href='login.html'"></i>
+        <i class="fa-solid fa-list" id="list"></i>
+        <div id="topMenu">
+            <ul>
+
+                <i class="fa-solid fa-xmark" onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'"></i><br>
+                <li onclick="window.location.href='login.html'">Login</li>
+                <li onclick="window.location.href=''">Chat</li>
+                <li>plan</li>
+                <li>car</li>
+            </ul>
+        </div>
    </div>
     <div class="btn">
      <button onclick="window.location.href=''" class="bttn"> HOME </button>   
@@ -126,8 +159,20 @@
     </div>
 </body>
 <script>
+    // list icon
+const listBtn = document.getElementById("list");
+const topMenu = document.getElementById("topMenu");
 
-
+listBtn.addEventListener("click",() => {
+    if(!status){
+        topMenu.style.top = "0";
+        status = true;
+    } else {
+        topMenu.style.top = "-250px";
+        status = false;
+    }
+});
+// search box
 let searchBox = document.getElementById("searchBox");
 searchBox.addEventListener("keyup", function () {
     let value = searchBox.value.toLowerCase();
