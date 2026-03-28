@@ -76,15 +76,14 @@
      }
      #topMenu{
         position:fixed;
-        top:-250px;
-           left: 0;
+        top:-300px;
     width:50%;
-    background: #222;
+    background:white;
     color: white;
-    padding:20px;
+    padding:0px;
     transition: 0.4s;
     z-index: 999;
-    margin-left:50%;
+    margin-left:50%; color:black;
      }
      #topMenu ul li{
     list-style: none;
@@ -95,7 +94,7 @@
 .fa-xmark{
     color:red;
     font-size:25px;
-    margin-left:90%;
+    margin-left:70%;
 }
 </style>
 <body>
@@ -108,10 +107,10 @@
         <div id="topMenu">
             <ul>
 
-                <i class="fa-solid fa-xmark" onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'"></i><br>
+                <i class="fa-solid fa-xmark" onclick="window.location.href=''"></i><br>
                 <li onclick="window.location.href='login.html'">Login</li>
-                <li onclick="window.location.href=''">Chat</li>
-                <li>plan</li>
+                <li onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">Chat</li>
+                <li>Setting</li>
                 <li>car</li>
             </ul>
         </div>
@@ -131,6 +130,8 @@
             
         </div>
         <div class="product" onclick="viewProduct('Amazon','250 tk','amazon.png')">
+            <img src="nagad.png" alt="" style="width:100%; height:200px;">
+            <p>Name : Light <br> <span>Price : 850 tk </span> </p>
         </div>
         <div class="product" onclick="viewProduct('Amazon','250 tk','amazon.png')">
              <img src="amazon.png" alt="" style="width:100%; height:200px;">
@@ -145,7 +146,7 @@
             <p>Name : light <br> <span>Price : 250 tk </span> </p> 
         </div>
         <div class="product" onclick="viewProduct('','tk','.png')">
-           <img src="" alt="" style="width:100%; height:200px;">
+           <img src="bkash.png" alt="" style="width:100%; height:200px;">
             <p>Name : Ti shart <br> <span>Price : 250 tk </span> </p> 
         </div>
         <div class="product" onclick="viewProduct('bkash','250 tk','bkash.png')" >
@@ -168,7 +169,7 @@ listBtn.addEventListener("click",() => {
         topMenu.style.top = "0";
         status = true;
     } else {
-        topMenu.style.top = "-250px";
+        topMenu.style.top = "-300px";
         status = false;
     }
 });
