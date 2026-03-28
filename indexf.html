@@ -48,10 +48,10 @@
      .shoja{
       display: flex; justify-content: space-between;
      }
-     .fa-coins{
+     .fa-circle{
       margin-left:85%;
-  color: gold;
-  font-size:20px;
+  color:gold; background:gold;
+  font-size:20px; border-radius:50%;
   margin-top:180px;
   animation: coinMove 5s linear infinite;
 }
@@ -88,7 +88,8 @@
         <i class="fa-solid fa-person-running" id="man"></i>
         <audio id="sound" src="click.mp3"></audio>
 
-      <i class="fa-solid fa-coins" id="coin"></i>
+     <!--<i class="fa-solid fa-coins" id="coin"></i> --> 
+      <i class="fa-regular fa-circle" id="coin"></i>
        <i class="fa-solid fa-star" id="star"></i>
    </div>
     </div><br>
@@ -105,8 +106,9 @@
    let coin = document.getElementById("coin");
    let count = 0 ;
    let countText = document.getElementById("count");
-   let coinCount = 0;
-   let coinText = document.getElementById("coinText");
+let coinText = document.getElementById("coinText");
+let coinCount = parseInt(localStorage.getItem("coin")) || 0;
+coinText.innerText = "Coin - " + coinCount;
 let canTakeCoin = true;
 
 setInterval(function(){
@@ -133,7 +135,7 @@ setInterval(function(){
   }
 },50);
 
-
+ // sound play
  function jump(){
     count ++;
     countText.innerText = "Score - " + count;
@@ -172,7 +174,7 @@ setInterval(function(){
 
   if(   
 manRect.right > starRect.left &&
-manRect.left < starRect.right &&
+manRect.left < starRect.right &&  
 manRect.bottom > starRect.top && 
 manRect.top < starRect.bottom
 
@@ -181,6 +183,8 @@ manRect.top < starRect.bottom
     localStorage.setItem("score", count);
    
    window.location.href="test.html";
+
+   localStorage.setItem("coin", coinCount);
   }
 },50);
 

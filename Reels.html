@@ -45,21 +45,31 @@
      }
      .vedi{
         
-        width:95%;
-        height:600px;
+        width:360px;
+        height:520px;
         border:1px solid black;
         margin: auto;
      }
      img{
         margin-left:10px;
-        margin-top:550px;
+        margin-top:130px;
         width:35px;
         height:35px;border-radius:50%;
        
      }
      h3{ 
         margin-left:10px;
-        margin-top:560px;
+        margin-top:140px;
+     }
+     .fa-thumbs-up{
+        margin-top:60%;
+        margin-left:312px;font-size:30px;
+     }
+     .fa-comment{
+        margin-left:312px;font-size:30px; margin-top:20px;
+     }
+     .fa-share{
+        margin-left:312px;font-size:30px;margin-top:20px;
      }
 </style>
 <body>
@@ -67,7 +77,7 @@
    <div id="head">
     <p>ABCD</p>
    <input type="text" id="searchBox" placeholder=" Search you products">
-     <i class="fa-solid fa-list" id="list" onclick="window.location.href='login.html'"></i>
+     <i class="fa-solid fa-list" id="list" onclick=""></i>
    
    </div>
     <div class="btn">
@@ -78,8 +88,9 @@
    </div>
    </div><br><br><br><br><br>
    <div class="vedi">
+    <i class="fa-regular fa-thumbs-up"></i><br> <i class="fa-regular fa-comment"></i><br> <i class="fa-solid fa-share"></i>
    <div class="soja" style="display: flex;">
-    <img src="yello.jpg"> <h3>Like</h3>
+    <img src="yello.jpg" onclick="window.location.href='gift.html'"> <h3>Like</h3>
    </div>
    </div>
 </body>
