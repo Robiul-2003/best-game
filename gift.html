@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Gift</title>
 </head>
 <style>
     body{
         background:rgb(211, 206, 206);
     }
-    h1{
-        text-align: center;
+    #showCoin{
+      text-align: center;
     }
-    
+    .fa-xmark{
+      color:red;
+      margin-left:90%;
+      margin-top:20px;
+    }
      .slider{
       max-width:1000px;
       height:150px;
@@ -28,16 +33,24 @@
       height:150px;
       flex-shrink:0;
      }
+     .tit{
+      width:50%;
+      height:300px;  text-align: center;
+     }
      button{
-        margin-left:40%;
-        width:150px;
-        height:30px; background:skyblue;
+       margin-top:80px;
+        width:120px;
+        height:35px; background:skyblue;
      }
     
 </style>
 <body>
-
-    <h1 id="showCoin">You Coin - </h1>
+   
+       <i class="fa-solid fa-xmark" onclick="window.location.href='test.html'"></i>
+        <h1 id="showCoin">You Coin - </h1>
+  
+    
+    
       <div class="slider">
      <div class="sliders">
       <img src="amazon.png">
@@ -51,7 +64,18 @@
      <img src="cap.png"  style="width:100%; height:300px;">
   </div>
    <div class="tit">
-    <h2>coin - 500</h2>
+    <h2>coin - 500</h2><hr>
+    <span>Congrats! 🎁 I'm really happy to know that you received the gift. I hope many more successes and gifts come into your life in the future.</span><br>
+    <button>click</button>
+   </div>
+  </div><br>
+  <div class="box" style="max-width:800px;height:300px; border:1px solid rgb(176, 168, 168); margin:auto; display: flex;">
+  <div class="ig"  style="width:50%;height:300px;">
+     <img src="night light.png"  style="width:100%; height:300px;">
+  </div>
+   <div class="tit">
+    <h2>coin - 1000</h2><hr>
+    <span>Congrats! 🎁 I'm really happy to know that you received the gift. I hope many more successes and gifts come into your life in the future.</span><br>
     <button>click</button>
    </div>
   </div>
