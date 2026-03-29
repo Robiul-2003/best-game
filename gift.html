@@ -68,9 +68,11 @@
      <img class="thumb" src="amazon.png"  style="width:30%; height:70px; border:1px solid rgb(152, 147, 147);">
   </div>
    <div class="tit">
+    <div class="box" data-need="200">
     <h2>coin - 200</h2><hr>
     <span>Congrats! 🎁 I'm really happy to know that you received the gift. I hope many more successes and gifts come into your life in the future.</span><br>
-    <button onclic="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">click</button>
+    <button  class="buyBtn">click</button>
+    </div>
    </div>
 
   </div><br>
@@ -83,9 +85,11 @@
      <img class="thumb" src="yello.jpg" style="width:30%; height:70px; border:1px solid rgb(152, 147, 147);">
   </div>
    <div class="tit">
-    <h2>coin - 1000</h2><hr>
+    <div class="box" data-need="500">
+    <h2>coin - 500</h2><hr>
     <span>Congrats! 🎁 I'm really happy to know that you received the gift. I hope many more successes and gifts come into your life in the future.</span><br>
-    <button>click</button>
+    <button class="buyBtn" onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">click</button>
+    </div>
    </div>
   </div>
     <script>
@@ -115,6 +119,61 @@ setInterval(autoSlide,2000);
         let mainImg = box.querySelector(".main-img"); // বড় ছবি পাওয়া
         mainImg.src = this.src;               // থাম্বের ছবি সেট করা
     });
+});
+
+
+// user win coin 
+let userCoin = 300; // এখানে user-এর coin থাকবে (localStorage থেকেও নিতে পারো)
+
+document.querySelectorAll(".box").forEach(box => {
+    
+    const needCoin = parseInt(box.getAttribute("data-need"));
+    const button = box.querySelector(".buyBtn");
+
+    if (userCoin >= needCoin) {
+        // enough coin
+        button.innerText = "Unlock";
+        button.style.background = "green";
+
+        button.onclick = () => {
+            alert("Successfully Unlocked!");
+        };
+
+    } else {
+        // not enough
+        button.innerText = "Not enough coin";
+        button.style.background = "red";
+
+        button.onclick = () => {
+            alert("You need " + needCoin + " coins!");
+        };
+    }
+
+});
+
+document.querySelectorAll(".box").forEach(box => {
+    
+    const needCoin = parseInt(box.getAttribute("data-need"));
+    const button = box.querySelector(".buyBtn");
+    const whatsappLink = "https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you";
+
+    if (userCoin >= needCoin) {
+        button.innerText = "Unlock";
+        button.style.background = "green";
+
+        button.onclick = () => {
+            window.location.href = whatsappLink;  // WhatsApp open
+        };
+
+    } else {
+        button.innerText = "Not enough coin";
+        button.style.background = "red";
+
+        button.onclick = () => {
+            alert("You need " + needCoin + " coins!");
+        };
+    }
+
 });
     </script>
 </body>
