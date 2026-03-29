@@ -146,5 +146,11 @@
     </div>
    
 </form>
+<script>
+    document.querySelector("form").addEventListener("submit", function() {
+    let username = document.querySelector("input[name='username']").value;
+    localStorage.setItem("savedName", username);
+});
+</script>
 </body>
 </html>

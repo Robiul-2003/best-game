@@ -104,10 +104,10 @@ p{
     <img id="profileImage" src="default.png" alt="Profile">
     <input type="file" id="fileInput" accept="image/*" hidden>
 </div><br>
-<p>Robiul Awal</p> 
+  <p id="showName">Your Name</p>
      <button id="count">0</button>  <button id="like">like</button>
   <br><br>
- <button id="btnbig">What's on your mind</button>
+ <button id="btnbig"> What's on your mind </button>
 <div id="postBox">
      <i class="fa-solid fa-xmark" onclick="window.location.href=''"></i><br>
     <input type="text" id="textInput" placeholder=" write" style="width:90%; height:80px;">
@@ -171,15 +171,6 @@ videoUpload.addEventListener("change", function () {
         `;
     }
 });
-
-
-
-
-
-
-
-
-
 // Load saved image
 const savedImage = localStorage.getItem("myProfile");
 if (savedImage) {
@@ -232,6 +223,11 @@ document.getElementById("btnbig").addEventListener("click", function() {
         box.style.display = "none";
     }
 });
+
+let savedName = localStorage.getItem("savedName");
+if (savedName) {
+    document.getElementById("showName").textContent = savedName;
+}
 </script>
 </body>
 </html>
