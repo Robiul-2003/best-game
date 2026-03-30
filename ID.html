@@ -81,9 +81,27 @@ p{
  text-align: center;
 }
 .fa-xmark{
-    margin-left:95%;margin-top:10px;
+    color:red;
+    font-size:25px;
+    margin-left:70%;
 }
-
+#topMenu{
+        position:fixed;
+        top:-300px;
+    width:50%;
+    background:white;
+    color: white;
+    padding:0px;
+    transition: 0.4s;
+    z-index: 999;
+    margin-left:50%; color:black;
+     }
+     #topMenu ul li{
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid gray;
+    cursor: pointer; 
+}
 </style>
 <body>
      <div class="header">
@@ -91,7 +109,17 @@ p{
     <span style="margin-top:20px;">ABCD</span>
    <input type="text" id="searchBox" placeholder=" Search you products">
      <i class="fa-solid fa-list" id="list"></i>
-   
+        <div id="topMenu">
+            <ul>
+
+                <i class="fa-solid fa-xmark" onclick="window.location.href=''"></i><br>
+                <li onclick="window.location.href='login.html'">Login</li>
+                <li onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">Chat</li>
+                <li onclick="window.location.href='gift.html'">Gift</li>
+                <li>Setting</li>
+                <li>job</li>
+            </ul>
+        </div>
    </div>
     <div class="btn">
      <button onclick="window.location.href='Shop.html'" class="bttn"> HOME </button>   
@@ -223,7 +251,21 @@ document.getElementById("btnbig").addEventListener("click", function() {
         box.style.display = "none";
     }
 });
+    // list icon
+const listBtn = document.getElementById("list");
+const topMenu = document.getElementById("topMenu");
 
+listBtn.addEventListener("click",() => {
+    if(!status){
+        topMenu.style.top = "0";
+        status = true;
+    } else {
+        topMenu.style.top = "-300px";
+        status = false;
+    }
+});
+
+// ID name save
 let savedName = localStorage.getItem("savedName");
 if (savedName) {
     document.getElementById("showName").textContent = savedName;

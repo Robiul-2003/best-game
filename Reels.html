@@ -59,7 +59,9 @@
      }
      h3{ 
         margin-left:10px;
-        margin-top:140px;
+        margin-top:135px;width:50px;
+        height:25px;
+        border:1px solid tomato; text-align: center;border-radius:7px; line-height:23px;
      }
      .fa-thumbs-up{
         margin-top:200px;
@@ -71,27 +73,85 @@
      .fa-share{
         margin-left:90%;font-size:30px;margin-top:20px;
      }
+     #showName{
+      margin-top:135px;
+      margin-left:5px; font-size:20px;
+     }
+     .fa-xmark{
+    color:red;
+    font-size:25px;
+    margin-left:70%;
+}
+#topMenu{
+        position:fixed;
+        top:-300px;
+    width:50%;
+    background:white;
+    color: white;
+    padding:0px;
+    transition: 0.4s;
+    z-index: 999;
+    margin-left:50%; color:black;
+     }
+     #topMenu ul li{
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid gray;
+    cursor: pointer; 
+}
 </style>
 <body>
      <div class="header">
    <div id="head">
     <p>ABCD</p>
    <input type="text" id="searchBox" placeholder=" Search you products">
-     <i class="fa-solid fa-list" id="list" onclick=""></i>
+     <i class="fa-solid fa-list" id="list"></i>
+        <div id="topMenu">
+            <ul>
+
+                <i class="fa-solid fa-xmark" onclick="window.location.href=''"></i><br>
+                <li onclick="window.location.href='login.html'">Login</li>
+                <li onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">Chat</li>
+                <li onclick="window.location.href='gift.html'">Gift</li>
+                <li>Setting</li>
+                <li>job</li>
+            </ul>
+        </div>
    
    </div>
     <div class="btn">
      <button onclick="window.location.href='Shop.html'" class="bttn"> HOME </button>   
      <button onclick="window.location.href=''" class="bttn"> Reels </button>
     <button onclick="window.location.href='index.html'" class="bttn"> GAME </button>
-    <button onclick="window.location. href='gift.html'" class="bttn"> ID</button>
+    <button onclick="window.location. href='ID.html'" class="bttn"> ID</button>
    </div>
    </div><br><br><br><br><br>
    <div class="vedi">
     <i class="fa-regular fa-thumbs-up"></i><br> <i class="fa-regular fa-comment"></i><br> <i class="fa-solid fa-share"></i>
    <div class="soja" style="display: flex;">
-    <img src="yello.jpg" onclick="window.location.href='gift.html'"> <h3>Like</h3>
+    <img src="yello.jpg" onclick="window.location.href='ID.html'"><p id="showName" onclick="window.location.href='ID.html'">Your Name</p> <h3>Like</h3>
    </div>
    </div>
+
+   <script>
+// list icon
+const listBtn = document.getElementById("list");
+const topMenu = document.getElementById("topMenu");
+
+listBtn.addEventListener("click",() => {
+    if(!status){
+        topMenu.style.top = "0";
+        status = true;
+    } else {
+        topMenu.style.top = "-300px";
+        status = false;
+    }
+});
+      // Namge save
+      let savedName = localStorage.getItem("savedName");
+if (savedName) {
+    document.getElementById("showName").textContent = savedName;
+}
+   </script>
 </body>
 </html>
