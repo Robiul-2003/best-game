@@ -103,6 +103,10 @@
     font-size:25px;
     margin-left:70%;
 }
+ .active {
+        background-color: red;
+        color: white;
+    }
 </style>
 <body>
    <div class="header">
@@ -124,10 +128,10 @@
         </div>
    </div>
     <div class="btn">
-     <button onclick="window.location.href=''" class="bttn"> HOME </button>   
-     <button onclick="window.location.href='Reels.html'" class="bttn"> Reels </button>
-    <button onclick="window.location.href='index.html'" class="bttn"> GAME </button>
-    <button onclick="window.location. href='ID.html'" class="bttn"> ID </button>
+     <button  class="bttn" data-link=""> HOME </button>   
+     <button  class="bttn" data-link="Reels.html"> Reels </button>
+    <button   class="bttn" data-link="index.html"> GAME </button>
+    <button   class="bttn" data-link="Id.html"> ID </button>
    </div>
    </div>
              <div class="message" onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'"> Chat </div>
@@ -210,5 +214,26 @@ function viewProduct(name, price, image){
     window.location.href = "product.html";
 }
 
+//button color 
+const buttons = document.querySelectorAll(".bttn");
+
+buttons.forEach(bttn => {
+    bttn.addEventListener("click", () => {
+
+        // active color remove
+        buttons.forEach(b => b.classList.remove("active"));
+
+        // clicked button color add
+        bttn.classList.add("active");
+
+        // page redirect
+        const link = bttn.getAttribute("data-link");
+        if (link) {
+            setTimeout(() => {
+                window.location.href = link;
+            }, 150); // ছোট delay যাতে color দেখা যায়
+        }
+    });
+});
 </script>
 </html>
