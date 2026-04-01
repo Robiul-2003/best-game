@@ -118,7 +118,7 @@
                 <li onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">Chat</li>
                 <li onclick="window.location.href='gift.html'">Gift</li>
                 <li>Setting</li>
-                <li>job</li>
+                <li onclick="window.location.href='market.html'">job Market</li>
             </ul>
         </div>
    </div>
@@ -167,15 +167,26 @@
     </div>
 </body>
 <script>
-    // list icon
+let status = false;
+
 const listBtn = document.getElementById("list");
 const topMenu = document.getElementById("topMenu");
 
-listBtn.addEventListener("click",() => {
+// list icon click
+listBtn.addEventListener("click",(e) => {
+    e.stopPropagation(); // important
     if(!status){
         topMenu.style.top = "0";
         status = true;
     } else {
+        topMenu.style.top = "-300px";
+        status = false;
+    }
+});
+
+// outside click = menu close
+document.addEventListener("click",(e) => {
+    if(status && !topMenu.contains(e.target) && e.target !== listBtn){
         topMenu.style.top = "-300px";
         status = false;
     }

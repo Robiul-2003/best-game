@@ -52,19 +52,19 @@
      }
      img{
         margin-left:10px;
-        margin-top:130px;
+       
         width:35px;
         height:35px;border-radius:50%;
        
      }
      #likeReels{ 
         margin-left:10px;
-        margin-top:135px;width:40px;
+        width:40px;
         height:25px;
         border:1px solid tomato; text-align: center;border-radius:7px; line-height:23px;
+        
      }
      .fa-thumbs-up{
-        margin-top:200px;
         margin-left:90%;font-size:30px;
      }
      .fa-comment{
@@ -74,7 +74,7 @@
         margin-left:90%;font-size:30px;margin-top:20px;
      }
      #showName{
-      margin-top:135px;
+     
       margin-left:5px; font-size:20px;
      }
      .fa-xmark{
@@ -114,10 +114,9 @@
                 <li onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">Chat</li>
                 <li onclick="window.location.href='gift.html'">Gift</li>
                 <li>Setting</li>
-                <li>job</li>
+                <li onclick="window.location.href='market.html'">job</li>
             </ul>
         </div>
-   
    </div>
     <div class="btn">
      <button  class="bttn" onclick="window.location.href='Shop.html'"> HOME </button>   
@@ -129,7 +128,7 @@
    <div class="vedi">
     <i class="fa-regular fa-thumbs-up"></i><br> <i class="fa-regular fa-comment"></i><br> <i class="fa-solid fa-share"></i>
    <div class="soja" style="display: flex;">
-    <img src="yello.jpg" onclick="window.location.href='ID.html'"><p id="showName" onclick="window.location.href='ID.html'">Your Name</p> <p id="likeReels">Like</p>
+    <img id="reelsProfile" src="" onclick="window.location.href='ID.html'"> <p id="showName" onclick="window.location.href='ID.html'">Your Name</p> <p id="likeReels">Like</p>
    </div>
    </div>
 
@@ -161,7 +160,44 @@ likeBtn.addEventListener("click", () => {
     likeBtn.style.color = "white"; // optional, text color change
 });
 
+// Load saved profile image on Reels Page
+let savedProfile = localStorage.getItem("myProfile");
 
+if (savedProfile) {
+    document.getElementById("reelsProfile").src = savedProfile;
+}
+
+
+
+
+// img / vedio show
+let postImage = localStorage.getItem("postImage");
+let postVideo = localStorage.getItem("postVideo");
+
+let vediBox = document.querySelector(".vedi");
+
+// If image exists
+if (postImage) {
+    let img = document.createElement("img");
+    img.src = postImage;
+    img.style.width = "100%";
+    img.style.height = "520px";
+    img.style.marginTop = "0";
+    img.style.objectFit = "cover";
+
+    // add image at top
+    vediBox.prepend(img);
+}
+
+// If video exists
+if (postVideo) {
+    let video = document.createElement("video");
+    video.controls = true;
+    video.width = "100%";
+    video.innerHTML = `<source src="${postVideo}" type="video/mp4">`;
+
+    vediBox.prepend(video);
+}
    </script>
 </body>
 </html>

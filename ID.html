@@ -117,7 +117,7 @@ p{
                 <li onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">Chat</li>
                 <li onclick="window.location.href='gift.html'">Gift</li>
                 <li>Setting</li>
-                <li>job</li>
+                <li onclick="window.location.href='market.html'">job</li>
             </ul>
         </div>
    </div>
@@ -162,115 +162,160 @@ p{
     text-align:center;">
 </div>
 <script>
+  
     const fileInput = document.getElementById("fileInput");
     const profileImage = document.getElementById("profileImage");
-    const saveBtn = document.getElementById("profileBox");
-let count = document.getElementById("count");
-let likeBtn = document.getElementById("like");
-// img and vedio add
-let imgUpload = document.getElementById("imgUpload");
-let videoUpload = document.getElementById("videoUpload");
-let previewBox = document.getElementById("previewBox");
+    const profileBox = document.getElementById("profileBox");
+
+    let count = document.getElementById("count");
+    let likeBtn = document.getElementById("like");
+
+    let imgUpload = document.getElementById("imgUpload");
+    let videoUpload = document.getElementById("videoUpload");
+    let previewBox = document.getElementById("previewBox");
+
+    // ---------------------------
+    // IMAGE PREVIEW
+    // ---------------------------
+    imgUpload.addEventListener("change", function () {
+        let file = imgUpload.files[0];
+        if (file) {
+            let reader = new FileReader();
+            reader.onload = function (e) {
+                previewBox.style.display = "block";
+                previewBox.innerHTML = `
+                    <img src="${e.target.result}" style="width:100%;">
+                `;
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // ---------------------------
+    // VIDEO PREVIEW
+    // ---------------------------
+    videoUpload.addEventListener("change", function () {
+        let file = videoUpload.files[0];
+        if (file) {
+            let videoURL = URL.createObjectURL(file);
+            previewBox.style.display = "block";
+            previewBox.innerHTML = `
+                <video width="250" controls>
+                    <source src="${videoURL}" type="video/mp4">
+                </video>
+            `;
+        }
+    });
+
+    // ---------------------------
+    // LOAD SAVED PROFILE IMAGE
+    // ---------------------------
+    const savedImage = localStorage.getItem("myProfile");
+    if (savedImage) {
+        profileImage.src = savedImage;
+    }
+
+    // Click on image → open file picker
+    profileBox.addEventListener("click", () => {
+        fileInput.click();
+    });
+
+    // Save new profile image
+    fileInput.addEventListener("change", () => {
+        const file = fileInput.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+                profileImage.src = e.target.result;
+                localStorage.setItem("myProfile", e.target.result);
+            };
+            reader.readAsDataURL(file);
+        }
+    });
+
+    // ---------------------------
+    // LIKE BUTTON COLOR
+    // ---------------------------
+    likeBtn.addEventListener("click", () => {
+        likeBtn.style.backgroundColor = "tomato";
+        likeBtn.style.color = "white";
+    });
+
+    // ---------------------------
+    // LIKE COUNTER SAVE
+    // ---------------------------
+    let savedCount = localStorage.getItem("likeCount");
+    if (savedCount) {
+        count.textContent = savedCount;
+    }
+
+    likeBtn.addEventListener("click", () => {
+        let current = parseInt(count.textContent);
+        current += 1;
+        count.textContent = current;
+
+        localStorage.setItem("likeCount", current);
+    });
+
+    // ---------------------------
+    // POST BOX TOGGLE
+    // ---------------------------
+    document.getElementById("btnbig").addEventListener("click", function () {
+        let box = document.getElementById("postBox");
+
+        box.style.display = (box.style.display === "none" || box.style.display === "") 
+                            ? "block" 
+                            : "none";
+    });
+
+    // ---------------------------
+    // MENU TOGGLE
+    // ---------------------------
+    const listBtn = document.getElementById("list");
+    const topMenu = document.getElementById("topMenu");
+
+    let status = false;
+
+    listBtn.addEventListener("click", () => {
+        if (!status) {
+            topMenu.style.top = "0";
+            status = true;
+        } else {
+            topMenu.style.top = "-300px";
+            status = false;
+        }
+    });
+
+    // ---------------------------
+    // LOAD NAME
+    // ---------------------------
+    let savedName = localStorage.getItem("savedName");
+    if (savedName) {
+        document.getElementById("showName").textContent = savedName;
+    } 
+
+
+
+    // SAVE uploaded IMAGE for REELS page
 imgUpload.addEventListener("change", function () {
     let file = imgUpload.files[0];
     if (file) {
         let reader = new FileReader();
         reader.onload = function (e) {
-            previewBox.style.display = "block";
-            previewBox.innerHTML = `
-                <img src="${e.target.result}" 
-                     style="width:100%; border-radius:0px;">
-            `;
+            localStorage.setItem("postImage", e.target.result); // SAVE IMAGE
         };
         reader.readAsDataURL(file);
     }
 });
 
-// 🎥 VIDEO PREVIEW
+// SAVE uploaded VIDEO for REELS page
 videoUpload.addEventListener("change", function () {
     let file = videoUpload.files[0];
     if (file) {
         let videoURL = URL.createObjectURL(file);
-        previewBox.style.display = "block";
-        previewBox.innerHTML = `
-            <video width="250" controls style="border-radius:10px;">
-                <source src="${videoURL}" type="video/mp4">
-            </video>
-        `;
+        localStorage.setItem("postVideo", videoURL); // SAVE VIDEO
     }
 });
-// Load saved image
-const savedImage = localStorage.getItem("myProfile");
-if (savedImage) {
-    profileImage.src = savedImage;
-}
-
-// Click on border → open file picker
-profileBox.addEventListener("click", () => {
-    fileInput.click();
-});
-
-// Auto preview + auto save to localStorage
-fileInput.addEventListener("change", () => {
-    const file = fileInput.files[0];
-    if (file) {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-            profileImage.src = e.target.result;
-            localStorage.setItem("myProfile", e.target.result);
-        };
-        reader.readAsDataURL(file);
-    }
-});
-  likeBtn.addEventListener("click",() =>{
-    likeBtn.style.backgroundColor = "tomato";
-    likeBtn.style.color = "white";
-  });
-// Load saved count
-let savedCount = localStorage.getItem("likeCount");
-if(savedCount){
-    count.textContent = savedCount;
-}
-
-// Button click → count increase
-likeBtn.addEventListener("click", () => {
-    let current = parseInt(count.textContent);
-    current += 1;
-    count.textContent = current;
-
-    // Save to localStorage
-    localStorage.setItem("likeCount", current);
-});
-
-document.getElementById("btnbig").addEventListener("click", function() {
-    let box = document.getElementById("postBox");
-
-    if (box.style.display === "none") {
-        box.style.display = "block";
-    } else {
-        box.style.display = "none";
-    }
-});
-    // list icon
-const listBtn = document.getElementById("list");
-const topMenu = document.getElementById("topMenu");
-
-listBtn.addEventListener("click",() => {
-    if(!status){
-        topMenu.style.top = "0";
-        status = true;
-    } else {
-        topMenu.style.top = "-300px";
-        status = false;
-    }
-});
-
-// ID name save
-let savedName = localStorage.getItem("savedName");
-if (savedName) {
-    document.getElementById("showName").textContent = savedName;
-}
-
 </script>
 </body>
 </html>
