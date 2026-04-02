@@ -3,109 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Game</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title> ROBI </title>
 </head>
 <style>
     body{
-        background-image:url("yello.jpg"); text-align: center;   overflow: hidden;
+       background:rgb(245, 238, 238);
     }
-    .one{
-      display: flex;
-      justify-content:space-between; font-size:20px; margin:20px;
+    .header{
+         position: fixed;
+        width:100%;
+        height:85px;
+        background:tomato;
+        overflow:hidden;
+        top:0px;
+        left:0px;
     }
-  .btn1{
-    width:140px;
-    height:40px;
-    background:white;border:none; border-radius:4px; 
-  }
-  #btn2{
-    width:140px;
-    height:40px;
-    background:rgb(211, 23, 23); border:none; border-radius:4px; 
-  }
-  #count{
-    font-size:70px;
-    animation: move 3s infinite;
-  }
-  @keyframes move{
-    from{transform:translateX(-15px);}
-    to{transform:translateX(15px);}
-  }
-  .up{
-    font-size:80px;
-    animation: up 3s infinite;
-  }
-  @keyframes up{
-    from{transform:translateY(-40px);}
-    to{transform:translateY(40px);}
-  }
-  .site{
-    display: flex;
-       justify-content:space-between;
-  }
-  .btn3{
-    width:90px;
-    height:40px;border:none; background-color: white; border-radius:4px;
-  }
-  .btn4{
-    width:90px;
-    height:50px;border:none; background-color:white; border-radius:4px;
-  }
-  #settingone{
-    display:none;
-  }
-  #settingtwo{
-     width:300px;
-    height:500px;
-    background:rgb(166, 9, 9); border-radius:4px;
-  }
-  #close{
-    width:150px;
-    height:50px;
+    #head{
+        display: flex;
+        justify-content: space-around;
+    }
+    input{
+        margin-top:5px;
+        width:70%;
+        height:40px;
+        border-radius:8px; border:1px solid white;
+    }
+    .btn{
+        display: flex;
+       
+    }
+    .bttn{
+        margin-top:5px;
+          width:50%;
+         height:35px;
+    }
+    .boody{
+       padding-top:90px;
+        display: flex;
+      flex-wrap: wrap;
+      max-width:1000px;
+     margin: auto; 
+    }
+     *{
+        box-sizing:border-box;
+     }
+    
+     p{
+        margin-top:15px; margin-left:10px;
+     }
+     #list{
+        margin-top:15px;font-size:22px;
+        cursor: pointer; 
+     }
+     .item{
+        display:none;  position: fixed;
+         width:150px;
+         height:50px;
+        background:green;
+     }
+     .message{
+        width:40px;
+        height:40px;
+        border-radius:40%;border:2px solid white; background:rgb(64, 129, 64);
+       position: fixed; top:80%; left:85%; text-align: center;
+       color:white;padding-top:8px;
+     }
+     .product{
+        width:47%;height:280px; border:1px solid rgb(150, 143, 143); margin:5px; 
+     }
+     @media (min-width: 1000px){
+        .product{
+            width:220px;height:290px; border:1px solid rgb(150, 143, 143); margin:5px;
+        }
+     }
+     #topMenu{
+        position:fixed;
+        top:-300px;
+    width:50%;
     background:white;
-  }
+    color: white;
+    padding:0px;
+    transition: 0.4s;
+    z-index: 999;
+    margin-left:50%; color:black;
+     }
+     #topMenu ul li{
+    list-style: none;
+    padding: 10px 0;
+    border-bottom: 1px solid gray;
+    cursor: pointer; 
+}
+.fa-xmark{
+    color:red;
+    font-size:25px;
+    margin-left:70%;
+}
+ .active {
+        background-color: red;
+        color: white;
+    }
+    #ads{
+        font-size:15px;
+        margin-left:84%;
+    }
+    span{
+        color:rgb(43, 96, 43);font-size:20px; font-weight:550;
+    }
 </style>
-<body> 
-  <div class="one">
-     <i class="fa-solid fa-gear" id="setting"></i>
-     <div id="settingone">
-      <div id="settingtwo">
-        <h1>SETTINGS</h1>
-        <p style="color:white;"> SOUNDS</p>
-        <p style="color:white;"> VIBRATION </p>
-        <p style="color:white;"> LEFT  HAND </p>
-        <img src="nagad.png" style="width:150px; height:100px"><br><br><br>
-        <button id="close">Close</button>
-      </div>
-     </div>
-     <i class="fa-solid fa-user"></i>
-  </div>
-       <h1 id="count"> One Two   </h1>
-         <p>Hit</p>
-         <p class="up">  <i class="fa-solid fa-person-running"></i> </p>
-        <div class="site">
-          <button class="btn3">Tournament</button>
-          <button class="btn4" onclick="window.location.href='Shop.html'"> SHOP <br><i class="fa-solid fa-cart-shopping"></i></button>
-        </div><br>
-        <button onclick="window.location.href ='gift.html'"; class="btn1"> <i class="fa-solid fa-gift"></i> GIFT  </button>
-        <button id="btn2">  PLAY  </button>
-       <audio  id="sound"  src="sound.mp3"></audio>
-        
-        <script>
-          document.getElementById("setting").addEventListener("click",function(){
-            document.getElementById("settingone").style.display ="flex";
-          })
-          document.getElementById("close").addEventListener("click",function(){
-            document.getElementById("settingone").style.display ="none";
-          })
+<body>
+   <div class="header">
+   <div id="head">
+    <p>ABCD</p>
+   <input type="text" id="searchBox" placeholder=" Search you products">
+  
+        <i class="fa-solid fa-list" id="list"></i>
+        <div id="topMenu">
+            <ul>
 
-          document.getElementById("btn2").addEventListener("click",function(){
-            document.getElementById("sound").play();
-            setTimeout(function(){
-              window.location.href = "indexf.html";
-            },1000);
-          });
-        </script>
+                <i class="fa-solid fa-xmark" onclick="window.location.href=''"></i><br>
+                <li onclick="window.location.href='login.html'">Login</li>
+                <li onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">Chat</li>
+                <li onclick="window.location.href='gift.html'">Gift</li>
+                <li>Setting</li>
+                <li onclick="window.location.href='market.html'">job Market</li>
+            </ul>
+        </div>
+   </div>
+    <div class="btn">
+     <button  class="bttn" data-link=""> HOME </button>   
+     <button  class="bttn" data-link="Reels.html"> Reels </button>
+    <button   class="bttn" data-link="index.html"> GAME </button>
+    <button   class="bttn" data-link="ID.html"> ID </button>
+   </div>
+   </div>
+             <div class="message" onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'"> Chat </div>
+    <div class="boody">
+        <div class="product" onclick="viewProduct('light','850 tk','light.png')" >
+            <img src="light.png" alt="" style="width:100%; height:200px;">
+            <div id="ads">Ads</div>
+            <p> Light <br> <span>850 tk </span></p>
+            
+        </div>
+        <div class="product" onclick="viewProduct('Amazon','50 tk','amazon.png')">
+            <img src="nagad.png" alt="" style="width:100%; height:200px;">
+            <div id="ads">Ads</div>
+            <p> Light <br> <span> 50 tk </span> </p>
+        </div>
+        <div class="product" onclick="viewProduct('Amazon','20 tk','amazon.png')">
+             <img src="amazon.png" alt="" style="width:100%; height:200px;">
+            <p>Amazon <br> <span> 20 tk </span> </p> 
+        </div>
+        <div class="product">
+           <img src="night light.png" alt="" style="width:100%; height:200px;">
+            <p> cycle <br> <span> 250 tk </span> </p> 
+        </div>
+        <div class="product" onclick="viewProduct('light','25 tk','light.png')" >
+           <img src="light.png" alt="" style="width:100%; height:200px;">
+            <p> light <br> <span> 25 tk </span> </p> 
+        </div>
+        <div class="product" onclick="viewProduct('','tk','.png')">
+           <img src="bkash.png" alt="" style="width:100%; height:200px;">
+            <p> Ti shart <br> <span> 50 tk </span> </p> 
+        </div>
+        <div class="product" onclick="viewProduct('bkash','25 tk','bkash.png')" >
+           <img src="bkash.png" alt="" style="width:100%; height:200px;">
+            <p> Bkash <br> <span> 25 tk </span> </p> 
+        </div>
+        <div class="product" onclick="viewProduct('night','20 tk','light.png')" >
+           <img src="night light.png" alt="" style="width:100%; height:200px;">
+            <p> shoes <br> <span> 20 tk </span> </p> 
+        </div>
+    </div>
 </body>
+<script>
+let status = false;
+
+const listBtn = document.getElementById("list");
+const topMenu = document.getElementById("topMenu");
+
+// list icon click
+listBtn.addEventListener("click",(e) => {
+    e.stopPropagation(); // important
+    if(!status){
+        topMenu.style.top = "0";
+        status = true;
+    } else {
+        topMenu.style.top = "-300px";
+        status = false;
+    }
+});
+
+// outside click = menu close
+document.addEventListener("click",(e) => {
+    if(status && !topMenu.contains(e.target) && e.target !== listBtn){
+        topMenu.style.top = "-300px";
+        status = false;
+    }
+});
+// search box
+let searchBox = document.getElementById("searchBox");
+searchBox.addEventListener("keyup", function () {
+    let value = searchBox.value.toLowerCase();
+    let products = document.querySelectorAll(".product");
+
+    products.forEach(function (product) {
+        let name = product.innerText.toLowerCase(); // 👈 change here
+
+        if (name.includes(value)) {
+            product.style.display = "block";
+        } else {
+            product.style.display = "none";
+        }
+    });
+});
+// 2page show product
+function viewProduct(name, price, image){
+    let product = {
+        name: name,
+        price: price,
+        image: image
+    };
+    localStorage.setItem("product", JSON.stringify(product));
+    window.location.href = "product.html";
+}
+
+//button color 
+const buttons = document.querySelectorAll(".bttn");
+
+buttons.forEach(bttn => {
+    bttn.addEventListener("click", () => {
+
+        // active color remove
+        buttons.forEach(b => b.classList.remove("active"));
+
+        // clicked button color add
+        bttn.classList.add("active");
+
+        // page redirect
+        const link = bttn.getAttribute("data-link");
+        if (link) {
+            setTimeout(() => {
+                window.location.href = link;
+            }, 150); // ছোট delay যাতে color দেখা যায়
+        }
+    });
+});
+</script>
 </html>
