@@ -152,14 +152,15 @@ p{
 <div id="postBox">
      <i class="fa-solid fa-xmark" onclick="window.location.href=''"></i><br><br>
       
-     <input type="text" placeholder="Product - name"><br><br>
-     <input type="price" placeholder="product - price"><br><br>
-     <input type="text" placeholder="Category"> <br><br>
-     <input type="text" placeholder="Location"> <br><br>
-     <input type="text" placeholder="Condition"> <br><br>
-     <input type="text" placeholder="Brand"> <br><br>
-     <input type="text" placeholder="Model"> <br><br>
-     <input type="text" placeholder="Color"> <br><br>
+    
+     <input id="pName" type="text" placeholder="Product - name"><br><br>
+<input id="pPrice" type="text" placeholder="product - price"><br><br>
+<input id="pCategory" type="text" placeholder="Category"><br><br>
+<input id="pLocation" type="text" placeholder="Location"><br><br>
+<input id="pCondition" type="text" placeholder="Condition"><br><br>
+<input id="pBrand" type="text" placeholder="Brand"><br><br>
+<input id="pModel" type="text" placeholder="Model"><br><br>
+<input id="pColor" type="text" placeholder="Color"><br><br>
         
     <input type="text" id="textInput" placeholder=" Description" style="width:90%; height:80px;">
     <label style="cursor:pointer; margin-right:0; font-size:20px;"><br>
@@ -343,6 +344,10 @@ videoUpload.addEventListener("change", function () {
         localStorage.setItem("postVideo", videoURL); // SAVE VIDEO
     }
 });
+
+
+
+
 </script>
 </body>
 </html>
