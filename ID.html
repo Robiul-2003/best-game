@@ -27,7 +27,7 @@
         margin-top:5px;
         width:70%;
         height:40px;
-        border-radius:8px; border:none;
+        border-radius:5px; border:none; font-size:15px;
     }
     .btn{
        
@@ -60,9 +60,9 @@
     border: 2px solid rgb(71, 147, 71);
 }
 #like{
-    width:40px;
-    height:25px;
-    border-radius:8px; border:1px solid tomato;  
+    width:60px;
+    height:27px;
+    border-radius:5px; border:1px solid tomato;  
 }
 #count{
    border:none; margin-left:30px; font-weight:900;
@@ -76,9 +76,9 @@ p{
 }
  #postBox{
    margin: auto; max-width:800px;
-    height:800px;border:1px solid rgb(226, 221, 221) ;
+    height:800px;
  display:none;margin-top:10px; background:rgb(226, 221, 221);
- text-align: center;
+ text-align: center; 
 }
 .fa-xmark{
     margin-top:20px;
@@ -113,6 +113,10 @@ p{
     height:40px;
      background:rgb(71, 147, 71);border:none;color:white;font-size:18px; border-radius:5px;
 }
+#pro{
+    width:47%;height:280px; border:1px solid rgb(150, 143, 143); margin:5px; 
+}
+
 </style>
 <body>
      <div class="header">
@@ -149,12 +153,13 @@ p{
  <button id="chat">Chat</button>
   <br><br>
  <button id="btnbig"> What's on your mind </button>
+
 <div id="postBox">
      <i class="fa-solid fa-xmark" onclick="window.location.href=''"></i><br><br>
       
     
-     <input id="pName" type="text" placeholder="Product - name"><br><br>
-<input id="pPrice" type="text" placeholder="product - price"><br><br>
+     <input id="pName" type="text" placeholder="Product - Name"><br><br>
+<input id="pPrice" type="text" placeholder="Product - price"><br><br>
 <input id="pCategory" type="text" placeholder="Category"><br><br>
 <input id="pLocation" type="text" placeholder="Location"><br><br>
 <input id="pCondition" type="text" placeholder="Condition"><br><br>
@@ -175,17 +180,10 @@ p{
 
     <button id="save">Save</button>
 </div>
-<!-- 🔥 THIS WAS MISSING 🔥 -->
-<div id="previewBox" style="
-    max-width:800px;
-    display:none;
-    margin:auto;
-    background:white;
-    padding:10px;
-    margin-top:10px;
-    box-shadow:0 0 5px #bbb;
-    text-align:center;">
-</div>
+
+<br>
+
+
 <script>
   
     const fileInput = document.getElementById("fileInput");
@@ -346,8 +344,8 @@ videoUpload.addEventListener("change", function () {
 });
 
 
-
-
 </script>
 </body>
 </html>
+
+
