@@ -3,252 +3,128 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title> ROBI </title>
-</head>
-<style>
-    body{
-       background:rgb(245, 238, 238);
-    }
-    .header{
-         position: fixed;
-        width:100%;
-        height:85px;
-        background:tomato;
-        overflow:hidden;
-        top:0px;
-        left:0px;
-    }
-    #head{
-        display: flex;
-        justify-content: space-around;
-    }
-    input{
-        margin-top:5px;
-        width:70%;
-        height:40px;
-        border-radius:8px; border:1px solid white;
-    }
-    .btn{
-        display: flex;
-       
-    }
-    .bttn{
-        margin-top:5px;
-          width:50%;
-         height:35px;
-    }
-    .boody{
-       padding-top:90px;
-        display: flex;
-      flex-wrap: wrap;
-      max-width:1000px;
-     margin: auto; 
-    }
-     *{
-        box-sizing:border-box;
-     }
-    
-     p{
-        margin-top:15px; margin-left:10px;
-     }
-     #list{
-        margin-top:15px;font-size:22px;
-        cursor: pointer; 
-     }
-     .item{
-        display:none;  position: fixed;
-         width:150px;
-         height:50px;
-        background:green;
-     }
-     .message{
-        width:40px;
-        height:40px;
-        border-radius:40%;border:2px solid white; background:rgb(64, 129, 64);
-       position: fixed; top:80%; left:85%; text-align: center;
-       color:white;padding-top:8px;
-     }
-     .product{
-        width:47%;height:280px; border:1px solid rgb(150, 143, 143); margin:5px; 
-     }
-     @media (min-width: 1000px){
-        .product{
-            width:220px;height:290px; border:1px solid rgb(150, 143, 143); margin:5px;
-        }
-     }
-     #topMenu{
-        position:fixed;
-        top:-300px;
-    width:50%;
-    background:white;
-    color: white;
-    padding:0px;
-    transition: 0.4s;
-    z-index: 999;
-    margin-left:50%; color:black;
-     }
-     #topMenu ul li{
-    list-style: none;
-    padding: 10px 0;
-    border-bottom: 1px solid gray;
-    cursor: pointer; 
-}
-.fa-xmark{
-    color:red;
-    font-size:25px;
-    margin-left:70%;
-}
- .active {
-        background-color: red;
-        color: white;
-    }
-    #ads{
-        font-size:15px;
-        margin-left:80%;
-    }
-    span{
-        color:rgb(43, 96, 43);font-size:18px; font-weight:550;
-    }
-</style>
-<body>
-   <div class="header">
-   <div id="head">
-    <p>ABCD</p>
-   <input type="text" id="searchBox" placeholder=" Search you products">
-  
-        <i class="fa-solid fa-list" id="list"></i>
-        <div id="topMenu">
-            <ul>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Video Overlay Input</title>
 
-                <i class="fa-solid fa-xmark" onclick="window.location.href=''"></i><br>
-                <li onclick="window.location.href='login.html'">Login</li>
-                <li onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'">Chat</li>
-                <li onclick="window.location.href='gift.html'">Gift</li>
-                <li>Setting</li>
-                <li onclick="window.location.href='market.html'">job Market</li>
-            </ul>
-        </div>
-   </div>
-    <div class="btn">
-     <button  class="bttn" data-link=""> HOME </button>   
-     <button  class="bttn" data-link="Reels.html"> Reels </button>
-    <button   class="bttn" data-link="game.html"> GAME </button>
-    <button   class="bttn" data-link="ID.html"> ID </button>
-   </div>
-   </div>
-             <div class="message" onclick="window.location.href='https://wa.me/8801319992654?text=Hi!%20I%20want%20to%20chat%20with%20you'"> Chat </div>
-    <div class="boody">
-        <div class="product" onclick="viewProduct('light','850 tk','light.png')" >
-            <img src="light.png" alt="" style="width:100%; height:200px;">
-            <div id="ads">Ads</div>
-            <p> Light <br> <span>850 tk </span></p>
+    <style>
+        body{
+            background:rgb(247, 247, 247);
+        }
+        .video-container {
+            position: relative;
+            max-width:1200px;
             
-        </div>
-        <div class="product" onclick="viewProduct('Amazon','50 tk','amazon.png')">
-            <img src="nagad.png" alt="" style="width:100%; height:200px;">
-            <div id="ads">Ads</div>
-            <p> Light <br> <span> 50 tk </span> </p>
-        </div>
-        <div class="product" onclick="viewProduct('Amazon','20 tk','amazon.png')">
-             <img src="amazon.png" alt="" style="width:100%; height:200px;">
-            <p>Amazon <br> <span> 20 tk </span> </p> 
-        </div>
-        <div class="product">
-           <img src="night light.png" alt="" style="width:100%; height:200px;">
-            <p> cycle <br> <span> 250 tk </span> </p> 
-        </div>
-        <div class="product" onclick="viewProduct('light','25 tk','light.png')" >
-           <img src="light.png" alt="" style="width:100%; height:200px;">
-            <p> light <br> <span> 25 tk </span> </p> 
-        </div>
-        <div class="product" onclick="viewProduct('','tk','.png')">
-           <img src="bkash.png" alt="" style="width:100%; height:200px;">
-            <p> Ti shart <br> <span> 50 tk </span> </p> 
-        </div>
-        <div class="product" onclick="viewProduct('bkash','25 tk','bkash.png')" >
-           <img src="bkash.png" alt="" style="width:100%; height:200px;">
-            <p> Bkash <br> <span> 25 tk </span> </p> 
-        </div>
-        <div class="product" onclick="viewProduct('night','20 tk','light.png')" >
-           <img src="night light.png" alt="" style="width:100%; height:200px;">
-            <p> shoes <br> <span> 20 tk </span> </p> 
-        </div>
-    </div>
-</body>
-<script>
-let status = false;
-
-const listBtn = document.getElementById("list");
-const topMenu = document.getElementById("topMenu");
-
-// list icon click
-listBtn.addEventListener("click",(e) => {
-    e.stopPropagation(); // important
-    if(!status){
-        topMenu.style.top = "0";
-        status = true;
-    } else {
-        topMenu.style.top = "-300px";
-        status = false;
-    }
-});
-
-// outside click = menu close
-document.addEventListener("click",(e) => {
-    if(status && !topMenu.contains(e.target) && e.target !== listBtn){
-        topMenu.style.top = "-300px";
-        status = false;
-    }
-});
-// search box
-let searchBox = document.getElementById("searchBox");
-searchBox.addEventListener("keyup", function () {
-    let value = searchBox.value.toLowerCase();
-    let products = document.querySelectorAll(".product");
-
-    products.forEach(function (product) {
-        let name = product.innerText.toLowerCase(); // 👈 change here
-
-        if (name.includes(value)) {
-            product.style.display = "block";
-        } else {
-            product.style.display = "none";
+            margin: auto;
+            border-radius:10px;
         }
-    });
-});
-// 2page show product
-function viewProduct(name, price, image){
-    let product = {
-        name: name,
-        price: price,
-        image: image
-    };
-    localStorage.setItem("product", JSON.stringify(product));
-    window.location.href = "product.html";
+
+        video {
+            width:100%;
+            border-radius:10px;
+           
+        }
+
+        .input-overlay {
+            position: absolute;
+            top:10px;       /* ভিডিওর উপরে কতটুকু হবে */
+            left: 10px;              /* বাম দিক থেকে দূরত্ব */
+            background:none;
+            padding: 5px;
+            border: 1px solid white;
+            border-radius: 5px;
+            z-index:5px;
+            width:500px;
+            height:30px;
+           
+        }
+        .have{
+            position: absolute;
+            color:white;
+            top:0;
+            left:20px;
+        }
+        .box{
+    width:200px;height:180px;border-radius:10px; border:1px solid rgb(212, 211, 211) ;
+     text-align: center;box-shadow:15px;
+   }
+   p{
+    font-size:22px;font-weight:600;
+   }
+   .box2{
+       flex:0 0 auto; 
+    width:240px; height:220px;background:green;border-radius:7px;text-align: center;scroll-snap-align:start;
+   }
+   img{
+    width:160px;height:150px;border-radius:7px;
+   }
+   .iconslider{
+    max-width:1320px;
+     margin:auto;display:flex;
+     margin-top:10px;gap:10px;
+    scroll-snap-type:x mandatory;  overflow-x:auto;
 }
+  .iconslider{
+   scroll-behavior: smooth;
+  }
+   .iconslider::-webkit-scrollbar{
+    display:none;
+}
+                  /*phon size */
+ @media(max-width:600px) {
+   .input-overlay{
+    width:42%;
+   
+     border: 1px solid white;
+   }
+   .box{
+    width:48%;height:150px;border-radius:10px;
+    background:white;gap:10px; text-align: center;box-shadow:20px;
+   }
+  .iconslider{
+   scroll-behavior: smooth;
+  }
+   .iconslider::-webkit-scrollbar{
+    display:none;
+}
+}
+ #list{
+    margin-top:25px;
+    font-size:25px;
+ }    
+    </style>
+</head>
 
-//button color 
-const buttons = document.querySelectorAll(".bttn");
+<body>
+ <div class="header" style="max-width:1500px;height:80px;background:white;overflow: hidden;display: flex;justify-content:space-between;margin:auto;">
+     <i class="fa-solid fa-list" onclick="demo()" id="list"></i>
+<h1>Our-Solution</h1>
+<button style="width:70px;height:40px;border-radius:5px;margin-top:20px;font-size:18px;" onclick="window.location.href='login.html'">login</button>
+ </div><br>
+    <div class="video-container">
+        <video autoplay muted playsiniline loop>
+            <source src="vedio.mp4">
+        </video>
 
-buttons.forEach(bttn => {
-    bttn.addEventListener("click", () => {
-
-        // active color remove
-        buttons.forEach(b => b.classList.remove("active"));
-
-        // clicked button color add
-        bttn.classList.add("active");
-
-        // page redirect
-        const link = bttn.getAttribute("data-link");
-        if (link) {
-            setTimeout(() => {
-                window.location.href = link;
-            }, 150); // ছোট delay যাতে color দেখা যায়
-        }
-    });
-});
-
-</script>
+        <!-- ভিডিওর উপর Input -->
+        <input class="input-overlay" type="text" placeholder="">
+        <p class="have">Search here</p>
+    </div>
+<div class="fullbox" style="max-width:1320px; margin:auto;display: flex;flex-wrap: wrap;gap:10px;margin-top:10px;">
+    <div class="box"><h1>Website </H1><P>Development</P>  </div>
+    <div class="box"><h1>Apps </h1><P>Development</P> </div>
+    <div class="box"><h1>Personer</h1><P>Assistand</P> </div>
+    <div class="box"><h1>Video &</h1><P>Animation</P> </div>
+    <div class="box"><h1>Graphics &</h1><P>Design</P> </div>
+    <div class="box"><h1>Business</h1><P>Mengment</P> </div>
+</div>
+<div class="iconslider">
+    <div class="box2"><h3>DROP</h3> <img src="Drop.jpg"> </div>
+    <div class="box2"><h3>DROP</h3><img src="Social.jpg"></div>
+    <div class="box2"><h3>DROP</h3><img src="web.jpg"></div>
+    <div class="box2"><h3>DROP</h3><img src="logo.png"> </div>
+    <div class="box2"><h3>DROP</h3><img src="logo.png"></div>
+    <div class="box2"><h3>DROP</h3><img src="logo.png"></div>
+   
+</div>
+</body>
 </html>
