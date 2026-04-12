@@ -1,123 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Game</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>website</title>
 </head>
 <style>
-    body{
-        background:black;overflow: hidden;
-    }
-    span{
-        color:rgb(219, 148, 15);
-    }
-   
-    #box{
-        width:250px;
-        height:200px;
-        margin: auto;border-radius:15px;
-        background:rgb(42, 42, 98); 
-    }
-  #res{
-    margin:20px auto;
-    background:green;
-    border:none;
-    width:150px;
-    height:35px;border-radius:5px;
-    display: block;margin: auto;
-   }
-    #give{
-    margin:20px auto;
-    background:rgb(162, 162, 41);
-    border:none;
-    width:150px;
-    height:35px;border-radius:5px;
-    display: block;margin: auto;
-   }
-   #icon{
-    display: flex;margin-top:24%;
-    justify-content: center;gap:50px;
-   }
-   .fa-shop,
-   .fa-link,
-   .fa-share{
-    color:white;
-    font-size:30px;
-    
-   }
-   #number{
-    color:white;text-align: center;  font-size: 55px; 
-   }
-   .slider{
-     margin: auto;
-     width:80%;
-     overflow: hidden;
-    margin-top:20%;
-   }
-   .sliders{
-    
-    display: flex; 
-    transition:0 .5s;
-   }
-   .sliders img{
+  #box{
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
     width:100%;
-    height:60px;
-    flex-shrink:0;
-   }
+    height:100%;
+     overflow:auto; 
+  }
+  #box1{
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+     overflow:auto; 
+  }
+  #box2{
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+     overflow:auto; 
+  }
+  #box3{
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+     overflow:auto; 
+  }
+  #box4{
+    display:none;
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100%;
+    height:100%;
+     overflow:auto; 
+  }
+  #cread{
+    width:1310px;border:px solid red;
+    background:white;margin: auto;min-height:100vh;
+  }
+
+  span{
+    font-size:28px;
+    margin-left:25px;
+   font-weight:800;
+  }
+  #frofile{
+   width:200px;height:200px;border-radius:50%; margin-left:10%;
+  }
+  .card{
+    width:300px;height:460px;border:1px solid rgb(235, 232, 232);margin-top:20px;margin-left:20px;
+  }
+  .card-img{
+    width:300px;height:300px
+  }
+  @media(max-width:600px){
+    .card{
+      width:100%;
+      margin-left:0px;
+    }
+    .card-img{
+    width:100%;height:300px
+  }
+  #ipt{
+   display:none;
+  }
+  }
+  .header{
+    max-width:1300px;height:80px;background:white;overflow: hidden; margin:auto;display: flex;
+    margin-top:0px;
+  }
+  #ipt{
+    width:600px; height:40px; margin-top:10px;margin-left:50px; margin: auto;
+  }
+  #name{
+    margin-left:12%;
+    font-size:30px;
+  }
+  #title{
+    margin-left:4%;
+    font-size:18px;
+  }
+  .show{
+    max-width:800px;
+    height:520px;
+    border:px solid red;
+  
+  }
+  .bigImg{
+  width:100%;
+    height:400px;
+  }
+  .thumbs{
+    width:100%;
+    height:100px;
+   
+  }
+  .small{
+    
+    width:18%;
+    height:100%;
+    border:1px solid rgb(221, 214, 214);
+    
+  }
 </style>
 <body>
-    <span onclick="window.location.href='game.html'";><i class="fa-solid fa-angle-left"></i> HOME </span>
-    <div id="box">
-        <p id="number"> 0 <br> Score </p> 
-        
-    </div><br>
-    <button onclick="window.location.href='gift.html'" id="give"> GIFT </button><br>
- <button onclick="window.location.href='game2.html'" id="res"> RESTART </button>
-<div id="icon"> 
- <i class="fa-solid fa-shop" onclick="window.location.href='index.html'"></i> <i class="fa-solid fa-link"></i> <i class="fa-solid fa-share" onclick="sharePage()"></i>
-</div><br><br>
-<div class="slider">
-  <div class="sliders">
-    <img src="amazon.png">
-    <img src="nagad.png">
-    <img src="bkash.png">
+  <div class="header">
+<h2 onclick="window.location.href='index.html'" style="margin-left:20px;">Our-Solution</h2>
+<input type="texy" placeholder="Find services" id="ipt">
+ </div>
+  <div class="fullbox" style="max-width:1300px;margin: auto; display: flex; flex-wrap: wrap;">
+    <!--box1-->
+   <div class="card" onclick="openbox()">
+    <img src="yello.jpg" class="card-img">
+   <div style="display: flex;"> <img src="yello.jpg" style="width:40px;height:40px;border-radius:50%;margin-left:10px;"><p style="font-weight:800; font-size:18px; margin-left:10px;">Robiul Awal</p></div>
+    <p style="font-size:18px;margin-left:10px;">I will build website, website development, full stack developer, front end developer </p> 
   </div>
+  <!--box2-->
+   <div class="card" onclick="openbox1()">
+    <img src="web.jpg" class="card-img">
+   <div style="display: flex;"> <img src="web.jpg" style="width:40px;height:40px;border-radius:50%;margin-left:10px;"><p style="font-weight:800; font-size:18px; margin-left:10px;"> Awal</p></div>
+    <p style="font-size:18px;margin-left:10px;">I will build website, website development, full stack developer, front end developer </p> 
+  </div>
+  
+  <!--box3-->
+   <div class="card" onclick="openbox2()">
+    <img src="Social.jpg" class="card-img">
+   <div style="display: flex;"> <img src="Social.jpg" style="width:40px;height:40px;border-radius:50%;margin-left:10px;"><p style="font-weight:800; font-size:18px; margin-left:10px;"> Awal</p></div>
+    <p style="font-size:18px;margin-left:10px;">I will build website, website development, full stack developer, front end developer </p> 
+  </div>
+  <!--box4-->
+   <div class="card" onclick="openbox3()">
+    <img src="logo.png" class="card-img">
+   <div style="display: flex;"> <img src="logo.png" style="width:40px;height:40px;border-radius:50%;margin-left:10px;"><p style="font-weight:800; font-size:18px; margin-left:10px;"> Awal</p></div>
+    <p style="font-size:18px;margin-left:10px;">I will build website, website development, full stack developer, front end developer </p> 
+  </div>
+  <!--box5-->
+   <div class="card" onclick="openbox4()">
+    <img src="Drop.jpg" class="card-img">
+   <div style="display: flex;"> <img src="Drop.jpg" style="width:40px;height:40px;border-radius:50%;margin-left:10px;"><p style="font-weight:800; font-size:18px; margin-left:10px;"> Awal</p></div>
+    <p style="font-size:18px;margin-left:10px;">I will build website, website development, full stack developer, front end developer </p> 
+  </div>
+  </div>
+    <!--box1-->
+    <div id="box">
+      <div id="cread"><br><br>
+        <span onclick="closeBox()"> Our Solution</span><br><br><br>
+        <img src="yello.jpg" id="frofile">
+        <p id="name">Robiul Awal</p>
+        <p id="title">⭐️ ⭐️ ⭐️ People keep coming back! web_wafels has an exceptional number of repeat buyers</p>
+        <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="yello.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="light.png" onclick="changeImg(this)" class="small">
+            <img src="nagad.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <hr>
+        <h1>project link</h1>
+       <h3> Link : <a href="https://robiul-2003.github.io/Two-game/">https://robiul-2003.github.io/Two-game/</a></h3>
+       <h3> Link : <a href="https://robiul-2003.github.io/Two-game/">https://robiul-2003.github.io/Two-game/</a></h3>
+       <h3> Link : <a href="https://robiul-2003.github.io/Two-game/">https://robiul-2003.github.io/Two-game/</a></h3>
+        <br><br>
+      </div>
+    </div>
+    <!--box2-->
+     <div id="box1">
+      <div id="cread"><br><br>
+        <span onclick="closeBox1()">Our Solution</span><br><br><br>       
+        <img src="web.jpg" id="frofile">
+         <p id="name"> Awal</p>
+         <p id="title">⭐️ ⭐️  People keep coming back! web_wafels has an exceptional number of repeat buyers</p>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="web.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="bkash.png" onclick="changeImg(this)" class="small">
+            <img src="nagad.png" onclick="changeImg(this)" class="small">
+            <img src="amazon.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <!--box3-->
+     <div id="box2">
+      <div id="cread"><br><br>
+        <span onclick="closeBox2()">Our Solution</span><br><br><br>      
+        <img src="Social.jpg" id="frofile">
+         <p id="name">Robiul </p>
+         <p id="title">⭐️   People keep coming back! web_wafels has an exceptional number of repeat buyers</p>
+          <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="web.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="bkash.png" onclick="changeImg(this)" class="small">
+            <img src="nagad.png" onclick="changeImg(this)" class="small">
+            <img src="amazon.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+      </div>
+    </div>
+    <!--box4-->
+     <div id="box3">
+      <div id="cread"><br><br>
+        <span onclick="closeBox3()">Our Solution</span><br><br><br>  
+        <img src="logo.png" id="frofile">
+         <p id="name">Rob</p>
+         <p id="title">⭐️   People keep coming back! web_wafels has an exceptional number of repeat buyers</p>
+          <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="web.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="bkash.png" onclick="changeImg(this)" class="small">
+            <img src="nagad.png" onclick="changeImg(this)" class="small">
+            <img src="amazon.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+      </div>
+    </div>
+    <!--box5-->
+     <div id="box4">
+      <div id="cread"><br><br>
+        <span onclick="closeBox4()">Our Solution</span><br><br><br>
+        <img src="Drop.jpg" id="frofile">
+         <p id="name"> Awal</p>
+         <p id="title">⭐️   People keep coming back! web_wafels has an exceptional number of repeat buyers</p>
+          <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="web.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="bkash.png" onclick="changeImg(this)" class="small">
+            <img src="nagad.png" onclick="changeImg(this)" class="small">
+            <img src="amazon.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+      </div>
+    </div>
+  <script>
+    function openbox(){
+      document.getElementById("box").style.display = "flex";
+    }
+    function closeBox(){
+      document.getElementById("box").style.display = "none";
+    }
+  //box2
+    function openbox1(){
+      document.getElementById("box1").style.display = "flex";
+    }
+    function closeBox1(){
+      document.getElementById("box1").style.display = "none";
+    }
+  //box3
+    function openbox2(){
+      document.getElementById("box2").style.display = "flex";
+    }
+    function closeBox2(){
+      document.getElementById("box2").style.display = "none";
+    }
+  //box4
+    function openbox3(){
+      document.getElementById("box3").style.display = "flex";
+    }
+    function closeBox3(){
+      document.getElementById("box3").style.display = "none";
+    }
+  //box5
+    function openbox4(){
+      document.getElementById("box4").style.display = "flex";
+    }
+    function closeBox4(){
+      document.getElementById("box4").style.display = "none";
+    }
+    function changeImg(smallImg){
+     let parent = smallImg.closest(".show");
+     let big = parent.querySelector(".bigImg");
+     big.src = smallImg.src;
+    }
+  </script>
 </div>
-
-<script>
-function sharePage(){
-  if(navigator.share){
-    navigator.share({
-      title: "My Game",
-      text: "Play my game!",
-      url: window.location.href
-    });
-  }else{
-    alert("Share not supported in this browser");
-  }
-}
-let score = localStorage.getItem("score");
-
-if(score == null){
-score = 0;
-}
-document.getElementById("number").innerHTML = score + "<br>Score";
-
-let index = 0 ;
-let slides = document.querySelector(".sliders");
-let total = document.querySelectorAll(".sliders img").length;
-
-function autoSlide(){
-  index++;
-  if(index >= total){
-    index  = 0 ;
-  }
-  slides.style.transform = "translateX("+(-index * 100) +"%)";
-
-}
-setInterval(autoSlide,2000);
-</script>
-</body>
 </html>

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Video Overlay Input</title>
+    <title>Our-Solution</title>
 
     <style>
         body{
@@ -48,7 +48,7 @@
      text-align: center;box-shadow:15px;
    }
    p{
-    font-size:22px;font-weight:600;
+    font-size:18px;font-weight:600;
    }
    .box2{
        flex:0 0 auto; 
@@ -86,16 +86,24 @@
    .iconslider::-webkit-scrollbar{
     display:none;
 }
+ .foter{
+    flex-wrap: wrap;
+    height:600px;
+ }
+
 }
  #list{
     margin-top:25px;
     font-size:25px;
  }    
+ .inbox1{
+    width:600px;border:px solid red;
+ }
     </style>
 </head>
 
 <body>
- <div class="header" style="max-width:1500px;height:80px;background:white;overflow: hidden;display: flex;justify-content:space-between;margin:auto;">
+ <div class="header" style="max-width:1500px;height:80px;overflow: hidden;display: flex;justify-content:space-between;margin:auto;">
      <i class="fa-solid fa-list" onclick="demo()" id="list"></i>
 <h1>Our-Solution</h1>
 <button style="width:70px;height:40px;border-radius:5px;margin-top:20px;font-size:18px;" onclick="window.location.href='login.html'">login</button>
@@ -110,13 +118,14 @@
         <p class="have">Search here</p>
     </div>
 <div class="fullbox" style="max-width:1320px; margin:auto;display: flex;flex-wrap: wrap;gap:10px;margin-top:10px;">
-    <div class="box"><h1>Website </H1><P>Development</P>  </div>
-    <div class="box"><h1>Apps </h1><P>Development</P> </div>
-    <div class="box"><h1>Personer</h1><P>Assistand</P> </div>
-    <div class="box"><h1>Video &</h1><P>Animation</P> </div>
-    <div class="box"><h1>Graphics &</h1><P>Design</P> </div>
-    <div class="box"><h1>Business</h1><P>Mengment</P> </div>
-</div>
+    <div class="box" onclick="window.location.href='test.html'"><h2>Website </H1><P>Development</P>  </div>
+    <div class="box"><h2>Apps </h2><P>Development</P> </div>
+    <div class="box"><h2>Personer</h2><P>Assistand</P> </div>
+    <div class="box"><h2>Video &</h2><P>Animation</P> </div>
+    <div class="box"><h2>Graphics &</h2><P>Design</P> </div>
+    <div class="box"><h2>Business</h2><P>Mengment</P> </div>
+</div><br>
+<h1 style="text-align: center;">Popular Services</h1>
 <div class="iconslider">
     <div class="box2"><h3>DROP</h3> <img src="Drop.jpg"> </div>
     <div class="box2"><h3>DROP</h3><img src="Social.jpg"></div>
@@ -124,7 +133,14 @@
     <div class="box2"><h3>DROP</h3><img src="logo.png"> </div>
     <div class="box2"><h3>DROP</h3><img src="logo.png"></div>
     <div class="box2"><h3>DROP</h3><img src="logo.png"></div>
-   
+</div><br>
+<div class="foter" style="max-width:1200px;height:500px; background:black;margin:auto;border-radius:15px;display: flex;">
+<div class="inbox1">
+    <img src="Drop.jpg">
+    <img src="web.jpg">
+    <img src="Social.jpg">
+</div>
+<div class="inbox2" style="width:600px;border:px solid red;"><h1 style="color: white;">The Al Directot era has arrived</h1> </div>
 </div>
 </body>
 </html>
