@@ -48,14 +48,21 @@
      text-align: center;box-shadow:15px;
    }
    p{
-    font-size:18px;font-weight:600;
+    font-size:18px;font-weight:700; 
    }
    .box2{
-       flex:0 0 auto; 
-    width:240px; height:220px;background:green;border-radius:7px;text-align: center;scroll-snap-align:start;
+       flex:0 0 auto; color:white;
+    width:200px; height:235px;background:#003912;border-radius:7px;text-align: center;scroll-snap-align:start;
    }
-   img{
-    width:160px;height:150px;border-radius:7px;
+   #im1{
+    width:175px;height:150px;border-radius:7px;
+   }
+   .slide{
+   
+    margin: auto;border-radius:10px;
+     width:70%;
+  height:350px; 
+  display: none; 
    }
    .iconslider{
     max-width:1320px;
@@ -86,11 +93,6 @@
    .iconslider::-webkit-scrollbar{
     display:none;
 }
- .foter{
-    flex-wrap: wrap;
-    height:600px;
- }
-
 }
  #list{
     margin-top:25px;
@@ -99,6 +101,36 @@
  .inbox1{
     width:600px;border:px solid red;
  }
+ .foter{
+    display: flex;
+    flex-wrap: wrap;
+   
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+    background: black;
+    border-radius: 15px;
+    padding: 20px;
+}
+.sesh{
+    margin: auto;max-width:1200px; text-align: center; align-items: center;justify-content: center;
+   
+}
+#boxopen{
+  display:none;
+   position:fixed;
+  top:100;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  z-index:9999;
+}
+#boxcred{
+    background:white;
+    z-index:400px;
+    width:200px;
+}
     </style>
 </head>
 
@@ -108,8 +140,15 @@
 <h1>Our-Solution</h1>
 <button style="width:70px;height:40px;border-radius:5px;margin-top:20px;font-size:18px;" onclick="window.location.href='login.html'">login</button>
  </div><br>
+ <div id="boxopen">
+ <div id="boxcred">
+    <div onclick="boxclose()" style="font-size:30px;margin-left:80%;">X</div>
+    <p>Chat</p><hr>
+    <p>Dropshipping</p><hr>
+ </div>
+ </div>
     <div class="video-container">
-        <video autoplay muted playsiniline loop>
+        <video autoplay muted playsinline loop>
             <source src="vedio.mp4">
         </video>
 
@@ -118,29 +157,68 @@
         <p class="have">Search here</p>
     </div>
 <div class="fullbox" style="max-width:1320px; margin:auto;display: flex;flex-wrap: wrap;gap:10px;margin-top:10px;">
-    <div class="box" onclick="window.location.href='test.html'"><h2>Website </H1><P>Development</P>  </div>
-    <div class="box"><h2>Apps </h2><P>Development</P> </div>
-    <div class="box"><h2>Personer</h2><P>Assistand</P> </div>
-    <div class="box"><h2>Video &</h2><P>Animation</P> </div>
-    <div class="box"><h2>Graphics &</h2><P>Design</P> </div>
-    <div class="box"><h2>Business</h2><P>Mengment</P> </div>
+    <div class="box" onclick="''"><h2>Sport</h2><P>imports</P><i class="fa-brands fa-codepen" style="font-size:30px;"></i></div>
+    <div class="box"><h2>Apps </h2><P>Development</P> <i class="fa-brands fa-app-store" style="font-size:30px;"></i></div>
+    <div class="box"><h2>Personer</h2><P>Assistand</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i></div>
+    <div class="box"><h2>Video &</h2><P>Animation</P><i class="fa-solid fa-person-running" style="font-size:30px;"></i> </div>
+    <div class="box"><h2>Business</h2><P>Growth</P><i class="fa-solid fa-arrow-trend-up" style="font-size:30px;"></i> </div>
+    <div class="box"><h2>Business</h2><P>Mengment</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i> </div>
 </div><br>
 <h1 style="text-align: center;">Popular Services</h1>
 <div class="iconslider">
-    <div class="box2"><h3>DROP</h3> <img src="Drop.jpg"> </div>
-    <div class="box2"><h3>DROP</h3><img src="Social.jpg"></div>
-    <div class="box2"><h3>DROP</h3><img src="web.jpg"></div>
-    <div class="box2"><h3>DROP</h3><img src="logo.png"> </div>
-    <div class="box2"><h3>DROP</h3><img src="logo.png"></div>
-    <div class="box2"><h3>DROP</h3><img src="logo.png"></div>
+    <div class="box2" onclick="window.location.href='test.html'"><p>Website <br> Development</p> <img src="web.jpg" id="im1"> </div>
+    <div class="box2" onclick="window.location.href='App.html'"><p>App <br>Development</p><img src="app.png" id="im1"></div>
+    <div class="box2" onclick="window.location.href=''"><p>Graphics & <br> Design</p><img src="gragic.png" id="im1"></div>
+    <div class="box2" onclick="window.location.href=''"><p>Logo &<br>Design</p><img src="logo.png" id="im1"> </div>
+    <div class="box2" onclick="window.location.href=''"><p>Digital <br>Marketing</p><img src="dm.jpg" id="im1"></div>
+    <div class="box2" onclick="window.location.href=''"><p>Social Media <br>Marketing</p><img src="Social.jpg" id="im1"></div>
+    <div class="box2" onclick="window.location.href=''"><p><br>Dropshipping</p><img src="Drop.jpg" id="im1"></div>
 </div><br>
-<div class="foter" style="max-width:1200px;height:500px; background:black;margin:auto;border-radius:15px;display: flex;">
-<div class="inbox1">
-    <img src="Drop.jpg">
-    <img src="web.jpg">
-    <img src="Social.jpg">
+<div class="foter">
+<div class="inbox1" style="margin-top:10px; ">
+    <img src="bag.jpg" class="slide">
+    <img src="fullpackej.jpg" class="slide">
+    <img src="packej.jpg" class="slide">
 </div>
-<div class="inbox2" style="width:600px;border:px solid red;"><h1 style="color: white;">The Al Directot era has arrived</h1> </div>
+<div class="inbox2" style="width:500px;text-align: center;"><h1 style="color: aliceblue;">Welcome to Dropshipping Life</h1><hr> <h3 style="color: aliceblue;"> Best Product Ideas (High Selling) Start your journey with products that can change your income and your life.</h3> </div>
+</div><br><br>
+<div class="sesh">
+   
+   <div style="display: flex; text-align: center;justify-content: center;"><h2 >Our-Solution <h5 style="margin-left:12px;margin-top:28px;">International Ltd.2026 </h5></h2></div>
+   <i class="fa-brands fa-facebook" style="font-size:26px; margin-top:20px; margin-left:40px;"></i>
+   <i class="fa-brands fa-instagram" style="font-size:26px;  margin-top:20px;"></i>
+   <i class="fa-brands fa-linkedin" style="font-size:26px;  margin-top:20px;"></i>
+   <i class="fa-brands fa-tiktok" style="font-size:26px;  margin-top:20px;"></i>
 </div>
+<script>
+    let index = 0;
+showSlide();
+
+function showSlide() {
+  let slides = document.getElementsByClassName("slide");
+
+  for (let i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+
+  index++;
+
+  if (index > slides.length) {
+    index = 1;
+  }
+
+  slides[index - 1].style.display = "block";
+
+  setTimeout(showSlide, 2000); // 2 second পর পর change হবে
+}
+
+
+function demo(){
+    document.getElementById("boxopen").style.display = "flex";
+}
+function boxclose(){
+    document.getElementById("boxopen").style.display = "none";
+}
+</script>
 </body>
 </html>
