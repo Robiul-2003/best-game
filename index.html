@@ -24,7 +24,7 @@
            
         }
 
-        .input-overlay {
+        #search {
             position: absolute;
             top:10px;       /* ভিডিওর উপরে কতটুকু হবে */
             left: 10px;              /* বাম দিক থেকে দূরত্ব */
@@ -33,16 +33,11 @@
             border: 1px solid white;
             border-radius: 5px;
             z-index:5px;
-            width:500px;
+            width:500px; 
             height:30px;
-           
+            color:white; font-size:20px;
         }
-        .have{
-            position: absolute;
-            color:white;
-            top:0;
-            left:20px;
-        }
+       
         .box{
     width:200px;height:180px;border-radius:10px; border:1px solid rgb(212, 211, 211) ;
      text-align: center;box-shadow:15px;
@@ -78,9 +73,8 @@
 }
                   /*phon size */
  @media(max-width:600px) {
-   .input-overlay{
+   #search{
     width:42%;
-   
      border: 1px solid white;
    }
    .box{
@@ -93,6 +87,10 @@
    .iconslider::-webkit-scrollbar{
     display:none;
 }
+
+ .slide{
+    width:100%;
+ }
 }
  #list{
     margin-top:25px;
@@ -128,7 +126,7 @@
 }
 #boxcred{
     background:white;
-    z-index:400px;
+    z-index:400;
     width:200px;
 }
     </style>
@@ -153,28 +151,27 @@
         </video>
 
         <!-- ভিডিওর উপর Input -->
-        <input class="input-overlay" type="text" placeholder="">
-        <p class="have">Search here</p>
+        <input id="search" type="text" placeholder="Search"  onkeyup="searchProduct()">
     </div>
 <div class="fullbox" style="max-width:1320px; margin:auto;display: flex;flex-wrap: wrap;gap:10px;margin-top:10px;">
-    <div class="box" onclick="''"><h2>Sport</h2><P>imports</P><i class="fa-brands fa-codepen" style="font-size:30px;"></i></div>
-    <div class="box"><h2>Apps </h2><P>Development</P> <i class="fa-brands fa-app-store" style="font-size:30px;"></i></div>
-    <div class="box"><h2>Personer</h2><P>Assistand</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i></div>
-    <div class="box"><h2>Video &</h2><P>Animation</P><i class="fa-solid fa-person-running" style="font-size:30px;"></i> </div>
-    <div class="box"><h2>Business</h2><P>Growth</P><i class="fa-solid fa-arrow-trend-up" style="font-size:30px;"></i> </div>
-    <div class="box"><h2>Business</h2><P>Mengment</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i> </div>
+    <div class="box" onclick="''"  data-name="sport"><h2>Sport</h2><P>imports</P><i class="fa-brands fa-codepen" style="font-size:30px;"></i></div>
+    <div class="box" data-name="apps"><h2>Apps </h2><P>Development</P> <i class="fa-brands fa-app-store" style="font-size:30px;"></i></div>
+    <div class="box" data-name=""><h2>Personer</h2><P>Assistand</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i></div>
+    <div class="box" data-name=""><h2>Video &</h2><P>Animation</P><i class="fa-solid fa-person-running" style="font-size:30px;"></i> </div>
+    <div class="box" data-name=""><h2>Business</h2><P>Growth</P><i class="fa-solid fa-arrow-trend-up" style="font-size:30px;"></i> </div>
+    <div class="box" data-name=""><h2>Business</h2><P>Mengment</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i> </div>
 </div><br>
 <h1 style="text-align: center;">Popular Services</h1>
 <div class="iconslider">
-    <div class="box2" onclick="window.location.href='test.html'"><p>Website <br> Development</p> <img src="web.jpg" id="im1"> </div>
-    <div class="box2" onclick="window.location.href='App.html'"><p>App <br>Development</p><img src="app.png" id="im1"></div>
-    <div class="box2" onclick="window.location.href=''"><p>Graphics & <br> Design</p><img src="gragic.png" id="im1"></div>
-    <div class="box2" onclick="window.location.href=''"><p>Logo &<br>Design</p><img src="logo.png" id="im1"> </div>
-    <div class="box2" onclick="window.location.href=''"><p>Digital <br>Marketing</p><img src="dm.jpg" id="im1"></div>
-    <div class="box2" onclick="window.location.href=''"><p>Social Media <br>Marketing</p><img src="Social.jpg" id="im1"></div>
-    <div class="box2" onclick="window.location.href=''"><p><br>Dropshipping</p><img src="Drop.jpg" id="im1"></div>
+    <div class="box2" onclick="window.location.href='test.html'" data-name="Website"><p>Website <br> Development</p> <img src="web.jpg" id="im1"> </div>
+    <div class="box2" onclick="window.location.href='App.html'" data-name="App"><p>App <br>Development</p><img src="app.png" id="im1"></div>
+    <div class="box2" onclick="window.location.href=''" data-name="Graphics"><p>Graphics & <br> Design</p><img src="gragic.png" id="im1"></div>
+    <div class="box2" onclick="window.location.href=''" data-name=""><p>Logo &<br>Design</p><img src="logo.png" id="im1"> </div>
+    <div class="box2" onclick="window.location.href=''" data-name=""><p>Digital <br>Marketing</p><img src="dm.jpg" id="im1"></div>
+    <div class="box2" onclick="window.location.href=''" data-name=""><p>Social Media <br>Marketing</p><img src="Social.jpg" id="im1"></div>
+    <div class="box2" onclick="window.location.href='drop.html'" data-name=""><p><br>Dropshipping</p><img src="Drop.jpg" id="im1"></div>
 </div><br>
-<div class="foter">
+<div class="foter" onclick="window.location.href='drop.html'">
 <div class="inbox1" style="margin-top:10px; ">
     <img src="bag.jpg" class="slide">
     <img src="fullpackej.jpg" class="slide">
@@ -183,7 +180,6 @@
 <div class="inbox2" style="width:500px;text-align: center;"><h1 style="color: aliceblue;">Welcome to Dropshipping Life</h1><hr> <h3 style="color: aliceblue;"> Best Product Ideas (High Selling) Start your journey with products that can change your income and your life.</h3> </div>
 </div><br><br>
 <div class="sesh">
-   
    <div style="display: flex; text-align: center;justify-content: center;"><h2 >Our-Solution <h5 style="margin-left:12px;margin-top:28px;">International Ltd.2026 </h5></h2></div>
    <i class="fa-brands fa-facebook" style="font-size:26px; margin-top:20px; margin-left:40px;"></i>
    <i class="fa-brands fa-instagram" style="font-size:26px;  margin-top:20px;"></i>
@@ -218,6 +214,23 @@ function demo(){
 }
 function boxclose(){
     document.getElementById("boxopen").style.display = "none";
+}
+
+function searchProduct(){
+  let input = document.getElementById("search").value.toLowerCase();
+  let container = document.querySelector(".fullbox");
+  let products = document.querySelectorAll(".box");
+
+  products.forEach(product => {
+    let text = product.innerText.toLowerCase();
+
+    if(text.includes(input)){
+      product.style.display = "block";
+      container.prepend(product); // 👈 উপরে নিয়ে আসবে
+    }else{
+      product.style.display = "none";
+    }
+  });
 }
 </script>
 </body>

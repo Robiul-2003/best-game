@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dropshipping</title>
+</head>
+<style>
+  .product{
+    width:200px;
+    height:280px;border:1px solid rgb(196, 192, 192);
+  }
+  p{
+    font-size:21px;
+    font-weight: 600;margin-left:10px;
+  }
+  span{
+    font-size:18px;
+    font-weight:550;
+  }
+  #search{
+    margin: auto;
+    width:600px;
+    height:30px;
+  }
+ #boxopen{
+   display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+}
+#boxopen1{
+   display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  z-index:9999;
+  justify-content:center;
+  align-items:center;
+}
+#boxcred{
+  width:100%;
+    height:100%;
+     overflow:auto;
+    background:white;
+    z-index:400;
+}
+#spa{
+  margin-left:90%;
+  font-size:25px; color:red;
+}
+.main-img{
+  max-width:700px;margin: auto;
+  height:500px;border:1px solid rgb(207, 201, 201);
+}
+.bigImg{
+  width:100%; text-align: center;justify-content: center;align-items: center;height:500px;
+}
+.thumbs{
+  margin: auto;margin-top:10px;
+  max-width:500px; display: flex;gap:5px;
+}
+.small{
+  width:23%; border:1px solid black;
+}
+.Cbtn{
+    margin:auto;
+    width:100%;margin: auto;
+    height:35px;color:white;font-size:18px;
+    background:black;border-radius:5px;border:none;
+  }
+  @media(max-width:600px){
+    .product{
+        width:48%;
+    }
+    #search{
+        width:70%;
+    }
+    .bigImg{
+         height:400px;
+    }
+    .main-img{
+       height:400px;
+    }
+  }
+</style>
+<body>
+    <div style="max-width:1200px;display: flex; margin: auto;"><h1 onclick="window.location.href='index.html'">Drop</h1> <input id="search" type="text" placeholder="search product" onkeyup="searchProduct()"> </div>
+<div class="products-container" style="margin: auto; max-width:1200px; display: flex; flex-wrap: wrap;gap:8px;">
+  <div class="product" data-name="one" onclick="demo()"><img src="bag.jpg" style="width:100%;height:200px;"><p>One <br> <span>hello best product</span></p></div>
+  <div class="product" data-name="Two" onclick="demo1()"><img src="bag.jpg" style="width:100%;height:200px;"> <p>Two <br> <span>hello best product</span></p></div>
+  <div class="product" data-name="three" onclick="demo2()"><img src="bag.jpg" style="width:100%;height:200px;"> <p>Three <br> <span>hello best product</span></p> </div>
+  <div class="product" data-name="Four" onclick="demo3()"><img src="bag.jpg" style="width:100%;height:200px;"><p>Four <br> <span>hello best product</span></p> </div>
+  <div class="product" data-name="Five" onclick="demo4()"><img src="bag.jpg" style="width:100%;height:200px;"> <p>Five<br> <span>hello best product</span></p> </div>
+  <div class="product" data-name="Six"  onclick="demo5()"><img src="bag.jpg" style="width:100%;height:200px;"><p>Six <br> <span>hello best product</span></p> </div>
+  <div class="product" data-name="Saven"  onclick="demo6()"><img src="bag.jpg" style="width:100%;height:200px;"><p>Saven <br> <span>hello best product</span></p> </div>
+  <div class="product" data-name="Eight"  onclick="demo7()"><img src="bag.jpg" style="width:100%;height:200px;"><p>Eight<br> <span>hello best product</span></p> </div>
+  <div class="product" data-name="Nine"  onclick="demo8()"><img src="bag.jpg" style="width:100%;height:200px;"><p>Nine <br> <span>hello best product</span></p> </div>
+  <div class="product" data-name="Ten"  onclick="demo9()"><img src="bag.jpg" style="width:100%;height:200px;"><p>Ten<br> <span>hello best product</span></p> </div>
+  <div class="product" data-name="Elevent"  onclick="demo10()"><img src="bag.jpg" style="width:100%;height:200px;"><p>Elevent <br> <span>hello best product</span></p> </div>
+    </div>
+<div id="boxopen">
+    <div id="boxcred"><br><br>
+        <span onclick="boxclose()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="app.png">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box1-->
+<div id="boxopen1">
+    <div id="boxcred">
+        <span onclick="boxclose1()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="web.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box2-->
+<div id="boxopen2" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+    <div id="boxcred">
+        <span onclick="boxclose2()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="Social.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box3-->
+<div id="boxopen3" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+    <div id="boxcred">
+        <span onclick="boxclose3()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="logo.png">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box4-->
+<div id="boxopen4" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+    <div id="boxcred">
+        <span onclick="boxclose4()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="web.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box5-->
+<div id="boxopen5" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+    <div id="boxcred">
+        <span onclick="boxclose5()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="Social.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box6-->
+<div id="boxopen6" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+    <div id="boxcred">
+        <span onclick="boxclose6()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="Social.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box7-->
+<div id="boxopen7" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+    <div id="boxcred">
+        <span onclick="boxclose7()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="Social.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box8-->
+<div id="boxopen8" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+    <div id="boxcred">
+        <span onclick="boxclose8()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="Social.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box9-->
+<div id="boxopen9" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+    <div id="boxcred">
+        <span onclick="boxclose9()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="Social.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<!--box10-->
+<div id="boxopen10" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
+    <div id="boxcred">
+        <span onclick="boxclose10()" id="spa">X</span><br><br>
+         <div class="show">
+         <div class="main-img">
+          <img class="bigImg" src="Social.jpg">
+         </div>
+          <div class="thumbs">
+            <img src="Social.jpg" onclick="changeImg(this)" class="small">
+            <img src="web.jpg" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+            <img src="logo.png" onclick="changeImg(this)" class="small">
+         </div>
+        </div>
+        <div style="max-width:700px;margin: auto;">
+          <h1>Robiul</h1>
+        <h3>  Mollitia ad. Quisquam quod praesentium iure aut qui aliquam modi animi?</h3>
+        <div style="display: flex;text-align: center;">
+          <h4 style="width:110px;margin: auto;">pieces 1 - 50  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 51 - 100  <br><br>  500 TK</h4>
+        <h4 style="width:110px;margin: auto;">pieces 101 - 200  <br><br>  500 TK</h4>
+        </div><br><br>
+        <button onclick="" class="Cbtn">Contact</button>
+        <br><br><br>
+        </div>
+    </div>
+</div>
+<script>
+  //search box
+function searchProduct(){
+  let input = document.getElementById("search").value.toLowerCase();
+  let products = document.querySelectorAll(".product");
+
+  products.forEach(product => {
+    let text = product.innerText.toLowerCase();
+
+    if(text.includes(input)){
+      product.style.display = "block";
+    }else{
+      product.style.display = "none";
+    }
+  });
+}
+// img 
+ function changeImg(smallImg){
+     let parent = smallImg.closest(".show");
+     let big = parent.querySelector(".bigImg");
+     big.src = smallImg.src;
+    }
+
+
+function demo(){
+    document.getElementById("boxopen").style.display = "flex";
+}
+function boxclose(){
+    document.getElementById("boxopen").style.display = "none";
+}
+
+function demo1(){
+    document.getElementById("boxopen1").style.display = "flex";
+}
+function boxclose1(){
+    document.getElementById("boxopen1").style.display = "none";
+}
+
+function demo2(){
+    document.getElementById("boxopen2").style.display = "flex";
+}
+function boxclose2(){
+    document.getElementById("boxopen2").style.display = "none";
+}
+function demo3(){
+    document.getElementById("boxopen3").style.display = "flex";
+}
+function boxclose3(){
+    document.getElementById("boxopen3").style.display = "none";
+}
+function demo4(){
+    document.getElementById("boxopen4").style.display = "flex";
+}
+function boxclose4(){
+    document.getElementById("boxopen4").style.display = "none";
+}
+function demo5(){
+    document.getElementById("boxopen5").style.display = "flex";
+}
+function boxclose5(){
+    document.getElementById("boxopen5").style.display = "none";
+}
+function demo6(){
+    document.getElementById("boxopen6").style.display = "flex";
+}
+function boxclose6(){
+    document.getElementById("boxopen6").style.display = "none";
+}
+function demo7(){
+    document.getElementById("boxopen7").style.display = "flex";
+}
+function boxclose7(){
+    document.getElementById("boxopen7").style.display = "none";
+}
+
+function demo8(){
+    document.getElementById("boxopen8").style.display = "flex";
+}
+function boxclose8(){
+    document.getElementById("boxopen8").style.display = "none";
+}
+
+function demo9(){
+    document.getElementById("boxopen9").style.display = "flex";
+}
+function boxclose9(){
+    document.getElementById("boxopen9").style.display = "none";
+}
+
+function demo10(){
+    document.getElementById("boxopen10").style.display = "flex";
+}
+function boxclose10(){
+    document.getElementById("boxopen10").style.display = "none";
+}
+  
+</script>
+
+</body>
+</html>
