@@ -20,7 +20,7 @@
             width:100%;
             border-radius:10px;
         }
-        #search {
+        #searchbox {
             position: absolute;
             top:10px;       /* ভিডিওর উপরে কতটুকু হবে */
             left: 10px;              /* বাম দিক থেকে দূরত্ব */
@@ -60,17 +60,11 @@
      display:flex;
      margin-top:10px;
      gap:10px;
-    scroll-snap-type:x mandatory; 
      overflow-x:auto;
-     scroll-behavior: smooth;
 }
-
-   .iconslider::-webkit-scrollbar{
-    display:none;
-}
-                  /*phon size */
+           /*phon size */
  @media(max-width:600px) {
-   #search{
+   #searchbox{
     width:40%;
     height:20px;
      border: 1px solid white;
@@ -79,9 +73,7 @@
     width:47%;height:150px;border-radius:10px;
     background:white;gap:10px; text-align: center;box-shadow:20px;
    }
-  .iconslider{
-   scroll-behavior: smooth;
-  }
+  
 
 
  .slide{
@@ -150,26 +142,26 @@ width:70px;height:40px;border-radius:5px;margin-top:20px;font-size:18px;
             <source src="vedio.mp4">
         </video>
         <!-- ভিডিওর উপর Input -->
-        <input id="search" type="text" placeholder="Search"  onkeyup="searchProduct()">
+        <input id="searchbox" type="text" placeholder="Search" onkeyup="searchProduct()">
     </div>
 <div class="fullbox" style="max-width:1320px; margin:auto;display: flex;flex-wrap: wrap;gap:10px;margin-top:10px;">
     <div class="box" onclick="window.location.href='Import.html'"  data-name="sport"><h2>Import </h2><br> <i class="fa-brands fa-codepen" style="font-size:33px;"></i></div>
-    <div class="box" onclick="window.location.href='salesman.html'"  data-name="apps"><h2>Sales</h2><P>man</P> <i class="fa-brands fa-app-store" style="font-size:30px;"></i></div>
-    <div class="box" onclick="window.location.href='personer.html'" data-name=""><h2>Personer</h2><P>Assistand</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i></div>
-    <div class="box" onclick="window.location.href='vedioAnimation.html'" data-name=""><h2>Video &</h2><P>Animation</P><i class="fa-solid fa-person-running" style="font-size:30px;"></i> </div>
-    <div class="box" onclick="window.location.href='BGrowth.html'" data-name=""><h2>Business</h2><P>Growth</P><i class="fa-solid fa-arrow-trend-up" style="font-size:30px;"></i> </div>
-    <div class="box" onclick="window.location.href='BM.html'" data-name=""><h2>Business</h2><P>Managment</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i> </div>
-</div><br>
-<h1 style="text-align: center;">Popular Services</h1>
+    <div class="box" onclick="window.location.href='salesman.html'"  data-name="Salesman"><h2>Sales</h2><P>man</P> <i class="fa-brands fa-app-store" style="font-size:30px;"></i></div>
+    <div class="box" onclick="window.location.href='personer.html'" data-name="PersonerAssistand"><h2>Personer</h2><P>Assistand</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i></div>
+    <div class="box" onclick="window.location.href='vedioAnimation.html'" data-name="Video & Animation"><h2>Video &</h2><P>Animation</P><i class="fa-solid fa-person-running" style="font-size:30px;"></i> </div>
+    <div class="box" onclick="window.location.href='BGrowth.html'" data-name="BusinessGrowth"><h2>Business</h2><P>Growth</P><i class="fa-solid fa-arrow-trend-up" style="font-size:30px;"></i> </div>
+    <div class="box" onclick="window.location.href='BM.html'" data-name="BusinessManagment"><h2>Business</h2><P>Managment</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i> </div>
+
+<h1  style="margin: auto;">Popular Services</h1>
 <div class="iconslider">
     <div class="box2" onclick="window.location.href='test.html'" data-name="Website"><p>Website <br> Development</p> <img src="web.jpg" id="im1"> </div>
     <div class="box2" onclick="window.location.href='App.html'" data-name="App"><p>App <br>Development</p><img src="app.png" id="im1"></div>
     <div class="box2" onclick="window.location.href='grafic.html'" data-name="Graphics"><p>Graphics & <br> Design</p><img src="gragic.png" id="im1"></div>
-    <div class="box2" onclick="window.location.href='logo.html'" data-name=""><p>Logo &<br>Design</p><img src="logo.png" id="im1"> </div>
-    <div class="box2" onclick="window.location.href='DM.html'" data-name=""><p>Digital <br>Marketing</p><img src="dm.jpg" id="im1"></div>
-    <div class="box2" onclick="window.location.href='SMM.html'" data-name=""><p>Social Media <br>Marketing</p><img src="Social.jpg" id="im1"></div>
-    <div class="box2" onclick="window.location.href='drop.html'" data-name=""><p><br>Dropshipping</p><img src="Drop.jpg" id="im1"></div>
-</div><br>
+    <div class="box2" onclick="window.location.href='logo.html'" data-name="Logo"><p>Logo &<br>Design</p><img src="logo.png" id="im1"> </div>
+    <div class="box2" onclick="window.location.href='DM.html'" data-name="Digital"><p>Digital <br>Marketing</p><img src="dm.jpg" id="im1"></div>
+    <div class="box2" onclick="window.location.href='SMM.html'" data-name="Social Media"><p>Social Media <br>Marketing</p><img src="Social.jpg" id="im1"></div>
+    <div class="box2" onclick="window.location.href='drop.html'" data-name="Dropshipping"><p><br>Dropshipping</p><img src="Drop.jpg" id="im1"></div>
+</div></div><br>
 <div class="foter" onclick="window.location.href='drop.html'">
 <div class="inbox1" style="margin-top:10px; ">
     <img src="bag.jpg" class="slide">
@@ -186,6 +178,8 @@ width:70px;height:40px;border-radius:5px;margin-top:20px;font-size:18px;
    <i class="fa-brands fa-tiktok" style="font-size:26px;  margin-top:20px;" onclick="window.location.href='https://vm.tiktok.com/ZS9LxFF6uysKa-I1Uru/'"></i>
 </div>
 <script>
+
+    //slider img
     let index = 0;
 showSlide();
 
@@ -207,12 +201,31 @@ function showSlide() {
   setTimeout(showSlide, 2000); // 2 second পর পর change হবে
 }
 
-
+ //click list icon
 function demo(){
     document.getElementById("boxopen").style.display = "flex";
 }
 function boxclose(){
     document.getElementById("boxopen").style.display = "none";
+}
+
+
+
+// search product 
+      function searchProduct(){
+    let input = document.getElementById("searchbox").value.toLowerCase();
+    let products = document.querySelectorAll(".box, .box2");
+
+    products.forEach(product=>{
+        let text = product.innerText.toLowerCase();
+
+        if(text.includes(input)){
+            product.style.display = "block";
+        }else{
+            product.style.display = "none";
+        }
+    });
+    
 }
 
 </script>
