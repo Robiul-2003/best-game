@@ -6,9 +6,57 @@
     <title>Import</title>
 </head>
 <style>
+    .box{
+      display: flex;
+      width:1200px;border:1px solid rgb(235, 229, 229);margin:auto; box-shadow:1px 0px 1px 0px 0px;
+    }
+    .imgbig{
+        width:100%;
+        width:500px;
+    }
+    .plag{
+        margin-top:20px;
+       margin-left:23%;
+        max-width:1000px;border:1px solid rgb(235,229,229);
+    }
+    #btn{
+        width:500px;height:50px;margin-left:35%;
+        background:black;color:white;font-size:20px;border-radius:5px;
+    }
+    span{
+        font-size:20px;
+    }
+  @media(max-width:500px){
+    .box{
+        display: flex;
+        width:100%;
+         flex-direction: column;
+    }
+    .imgbig{
+        width:100%;
+        order:-1;
+    }
+    .plag{
+        width:100%;
+       margin-left:0;
+    }
+    #btn{
+        width:80%;
+        height:40px;
+        margin-left:10%;
+    }
+  }
 </style>
 <body>
-    <h1 onclick="window.location.href='index.html'">Chinta</h1>
-
+    <h1 onclick="window.location.href='index.html'">Chinta.<span>com</span></h1>
+    <div class="box">
+   <h2 style="text-align: center;font-weight: 900;font-size:30px;">Best Global Import and Export Data Provider
+<p style="font-size:19px;font-weight:300; text-align: center;">Looking to grow your international import-export trade business? Access verified global import and export data to discover authentic buyers and sellers from over 200+ countries. Our platform delivers comprehensive customs shipment records, including detailed shipment records insights, and helps you connect with real trading partners through a world-class trade intelligence service.
+ such as company names, trade volumes, HSN Code List, product categories, shipment values, </p></h2>
+<img src="Add a heading.png" class="imgbig">
+    </div>   
+    <img src="plag.png" class="plag" onclick="window.location.href=''">
+    <br><br><br><br>
+    <button onclick="window.location.href=''" id="btn">Contact</button>
 </body>
 </html>
