@@ -80,6 +80,9 @@
  .footer{
   display:none !important;
  }
+ h1{
+    margin-left:0px !important;
+ }
 }
  #list{
     margin-top:25px;
@@ -131,23 +134,25 @@ width:70px;height:40px;border-radius:5px;margin-top:20px;font-size:18px;
    border:px solid red;
    cursor: pointer;
 }
-
+h1{
+    margin-left:100px;
+}
     </style>
 </head>
 
 <body>
  <div class="header" style="max-width:1500px;height:80px;overflow: hidden;display: flex;justify-content:space-between;margin:auto;">
-     <i class="fa-solid fa-list" onclick="demo()" id="list"></i>
-<h1>Chinta</h1>
+    <!--<i class="fa-solid fa-list" onclick="demo()" id="list"></i>-->  
+<h1 onclick="window.location.href='index.html'">Chinta.<span style="font-size:18px;">com</span></h1>
 <button id="login" onclick="window.location.href='login.html'">login</button>
  </div><br>
- <div id="boxopen">
+ <!--<div id="boxopen">
  <div id="boxcred">
     <div onclick="boxclose()" style="font-size:30px;margin-left:80%;">X</div>
     <p>Chat</p><hr>
     <p>Dropshipping</p><hr>
  </div>
- </div>
+ </div>-->
     <div class="video-container">
         <video autoplay muted playsinline loop>
             <source src="vedio.mp4">
