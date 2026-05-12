@@ -3,16 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Chinta.com</title>
-     <link rel="icon" type="img/png" href="icon-removebg-preview.png">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Adarsha Agent</title>
+     <link rel="icon" type="img/png" href="logo.png">
     <style>
-          
         body{
-            background:rgb(247, 247, 247);
+            background:white;
+        }
+        .header{
+           max-width:1300px;height:80px;overflow: hidden;display: flex;margin:auto;background:white;border:px solid red;
         }
         .video-container {
-            position: relative;
+            border:px solid red;
             max-width:1200px;
             margin: auto;
             border-radius:10px;
@@ -21,25 +26,31 @@
             width:100%;
             border-radius:10px;
         }
+        #searchicon{
+            position:relative;margin-left:280px;
+            top:30px;font-size:20px;
+        }
+        .searchhead{
+          margin: auto;width:325px;height:80px;border:px solid black;
+        }
         #searchbox {
             position: absolute;
-            top:10px;       /* ভিডিওর উপরে কতটুকু হবে */
-            left: 10px;              /* বাম দিক থেকে দূরত্ব */
+            top:25px;     
             background:none;
             padding: 5px;
-            border: 1px solid white;
+            border: 2px solid black;
             border-radius: 5px;
             z-index:5px;
-            width:500px; 
-            height:30px;
-            color:white; font-size:20px;
+           width:300px;  font-family: 'Poppins', sans-serif;
+            height:30px;color:black;
+           font-size:20px;
         }
         .box{
     width:200px;height:180px;border-radius:10px; border:1px solid rgb(212, 211, 211) ;
      text-align: center;box-shadow:15px;
    }
    p{
-    font-size:18px;font-weight:500; 
+    font-size:18px;font-weight:500;  font-family: 'Poppins', sans-serif;
    }
    .box2{
        flex:0 0 auto; color:white;
@@ -63,13 +74,48 @@
      gap:10px;
      overflow-x:auto;
 }
+#opensearchbox{
+      display:none;
+   position:fixed;
+  top:85px;
+  margin: auto;
+  width:310px;
+  height:100%;
+  z-index:9999;
+   
+}
+#opensearc{
+overflow-y: scroll; white-space: nowrap;
+  border:px solid rgb(146, 31, 31);
+  width:100%;
+  height:30%;
+}
+/* scrollbar hide */
+#opensearc::-webkit-scrollbar {
+  display: none;
+}
+#mouseleave{
+    
+  width:100%;
+  height:25%;
+}
+.searchlist{
+    font-size:20px;color:white;margin-left:5px;cursor: pointer;
+}
+.searchlist:hover{
+  color:rgb(227, 219, 219);
+}
+#tlink{
+  margin-left:15px;cursor: pointer;
+}
+#tlink:hover{
+  color:rgb(160, 148, 148);
+}
            /*phon size */
- @media(max-width:600px) {
-   #searchbox{
-    width:40%;
-    height:20px;
-     border: 1px solid white;
-   }
+ @media(max-width:600px){
+   .header{
+           max-width:1300px;height:60px;overflow: hidden;display: flex;margin:auto;background:white;
+        }
    .box{
     width:47%;height:150px;border-radius:10px;
     background:white;gap:10px; text-align: center;box-shadow:20px;
@@ -83,13 +129,55 @@
  h1{
     margin-left:0px !important;
  }
+.name{
+  width:250px;
+  font-size:18px !important;font-weight:bolder;
 }
+#searchicon{
+  top:20px;
+  margin-left:70%;
+}
+ #searchbox {
+   display:none;
+ }
+ #list{
+   position: relative;
+   bottom:8px;
+
+ }   
+ #boxopen{
+  display:none;
+   position:fixed;
+  top:0 !important;
+  left:0 !important;
+  width:100% !important;border:1px solid black;
+  height:100%;
+  background:rgba(0,0,0,0.5);
+  z-index:9999;
+}
+#boxcred{
+    background:white;
+    z-index:400;
+    width:100% !important;
+    
+}
+#tbox{
+   background:white;
+    z-index:400;
+    width:100%;height:100%;
+}
+a{
+  color:red !important;font-size:25px;
+  margin-left:90%;text-decoration:none;
+}
+}
+/* phon size close */
  #list{
     margin-top:25px;
-    font-size:25px;
+    font-size:25px;margin-left:0%;
  }    
  .inbox1{
-    width:600px;border:px solid red;
+    width:600px;
  }
  .foter{
     display: flex;
@@ -109,9 +197,9 @@
 #boxopen{
   display:none;
    position:fixed;
-  top:100;
-  left:0;
-  width:100%;
+  top:0;
+  left:82%;
+  width:18%;border:px solid black;
   height:100%;
   background:rgba(0,0,0,0.5);
   z-index:9999;
@@ -119,10 +207,13 @@
 #boxcred{
     background:white;
     z-index:400;
-    width:200px;
+    width:100%;
+    
 }
-#login{
-width:70px;height:40px;border-radius:5px;margin-top:20px;font-size:18px;
+#tbox{
+   background:white;
+    z-index:400;
+    width:100%;height:100%;
 }
 .footer{
     display: flex;
@@ -134,48 +225,82 @@ width:70px;height:40px;border-radius:5px;margin-top:20px;font-size:18px;
    border:px solid red;
    cursor: pointer;
 }
-h1{
-    margin-left:100px;
+.name{
+  margin-top:20px;
+  font-family: 'Poppins', sans-serif;
+  font-size:35px;font-weight:bolder;
+}
+a{
+ color:white;
 }
     </style>
 </head>
 <body>
- <div class="header" style="max-width:1500px;height:80px;overflow: hidden;display: flex;justify-content:space-between;margin:auto;">
-    <!--<i class="fa-solid fa-list" onclick="demo()" id="list"></i>-->  
-<h1 onclick="window.location.href='index.html'">Chinta.<span style="font-size:18px;">com</span></h1>
-<button id="login" onclick="window.location.href='login.html'">login</button>
- </div><br>
- <!--<div id="boxopen">
- <div id="boxcred">
-    <div onclick="boxclose()" style="font-size:30px;margin-left:80%;">X</div>
-    <p>Chat</p><hr>
-    <p>Dropshipping</p><hr>
+ <div class="header" onmouseleave='searchclose()'>
+   
+<div class="name" onclick="window.location.href='index.html'">Adarsha Agent</div>
+ <div class="searchhead">
+ <input id="searchbox" type="text" placeholder="Search for telent" onkeyup="searchProduct()" onmouseenter="opensearchtype()"><i class="fa-solid fa-magnifying-glass" onclick="" id="searchicon"></i>
+   <div id="opensearchbox">
+    <div id="opensearc"> <br>
+        <p class="searchlist" data-name="Importsport" onclick="window.location.href='Import.html'">              <i class="fa-solid fa-magnifying-glass"></i> Import Export</p>
+        <p class="searchlist" data-name="Salesman" onclick="window.location.href='salesman.html'">               <i class="fa-solid fa-magnifying-glass"></i> Sales man</p>
+        <p class="searchlist" data-name="PersonerAssistand" onclick="window.location.href='personer.html'">      <i class="fa-solid fa-magnifying-glass"></i> Personer Assistand</p>
+        <p class="searchlist" data-name="Video & Animation" onclick="window.location.href='vedioAnimation.html'"><i class="fa-solid fa-magnifying-glass"></i> Vedio & Animation </p>
+        <p class="searchlist" data-name="BusinessGrowth" onclick="window.location.href='BGrowth.html'">          <i class="fa-solid fa-magnifying-glass"></i> Business Growth</p>
+        <p class="searchlist" data-name="BusinessManagment" onclick="window.location.href='BM.html'">            <i class="fa-solid fa-magnifying-glass"></i> Business Managment</p>
+        <p class="searchlist" data-name="WebsiteDevelopment" onclick="window.location.href='test.html'">         <i class="fa-solid fa-magnifying-glass"></i> Website  Development</p>
+        <p class="searchlist" data-name="AppDevelopment" onclick="window.location.href='App.html'">              <i class="fa-solid fa-magnifying-glass"></i> App Development</p>
+        <p class="searchlist" data-name="GraphicsDesign" onclick="window.location.href='grafic.html'">           <i class="fa-solid fa-magnifying-glass"></i> Graphics &  Design</p>
+        <p class="searchlist" data-name="LogoDesign" onclick="window.location.href='logo.html'">                 <i class="fa-solid fa-magnifying-glass"></i> Logo & Design</p>
+        <p class="searchlist" data-name="Ads Run"  onclick="window.location.href='ads.html'">                    <i class="fa-solid fa-magnifying-glass"></i> Ads Run </p>
+        <p class="searchlist" data-name="Digital Marketing"  onclick="window.location.href='DM.html'">           <i class="fa-solid fa-magnifying-glass"></i> Digital Marketing </p>
+        <p class="searchlist" data-name="Social Media Marketin" onclick="window.location.href='SMM.html'">       <i class="fa-solid fa-magnifying-glass"></i> Social Media Marketing </p>
+        <p class="searchlist" data-name="Dropshipping" onclick="window.location.href='drop.html'">               <i class="fa-solid fa-magnifying-glass"></i> Dropshipping </p>
+
+        <p id="mouseleave" onmouseenter="opensearchtype()" >
+        </p>
+    </div>
+   </div>
  </div>
- </div>-->
+ <i class="fa-solid fa-list" onclick="demo()"  id="list"></i>
+ </div><br>
+ <div id="boxopen">
+ <div id="boxcred">
+  <div id="tbox" onmouseleave="boxclose()"><br><a href="index.html">X</a>
+   <h1 style="text-align: center;font-family: 'Poppins', sans-serif;">Adarsha Agent</h1><br>
+    <p id="tlink">Chat</p><hr>
+    <p id="tlink">Natifaction</p><hr>
+    <p id="tlink">Dropshipping</p><hr>
+    <p id="tlink" onclick="window.location.href='register.html'">Sign up</p><hr>
+    <p id="tlink" onclick="window.location.href='login.html'">Log in</p>
+  </div>
+ </div>
+ </div>
     <div class="video-container">
         <video autoplay muted playsinline loop>
             <source src="vedio.mp4">
         </video>
         <!-- ভিডিওর উপর Input -->
-        <input id="searchbox" type="text" placeholder="Search" onkeyup="searchProduct()">
+      
     </div>
 <div class="fullbox" style="max-width:1320px; margin:auto;display: flex;flex-wrap: wrap;gap:10px;margin-top:10px;">
-    <div class="box" onclick="window.location.href='Import.html'"  data-name="sport"><h2>Import </h2><p>Export</p> <i class="fa-brands fa-codepen" style="font-size:30px;"></i></div>
+    <div class="box" onclick="window.location.href='Import.html'"  data-name="Importsport"><h2>Import </h2><p>Export</p> <i class="fa-brands fa-codepen" style="font-size:30px;"></i></div>
     <div class="box" onclick="window.location.href='salesman.html'"  data-name="Salesman"><h2>Sales</h2><P>man</P> <i class="fa-brands fa-app-store" style="font-size:30px;"></i></div>
     <div class="box" onclick="window.location.href='personer.html'" data-name="PersonerAssistand"><h2>Personer</h2><P>Assistand</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i></div>
-    <div class="box" onclick="window.location.href='vedioAnimation.html'" data-name="Video & Animation"><h2>Video &</h2><P>Animation</P><i class="fa-solid fa-person-running" style="font-size:30px;"></i> </div>
+    <div class="box" onclick="window.location.href='vedioAnimation.html'" data-name="Video & Animation"><h2>Vedio &</h2><P>Animation</P><i class="fa-solid fa-person-running" style="font-size:30px;"></i> </div>
     <div class="box" onclick="window.location.href='BGrowth.html'" data-name="BusinessGrowth"><h2>Business</h2><P>Growth</P><i class="fa-solid fa-arrow-trend-up" style="font-size:30px;"></i> </div>
     <div class="box" onclick="window.location.href='BM.html'" data-name="BusinessManagment"><h2>Business</h2><P>Managment</P> <i class="fa-solid fa-handshake" style="font-size:30px;"></i> </div>
 
 <h1  style="margin: auto;">Popular Services</h1>
 <div class="iconslider">
-    <div class="box2" onclick="window.location.href='test.html'" data-name="Website"><p>Website <br> Development</p> <img src="web.jpg" id="im1"> </div>
-    <div class="box2" onclick="window.location.href='App.html'" data-name="App"><p>App <br>Development</p><img src="app.png" id="im1"></div>
-    <div class="box2" onclick="window.location.href='grafic.html'" data-name="Graphics"><p>Graphics & <br> Design</p><img src="gragic.png" id="im1"></div>
-    <div class="box2" onclick="window.location.href='logo.html'" data-name="Logo"><p>Logo &<br>Design</p><img src="logo.png" id="im1"> </div>
-      <div class="box2" onclick="window.location.href=''" data-name="Website"><p>Ads<br>Run</p> <img src="ads.jpg" id="im1"> </div>
-    <div class="box2" onclick="window.location.href='DM.html'" data-name="Digital"><p>Digital <br>Marketing</p><img src="dm.jpg" id="im1"></div>
-    <div class="box2" onclick="window.location.href='SMM.html'" data-name="Social Media"><p>Social Media <br>Marketing</p><img src="Social.jpg" id="im1"></div>
+    <div class="box2" onclick="window.location.href='test.html'" data-name="WebsiteDevelopment"><p>Website <br> Development</p> <img src="web.jpg" id="im1"> </div>
+    <div class="box2" onclick="window.location.href='App.html'" data-name="AppDevelopment"><p>App <br>Development</p><img src="app.png" id="im1"></div>
+    <div class="box2" onclick="window.location.href='grafic.html'" data-name="GraphicsDesign"><p>Graphics & <br> Design</p><img src="gragic.png" id="im1"></div>
+    <div class="box2" onclick="window.location.href='logo.html'" data-name="LogoDesign"><p>Logo &<br>Design</p><img src="logo.png" id="im1"> </div>
+      <div class="box2" onclick="window.location.href='ads.html'" data-name="Ads Run"><p>Ads<br>Run</p> <img src="ads.jpg" id="im1"> </div>
+    <div class="box2" onclick="window.location.href='DM.html'" data-name="Digital Marketing"><p>Digital <br>Marketing</p><img src="dm.jpg" id="im1"></div>
+    <div class="box2" onclick="window.location.href='SMM.html'" data-name="Social Media Marketin"><p>Social Media <br>Marketing</p><img src="Social.jpg" id="im1"></div>
     <div class="box2" onclick="window.location.href='drop.html'" data-name="Dropshipping"><p><br>Dropshipping</p><img src="Drop.jpg" id="im1"></div>
 </div></div><br>
 <div class="foter" onclick="window.location.href='drop.html'">
@@ -184,10 +309,10 @@ h1{
     <img src="fullpackej.jpg" class="slide">
     <img src="packej.jpg" class="slide">
 </div>
-<div class="inbox2" style="width:500px;text-align: center;"><h1 style="color: aliceblue;">Welcome To Dropshipping Life</h1><hr> <h3 style="color: aliceblue;"> Best Product Ideas (High Selling) Start your journey with products that can change your income and your life.</h3> </div>
+<div class="inbox2" style="width:500px;text-align: center;"><h1 style="color: aliceblue; font-family: 'Poppins', sans-serif;">Welcome To Dropshipping Life</h1><hr> <h3 style="color: aliceblue; font-family: 'Poppins', sans-serif;font-weight: 500;"> Best Product Ideas (High Selling) Start your journey with products that can change your income and your life.</h3> </div>
 </div><br><br>
 <div class="sesh">
-   <div style="display: flex; text-align: center;justify-content: center;"><h2 >Chinta <h5 style="margin-left:5px;margin-top:28px;">International Ltd.2026 </h5></h2></div>
+   <div style="display: flex; text-align: center;justify-content: center;"><h2 >Adarsha Agent<h5 style="margin-left:5px;margin-top:28px;  font-family: 'Poppins', sans-serif;  font-family: 'Poppins', sans-serif;">International Ltd.2026 </h5></h2></div>
    <hr>
   
 </a>
@@ -259,25 +384,43 @@ function boxclose(){
     document.getElementById("boxopen").style.display = "none";
 }
 
-
-
-// search product 
-      function searchProduct(){
-    let input = document.getElementById("searchbox").value.toLowerCase();
-    let products = document.querySelectorAll(".box, .box2");
-
-    products.forEach(product=>{
-        let text = product.innerText.toLowerCase();
-
-        if(text.includes(input)){
-            product.style.display = "block";
-        }else{
-            product.style.display = "none";
-        }
-    });
-    
+function opensearchtype(){
+    document.getElementById("opensearchbox").style.display = "flex";
+}
+function searchclose(){
+    document.getElementById("opensearchbox").style.display = "none";
 }
 
+//search box
+function searchProduct() {
+  let input = document.getElementById("searchbox").value.toLowerCase();
+
+  // 🔹 BOX FILTER (.box + .box2)
+  let boxes = document.querySelectorAll(".box, .box2");
+
+  boxes.forEach(box => {
+    let name = box.getAttribute("data-name").toLowerCase();
+
+    if (name.includes(input)) {
+      box.style.display = "block";
+    } else {
+      box.style.display = "none";
+    }
+  });
+
+  // 🔹 SEARCH LIST FILTER (.searchlist)
+  let items = document.querySelectorAll(".searchlist");
+
+  items.forEach(item => {
+    let name = item.getAttribute("data-name").toLowerCase();
+
+    if (name.includes(input)) {
+      item.style.display = "flex";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
 </script>
 </body>
 </html>
