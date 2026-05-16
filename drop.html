@@ -111,10 +111,13 @@
       margin-left:5%;
       font-weight: 400;
     }
+    .name1{
+      font-size:23px;margin-left:0px;
+    }
   }
 </style>
 <body>
-    <div style="max-width:1200px;display: flex; margin: auto;"><h1 onclick="window.location.href='index.html'">Drop</h1> <input id="search" type="text" placeholder="search product" onkeyup="searchProduct()"> </div>
+    <div style="max-width:1200px;display: flex; margin: auto;"><h1 onclick="window.location.href='index.html'" class="name1">Drop</h1> <input id="search" type="text" placeholder="search product" onkeyup="searchProduct()"> </div>
 <div class="products-container" style="margin: auto; max-width:1200px; display: flex; flex-wrap: wrap;gap:8px;">
   <div class="product" data-name="one" onclick="demo()"><img src="bag.jpg" style="width:100%;height:200px;"><p>One <br> <span>hello best product</span></p></div>
   <div class="product" data-name="Two" onclick="demo1()"><img src="bag.jpg" style="width:100%;height:200px;"> <p>Two <br> <span>hello best product</span></p></div>

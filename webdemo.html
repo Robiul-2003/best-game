@@ -78,6 +78,9 @@
      #btn2{
       font-size:20px;margin-left:48%;
      }
+      .fa-angle-left{
+      font-size:24px;
+     }
                /*phon size */
  @media(max-width:800px){
      .headerone{
@@ -115,6 +118,9 @@
      #btn2{
       font-size:20px;margin-left:52%;
      }
+      .fa-angle-left{
+      font-size:24px;
+     }
  }
  @media(max-width:500px){
   .header{
@@ -126,8 +132,8 @@
 
     
       input{
-        width:95%;border-radius:10px;font-size:17px;top:6%;
-        height:40px;border:3px solid rgb(241, 235, 235);
+        width:98%;border-radius:10px;font-size:17px;top:6%;
+        height:40px;border:2px solid rgb(241, 235, 235);z-index:999;
      }
       .fa-magnifying-glass{
      display:none;
@@ -148,17 +154,20 @@
       #btn2{
       font-size:20px;
      }
+     .fa-angle-left{
+      font-size:24px;
+     }
  }
     </style>
 </head>
 <body>
     <div class="header">
-        <div class="headerone"><p class="name1" onclick="window.location.href='index.html'">Adarsha Agent</p><p class="discover">Discover The <br>Worlds Top Designers </p><p class="explore">Explore work from the most talented and accomplished<br> designers ready to take on your next project.</p>
+        <div class="headerone"><p class="name1" onclick="window.location.href='index.html'"><i class="fa-solid fa-angle-left"></i></p><p class="discover">Discover The <br>Worlds Top Designers </p><p class="explore">Explore work from the most talented and accomplished<br> designers ready to take on your next project.</p>
          <input type="text" id="search" name="designer_search" autocomplete="off" placeholder="What Type of designer do you need"   onclick="openin()"><i class="fa-solid fa-magnifying-glass"></i> </div>
          <div id="opensearch">
             <div id="boxsearch">
                <p onclick="closesearch()" class="close">X</p>
-               <p class="name">e-commers web</p>
+               <p class="name">E-commerce</p>
                <p class="name">vlog</p>
                <p class="name">News</p>
                <p class="name">Course</p>
@@ -168,8 +177,8 @@
     </div>
     <div class="fullbox">
       <div class="card" onclick="window.location.href='https://robiul-2003.github.io/Trinokabbo/'"><img src="trinokabbo.png" class="cardimg"><span style="display: flex;"><span id="btn1">E-commerce</span> <span id="btn2">Free</span></span> </div>
-      <div class="card" onclick="window.location.href='https://robiul-2003.github.io/web-developer/'"><img src="link1.png" class="cardimg"><span style="display: flex;"><span id="btn1">E-commerce</span> <span id="btn2">Free</span></span> </div>
-      <div class="card" onclcik="window.location.href='https://robiul-2003.github.io/robiul-pro/'"><img src="weblogo.png" class="cardimg"><span style="display: flex;"><span id="btn1">E-commerce</span> <span id="btn2">Free</span></span> </div>
+      <div class="card" onclick="window.location.href='https://robiul-2003.github.io/web-developer/'"><img src="link1.png" class="cardimg"><span style="display: flex;"><span id="btn1">Vlog</span> <span id="btn2">Free</span></span> </div>
+      <div class="card" onclcik="window.location.href='https://robiul-2003.github.io/robiul-pro/'"><img src="weblogo.png" class="cardimg"><span style="display: flex;"><span id="btn1">Webflow</span> <span id="btn2">Free</span></span> </div>
     </div>
 <script>
    function openin(){
