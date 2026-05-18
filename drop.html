@@ -9,8 +9,14 @@
 <style>
   .product{
     width:200px;
-   border:1px solid rgb(196, 192, 192);
+   border:1px solid rgb(196, 192, 192);border-radius:3px;
   }
+  .product{
+    transition:0.1s ease;
+  }
+  .product:hover{
+  transform: scale(1.1);
+}
   p{
     font-size:21px;
     font-weight: 600;margin-left:10px;
@@ -20,8 +26,8 @@
  }
   #search{
     margin: auto;
-    width:600px;
-    height:30px;
+    width:600px;border-radius:5px;font-size:18px;
+    height:30px;border:2px solid black;
   }
  #boxopen{
    display:none;
@@ -59,7 +65,7 @@
   font-size:25px; color:red;
 }
 .main-img{
-  max-width:700px;margin: auto;
+  max-width:700px;margin: auto;border-radius:3px 3px 0px 0px;
   height:500px;border:1px solid rgb(207, 201, 201);
 }
 .bigImg{
@@ -78,6 +84,7 @@
     height:35px;color:white;font-size:18px;
     background:black;border-radius:5px;border:none;
   }
+  
   @media(max-width:600px){
     .product{
         width:48%;
@@ -97,12 +104,12 @@
       margin-left:10%;
     }
     .thumbs{
-      width:310px;
+      width:270px;
     }
     .small{
       margin: auto;
-      width:33%;
-      height:100px;
+      width:80px;
+      height:80px;
     }
     h1{
       margin-left:5%;
