@@ -1,637 +1,353 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <title>Adarsha</title>
-     <link rel="icon" type="img/png" href="logo.png">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adarsha Online Shopping</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 <style>
-  .product{
-    width:200px;
-   border:1px solid rgb(196, 192, 192);border-radius:3px;
-  }
-  .product{
-    transition:0.1s ease;
-  }
-  .product:hover{
-  transform: scale(1.1);
+body{font-family:Arial;margin:0;padding:0}
+
+/* header */
+header{
+  background:#031f50; position: fixed;width:100%;top:0;
 }
-  p{
-    font-size:16px; ;font-family: 'Poppins', sans-serif;font-size:17px;margin-left:5px;
-  }
- 
-  #search{
-    margin: auto;
-    width:600px;border-radius:5px;font-size:18px;
-    height:30px;border:2px solid black;
-  }
- #boxopen{
+.header1{
+  width:1200px;margin: auto;display: flex;justify-content:space-between;color:white;
+}
+/* search */
+#search{
+  height:30px;margin-top:15px;
+  padding:6px;
+  width:600px;
+}
+.fa-list{
+  font-size:27px;margin-top:27px;
+}
+.fa-magnifying-glass{
    display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  z-index:9999;
-  justify-content:center;
-  align-items:center;
 }
-#boxopen1{
-   display:none;
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.5);
-  z-index:9999;
-  justify-content:center;
-  align-items:center;
-}
-#boxcred{
-  width:100%;
-    height:100%;
-     overflow:auto;
-    background:white;
-    z-index:400;
-}
-#spa{
-  margin-left:90%;
-  font-size:25px; color:red;
-}
-.main-img{
-  max-width:700px;margin: auto;border-radius:3px 3px 0px 0px;
-  height:500px;border:1px solid rgb(207, 201, 201);
-}
-.bigImg{
-  width:100%; text-align: center;justify-content: center;align-items: center;height:500px;
-}
-.thumbs{
-  margin: auto;margin-top:10px;
-  max-width:500px; display: flex;gap:5px;
-}
-.small{
-  width:23%; border:1px solid black;
-}
-.Cbtn{
-   
-    width:100%;
-    height:35px;color:white;font-size:18px;
-    background:black;border-radius:5px;border:none;
-  }
-  h2{
-    text-align:center;
-  }
-
-
-   h3{
-      margin-left:5%;font-family: 'Poppins', sans-serif;font-weight:500;
-    }
-    h4{
-      margin-left:2%; font-family: 'Poppins', sans-serif;font-weight:200;font-size:14px;
-     
-    }
-    .name1{
-      font-size:26px;margin-left:0px;font-family: 'Poppins', sans-serif;
-    }
-    .detils{
-      width:96%;margin: auto;
-      border:1px solid rgb(218, 213, 213);
-    }
-    .textdetils{
-      font-size:17px;text-align: center;font-weight: bold;font-family: 'Poppins', sans-serif;margin-top:15px;
-    }
-  @media(max-width:600px){
-    .product{
-        width:48%;
-        height: auto;
-    }
-    #search{
-        width:70%;
-    }
-    .bigImg{
-         height:400px;
-    }
-    .main-img{
-       height:400px;
-    }
-    .Cbtn{
-      width:80%;
-      margin-left:10%;
-    }
-    .thumbs{
-      width:270px;
-    }
-    .small{
-      margin: auto;
-      width:80px;
-      height:80px;
-    }
-    h3{
-      margin-left:5%;font-family: 'Poppins', sans-serif;font-weight:500;
-    }
-    h4{
-      margin-left:2%; font-family: 'Poppins', sans-serif;font-weight:200;font-size:14px;
-     
-    }
-    .name1{
-      font-size:25px;margin-left:0px;font-family: 'Poppins', sans-serif;
-    }
-    .detils{
-      width:96%;margin: auto;
-      border:1px solid rgb(218, 213, 213);
-    }
-    .textdetils{
-      font-size:17px;text-align: center;font-weight: bold;font-family: 'Poppins', sans-serif;margin-top:15px;
-    }
-  }
-</style>
-<body>
-    <div style="max-width:1200px;display: flex; margin: auto;"><h1 onclick="window.location.href='index.html'" class="name1">Adarsha</h1> <input id="search" type="text" placeholder="search product" onkeyup="searchProduct()"> </div>
-<div class="products-container" style="margin: auto; max-width:1200px; display: flex; flex-wrap: wrap;gap:8px;">
-
-
-  <div class="product" data-name="Adjustable Back Correction Strap Shoulder Brace Belt Straighten" onclick="demo()">                                                    <img src="belt.webp" style="width:100%;height:200px;"><p>Adjustable Back Correction Strap Shoulder Brace Belt Straighten</p></div>
-  <div class="product" data-name="RFL Best Buy Spark Water Bottle 550 ML - Assorted" onclick="demo1()">                                                                 <img src="bottol.jpg" style="width:100%;height:200px;"> <p>RFL Best Buy Spark Water Bottle 550 ML - Assorted</p></div>
-  <div class="product" data-name="8. 5 LCD Writing Tablet Drawing Pad Erasable E-writer Office Writing Board Digital Drawing Pad Doodle Board" onclick="demo2()">       <img src="lcd table1.jpg" style="width:100%;height:200px;"> <p>8. 5 LCD Writing Tablet Drawing Pad Erasable E-writer Office Writing Board Digital Drawing Pad Doodle Board</p> </div>
-  <div class="product" data-name="ti-shart" onclick="demo3()">                                                                                                          <img src="black-e348a8eb.webp" style="width:100%;height:200px;"><p>Budget Friendly & Most Demanding Man Ti-shart Jersey Fabric।</p> </div>
-  <div class="product" data-name="Luxury China Linen 2Pcs" onclick="demo4()">                                                                                           <img src="3pcy.png" style="width:100%;height:200px;"> <p>Luxury China Linen 2Pcs</p> </div>
-  <div class="product" data-name="ear"  onclick="demo5()">                                                                                                              <img src="two150.png" style="width:100%;height:200px;"><p> Budget Friendly & Most Demanding Ladies  Ear ring </p> </div>
-  <div class="product" data-name="ear ring"  onclick="demo6()">                                                                                                         <img src="three130.png" style="width:100%;height:200px;"><p>Budget Friendly & Most Demanding Ladies Ear ring </p> </div>
-  <div class="product" data-name="watch"  onclick="demo7()">                                                                                                            <img src="watch2.jpg" style="width:100%;height:200px;"><p>Budget Friendly & Most Demanding Ladies Watch. Imported from China </p> </div>
-  <div class="product" data-name="Multi-functional Cleaning Blackhead & Whitehead Remover"  onclick="demo8()">                                                          <img src="cleaner.png" style="width:100%;height:200px;"><p>Multi-functional Cleaning Blackhead & Whitehead Remover </p> </div>
-  <div class="product" data-name="Ten"  onclick="demo9()">                                                                                                              <img src="appleheadphon2.jpg" style="width:100%;height:200px;"><p>Special AirPods Pro 2nd Generation TWS Edition With High Base & Long Battery Wireless Bluetooth Earbuds</p> </div>
-  <div class="product" data-name="Regrsi RE-NY060 Wireless Neckband Long Battery Authentic Product"  onclick="demo10()">                                                <img src="200hheadphon1.webp" style="width:100%;height:200px;"><p>Regrsi RE-NY060 Wireless Neckband Long Battery Authentic Product</p> </div>
-    </div>
-<div id="boxopen">
-    <div id="boxcred"><br><br>
-        <span onclick="boxclose()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="belt.webp">
-         </div>
-          <div class="thumbs">
-            <img src="belt2.jpg" onclick="changeImg(this)" class="small">
-            <img src="best3.webp" onclick="changeImg(this)" class="small">
-            <img src="belt.webp" onclick="changeImg(this)" class="small">
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>Adjustable Back Correction Strap Shoulder Brace Belt Straighten</h3>
-          <h2>Code : 1010</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1-3  <br><br>  200 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 4-10  <br><br>  190 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 11-20  <br><br>  185 TK</h4>
-        </div><br><br>
-        <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-         <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4># Chest Size : S=15-26 inch, M=27-42 inch, L= above 43 inch<br># First time usable time 20 min -30 min <br>#【RELIEVE UPPER BACK & SH।OULDER PAIN】Posture Corrector Brace could relieve back, shoulder, neck pain effectively. Wear this Posture Corrector for 1~2 hours a day and feel great as you relieve upper back pain by achieve better clavicle support and posture brace! Our primate Posture Brace, aids in the treatment of back pain, scoliosis, Spondylolisthesis, and thoracic outlet syndrome posture support.  </h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box1-->
-<div id="boxopen1">
-    <div id="boxcred">
-        <span onclick="boxclose1()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="bottol.jpg">
-         </div>
-          <div class="thumbs">
-            <img src="bottol.jpg" onclick="changeImg(this)" class="small">
-            <img src="bottol.jpg" onclick="changeImg(this)" class="small">
-            <img src="bottol.jpg" onclick="changeImg(this)" class="small">
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>RFL Best Buy Spark Water Bottle 550 ML - Assorted</h3>
-        <h2> Code : 0011</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1 - 5  <br><br>  180 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 6 - 10  <br><br>  170 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 11 - 20  <br><br>  160 TK</h4>
-        </div><br><br>
-         <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-         <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4># Brand: ICY Water Bottle<br># Product type: Water Bottle<br># Capacity: 550 ml<br># Material: Polycarbonate<br># Color: Blue (As given picture).</h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box2-->
-<div id="boxopen2" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
-    <div id="boxcred">
-        <span onclick="boxclose2()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="lcd table2.jpg">
-         </div>
-          <div class="thumbs">
-            <img src="lcd table2.jpg" onclick="changeImg(this)" class="small">
-            <img src="lcd table3.jpg" onclick="changeImg(this)" class="small">
-            <img src="lcd table1.jpg" onclick="changeImg(this)" class="small">
-         
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>8.5 LCD Writing Tablet Drawing Pad, Erasable E-writer, Office Writing Board, Digital Drawing Pad, Doodle Board</h3>
-        <h2> Code : 5050</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1 - 5  <br><br>  185 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 6 - 10  <br><br>  180 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 11 - 20  <br><br>  170 TK</h4>
-        </div><br><br>
-        <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-         <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4># Product details of 10" LCD Writing Tablet Drawing Pad, Erasable E-writer, Office Writing Board, Digital Drawing Pad, Doodle Board,<br><br># The best gift tablet for kids and adults<br><br># An 8.5-inch drawing tablet is suitable for children and adults and can be used for note-taking, counting and language learning.<br># A writing tablet is an integral part of your gift list.</h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box3-->
-<div id="boxopen3" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
-    <div id="boxcred">
-        <span onclick="boxclose3()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="red.png">
-         </div>
-          <div class="thumbs">
-            <img src="blue.png" onclick="changeImg(this)" class="small">
-            <img src="black-e348a8eb.webp" onclick="changeImg(this)" class="small">
-            <img src="red.png" onclick="changeImg(this)" class="small">
-          
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>Ti-shart Jersey Fabric।</h3>
-        <h2>Code : 999</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1 - 5  <br><br>  100 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 6 - 10  <br><br>  90 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 20 - 30  <br><br>  80 TK</h4>
-        </div><br><br>
-         <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-         <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4># Size : Available <br># Color: red , blue , Black <br></h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box4-->
-<div id="boxopen4" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
-    <div id="boxcred">
-        <span onclick="boxclose4()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="Untitled design.png">
-         </div>
-          <div class="thumbs">
-            <img src="3pcp.png" onclick="changeImg(this)" class="small">
-            <img src="Untitled design.png" onclick="changeImg(this)" class="small">
-            <img src="3pcy.png" onclick="changeImg(this)" class="small">
-          
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>Luxury China Linen 2Pcs</h3>
-        <h2> Code : 1005</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1    <br><br>  700 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 1    <br><br>  700 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 1    <br><br>  700 TK</h4>
-        </div><br><br>
-        <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-         <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4># Body Size :38 , 42  , 44<br> # Color: black, pink, yellow <br>  </h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box5-->
-<div id="boxopen5" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
-    <div id="boxcred">
-        <span onclick="boxclose5()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="three150.png">
-         </div>
-          <div class="thumbs">
-            <img src="one150.png" onclick="changeImg(this)" class="small">
-            <img src="two150.png" onclick="changeImg(this)" class="small">
-            <img src="three150.png" onclick="changeImg(this)" class="small">
-           
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>Ear Ring</h3>
-        <h2> Code : 7575 </h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1   <br><br>  150 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 51   <br><br>  150 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 101   <br><br>  150 TK</h4>
-        </div><br><br>
-        <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-         <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4></h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box6-->
-<div id="boxopen6" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
-    <div id="boxcred">
-        <span onclick="boxclose6()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="two130.png">
-         </div>
-          <div class="thumbs">
-            <img src="three130.png" onclick="changeImg(this)" class="small">
-            <img src="one130.png" onclick="changeImg(this)" class="small">
-            <img src="two130.png" onclick="changeImg(this)" class="small">
-           
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>Ear Ring</h3>
-        <h2> Code : 60890</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1   <br><br>  150 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 1   <br><br>  150 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 1   <br><br>  150 TK</h4>
-        </div><br><br>
-         <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-        <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4></h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box7-->
-<div id="boxopen7" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
-    <div id="boxcred">
-        <span onclick="boxclose7()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="watch2.jpg">
-         </div>
-          <div class="thumbs">
-            <img src="watch2.jpg" onclick="changeImg(this)" class="small">
-            <img src="watch3.jpg" onclick="changeImg(this)" class="small">
-            <img src="whtch1.jpg" onclick="changeImg(this)" class="small">
-          
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>Budget Friendly & Most Demanding Ladies Watch. Imported from China. </h3>
-        <h2>  Code : 11125</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1  <br><br>  300 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 1    <br><br>  300 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 1   <br><br>  300 TK</h4>
-        </div><br><br>
-         <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-        <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4> </h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box8-->
-<div id="boxopen8" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
-    <div id="boxcred">
-        <span onclick="boxclose8()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="cleaner.png">
-         </div>
-          <div class="thumbs">
-            <img src="cleaner2.jpg" onclick="changeImg(this)" class="small">
-            <img src="cleaner.png" onclick="changeImg(this)" class="small">
-           
-        
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>Multi-functional Cleaning Blackhead & Whitehead Remover </h3>
-        <h2>Code : 9798</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1   <br><br>  520 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 2  <br><br>  510 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 3  <br><br>  500 TK</h4>
-        </div><br><br>
-        <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-         <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4>Multi-functional Cleaning Blackhead & Whitehead Remover</h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box9-->
-<div id="boxopen9" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
-    <div id="boxcred">
-        <span onclick="boxclose9()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="appleheadphon.jpg">
-         </div>
-          <div class="thumbs">
-            <img src="appleheadphon2.jpg" onclick="changeImg(this)" class="small">
-            <img src="appleheadphon.jpg" onclick="changeImg(this)" class="small">
-           
-           
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>Special AirPods Pro 2nd Generation TWS Edition With High Base & Long Battery Wireless Bluetooth Earbuds</h3>
-        <h2>Code : 789789</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1   <br><br>  350 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 2   <br><br>  340 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 3 - 200  <br><br>  320 TK</h4>
-        </div><br><br>
-        <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-         <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4>
-# Product Type: Earbuds
-# Model: Airpods Pro<br>
-# Bluetooth 5.0 Connectivity<br>
-# Customizable fit for all day comfort<br>
-# Talk Time: 3Hours<br>
-# Music Time: 2 Hours<br>
-# Battery For Buds: 35 mAh<br>
-# Battery For Box: 300 mAh<br>
-# Supported: Mobile Tablets.Computer<br>
-# With Mic:Yes<br>
-# Total Charging time: 1.5hours<br>
-# Distance: 10m<br>
-# Active Noice Cancllation: NO<br>
-# ANC: NO<br>
-# Charging Type: ios<br>
-# Charging Cable Included: Yes </h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<!--box10-->
-<div id="boxopen10" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:9999;justify-content:center;align-items:center;">
-    <div id="boxcred">
-        <span onclick="boxclose10()" id="spa">X</span><br><br>
-         <div class="show">
-         <div class="main-img">
-          <img class="bigImg" src="200headphone2.webp">
-         </div>
-          <div class="thumbs">
-            <img src="200hheadphon1.webp" onclick="changeImg(this)" class="small">
-            <img src="200headphone2.webp" onclick="changeImg(this)" class="small">
-         </div>
-        </div>
-        <div style="max-width:700px;margin: auto;">
-          <h3>Regrsi RE-NY060 Wireless Neckband Long Battery Authentic Product</h3>
-        <h2>Code : h24</h2>
-        <div style="display: flex;text-align: center;">
-          <h4 style="width:110px;margin: auto;">pieces 1   <br><br>  380 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 2  <br><br>  370 TK</h4>
-        <h4 style="width:110px;margin: auto;">pieces 5 - 10  <br><br>  360 TK</h4>
-        </div><br><br>
-       <a href="https://wa.me/8801614153820?text=Hello%20I%20want%20service" target="_blank"> <button onclick="" class="Cbtn">Contact</button></a>  
-         <br><br><div class="detils">
-          <div class="textdetils">details</div>
-          <h4>
-✅ Regrsi RE-NY060 Neckband<br>
-
-✅ এক চার্জে ২০০ ঘণ্টা ব্যাটারি ব্যাকআপ<br>
-
-✅ ভলিউমের উপর নির্ভর করে ৭-১০ ঘণ্টা প্লেব্যাক<br>
-
-✅ ডিজিটাল ডিসপ্লেতে ব্যাটারির চার্জ দেখা যায়<br>
-
-✅ একসাথে ২টি ফোন কানেক্ট করা যায়<br>
-
-✅ মেমোরি কার্ড সাপোর্ট (ফোন ছাড়া গান শোনার সুবিধা)<br>
-
-✅ Bluetooth 5.3 টেকনোলজি<br>
-          </h4>
-         </div> 
-        </div>
-    </div>
-</div>
-<script>
-  //search box
-function searchProduct(){
-  let input = document.getElementById("search").value.toLowerCase();
-  let products = document.querySelectorAll(".product");
-
-  products.forEach(product => {
-    let text = product.innerText.toLowerCase();
-
-    if(text.includes(input)){
-      product.style.display = "block";
-    }else{
-      product.style.display = "none";
-    }
-  });
-}
-// img 
- function changeImg(smallImg){
-     let parent = smallImg.closest(".show");
-     let big = parent.querySelector(".bigImg");
-     big.src = smallImg.src;
-    }
-
-
-function demo(){
-    document.getElementById("boxopen").style.display = "flex";
-}
-function boxclose(){
-    document.getElementById("boxopen").style.display = "none";
-}
-
-function demo1(){
-    document.getElementById("boxopen1").style.display = "flex";
-}
-function boxclose1(){
-    document.getElementById("boxopen1").style.display = "none";
-}
-
-function demo2(){
-    document.getElementById("boxopen2").style.display = "flex";
-}
-function boxclose2(){
-    document.getElementById("boxopen2").style.display = "none";
-}
-function demo3(){
-    document.getElementById("boxopen3").style.display = "flex";
-}
-function boxclose3(){
-    document.getElementById("boxopen3").style.display = "none";
-}
-function demo4(){
-    document.getElementById("boxopen4").style.display = "flex";
-}
-function boxclose4(){
-    document.getElementById("boxopen4").style.display = "none";
-}
-function demo5(){
-    document.getElementById("boxopen5").style.display = "flex";
-}
-function boxclose5(){
-    document.getElementById("boxopen5").style.display = "none";
-}
-function demo6(){
-    document.getElementById("boxopen6").style.display = "flex";
-}
-function boxclose6(){
-    document.getElementById("boxopen6").style.display = "none";
-}
-function demo7(){
-    document.getElementById("boxopen7").style.display = "flex";
-}
-function boxclose7(){
-    document.getElementById("boxopen7").style.display = "none";
-}
-
-function demo8(){
-    document.getElementById("boxopen8").style.display = "flex";
-}
-function boxclose8(){
-    document.getElementById("boxopen8").style.display = "none";
-}
-
-function demo9(){
-    document.getElementById("boxopen9").style.display = "flex";
-}
-function boxclose9(){
-    document.getElementById("boxopen9").style.display = "none";
-}
-
-function demo10(){
-    document.getElementById("boxopen10").style.display = "flex";
-}
-function boxclose10(){
-    document.getElementById("boxopen10").style.display = "none";
-}
+/* products */
+.container{
   
-</script>
+  display:flex; max-width:1400px;margin: auto;
+  flex-wrap:wrap;
+  gap:10px;margin-top:70px;
+  justify-content:center;
+}
 
+.product{
+  width:200px;
+  height:300px;
+  border:1px solid #ccc;
+  cursor:pointer;
+  padding:5px;
+}
+
+.product img{
+  width:100%;
+  height:80%;
+  object-fit:cover;
+}
+
+/* modal */
+.modal{
+  display:none;
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.7);
+}
+
+.modal-content{
+  background:white;
+  max-width:500px;
+  margin:50px auto;
+  padding:10px;
+}
+#back{
+ float:right;cursor:pointer; color:red; font-size:30px;
+}
+.modal img{
+  width:100%;
+}
+.thumbs img{
+  width:60px;
+  height:60px;
+  cursor:pointer;
+}
+#pname{
+  font-size:17px;font-weight:400;
+}
+#pcode{
+  text-align: center; font-size:20px; color:red;
+}
+#ppieces,
+#pprice{
+  display:flex;
+  justify-content:space-between;
+  text-align:center;
+}
+
+#ppieces span,
+#pprice span{
+  width:33%;
+}
+#Obtn{
+  width:40%;background: #031f50;height:30px;color:white;font-size:16px;font-weight:600;font-family: 'Poppins', sans-serif;border-radius:3px;
+}
+#Obtn1{
+   width:40%;background: tomato;height:30px;color:white;font-size:16px;font-weight:600;font-family: 'Poppins', sans-serif;border:none;border-radius:3px;
+}
+h4{
+  text-align: center;
+}
+/* modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  overflow-y: auto; /* 👈 এই লাইনটি যুক্ত করুন */
+}
+@media(max-width:600px){
+  .header1{
+    width:100%;
+  }
+  h1{
+    margin-left:4%;font-size:25px;
+  }
+  #search{display:none;
+  }
+  .fa-list{
+      font-size:24px;margin-top:20px; margin-right:4%;
+  }
+  .fa-magnifying-glass{
+   display:inline-block;font-size:23px;margin-top:20px;margin-left:35%;
+}
+#opensearchbox{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:60px;
+  background:#031f50;
+  display:none;
+  z-index:9999;
+}
+#openseachbox{
+ display: flex;
+}
+#ONEsearch{
+  margin-left:7%;height:30px;width:80%;margin-top:10px;
+}
+#X{
+  color:red;font-size:30px;margin-top:12px;margin-left:10px;
+}
+.product{
+  width:45%;
+  height:270px;
+  border:1px solid #ccc;
+  cursor:pointer;
+  padding:5px;
+}
+#Obtn{
+  width:40%;background: #031f50;height:30px;color:white;font-size:16px;font-weight:600;font-family: 'Poppins', sans-serif;border-radius:3px;
+}
+#Obtn1{
+   width:40%;background: tomato;height:30px;color:white;font-size:16px;font-weight:600;font-family: 'Poppins', sans-serif;border:none;border-radius:3px;
+}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="header1">
+      <h1 onclick="loadProducts()">Adarsha</h1>
+  <input id="search" placeholder="Search..." onkeyup="searchProduct()">
+  <i class="fa-solid fa-magnifying-glass" onclick="searchicon()"></i>
+  <i class="fa-solid fa-list" onclick="demo()"  id="list"></i>
+  </div>
+</header>
+<div id="opensearchbox">
+  <div id="openseachbox">
+    <input id="ONEsearch" placeholder="Search..." onkeyup="searchProduct()"><p onclick="searchclose()" id="X">X</p>
+  </div>
+</div>
+<!-- PRODUCTS -->
+<div class="container" id="productList"></div>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <span onclick="closeModal()" id="back">X</span>
+
+    <img id="mainImg">
+
+    <div class="thumbs" id="thumbs"></div>
+
+    <h3 id="pname"></h3>
+    <p id="pcode"></p>
+    <p id="ppieces"><span>pieces</span><span>pieces</span></p>
+    <p id="pprice"><span>Price</span><span>180 TK</span></p>
+    <button onclick="window.location='https://wa.me/8801614153820?text=Hello%20I%20want%20service', '_blank'" id="Obtn">Oder Now</button> <button onclick="window.location=''" id="Obtn1">Add To Cart</button>
+    <h4>Details</h4><hr>
+    <p id="pdetails"></p>
+  </div>
+</div>
+
+<script>
+
+/* ================= DATA ================= */
+const products = [
+{
+id:1,
+name:"Adjustable Back Strap",
+code:"1010",
+ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
+price:["180 TK", "100 TK","80 TK"],
+images:["belt.webp","belt2.jpg","best3.webp"],
+details:"best product ",
+},
+{
+id:2,
+name:"Water Bottle",
+code:"0011",
+ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
+price:["180 TK", "100 TK","80 TK"],
+images:["bottol.jpg"],
+details:"best price",
+},
+{
+id:3,
+name:"LCD Tablet",
+code:"5050",
+ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
+price:["180 TK", "100 TK","80 TK"],
+images:["lcd table1.jpg","lcd table2.jpg"],
+details:" aaaaaaaaaaaaaaa",
+},
+{
+id:4,
+name:"LCD Tablet",
+code:"5050",
+ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
+price:["180 TK", "100 TK","80 TK"],
+images:["200headphone2.webp","200hheadphon1.webp"],
+details:" aaaaaaaaaaaaaaa",
+},
+{
+id:5,
+name:"LCD Tablet",
+code:"5050",
+ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
+price:["180 TK", "100 TK","80 TK"],
+images:["3pcp.png","3pcy.png"],
+details:" aaaaaaaaaaaaaaa",
+},
+{
+id:6,
+name:"Headphon",
+code:"5050",
+ppieces:["pieces 1-10","pieces 12-20","pieces 22-50"],
+price:["180 TK", "100 TK","80 TK"],
+images:["appleheadphon.jpg","appleheadphon2.jpg"],
+details:"bbbbbbbbbb",
+},
+{
+id:7,
+name:"whatch",
+code:"5050",
+ppieces:["pieces 1-10","pieces 12-20","pieces 22-50"],
+price:["180 TK", "100 TK","80 TK"],
+images:["whtch1.jpg","watch2.jpg","watch3.jpg"],
+details:"bbbbbbbbbb",
+},
+{
+id:8,
+name:"whatch",
+code:"5050",
+ppieces:["pieces 1-10","pieces 12-20","pieces 22-50"],
+price:["180 TK", "100 TK","80 TK"],
+images:["two130.png","two150.png",""],
+details:"bbbbbbbbbb",
+}
+];
+
+/* ================= LOAD PRODUCTS ================= */
+function loadProducts(){
+let box = document.getElementById("productList");
+box.innerHTML="";
+
+products.forEach(p=>{
+box.innerHTML += `
+<div class="product" onclick="openModal(${p.id})">
+<img src="${p.images[0]}">
+<p>${p.name}</p>
+</div>
+`;
+});
+}
+
+loadProducts();
+
+/* ================= MODAL ================= */
+function openModal(id){
+let p = products.find(x=>x.id===id);
+
+document.getElementById("modal").style.display="block";
+document.getElementById("mainImg").src=p.images[0];
+document.getElementById("pname").innerText=p.name;
+document.getElementById("pcode").innerText="Code: "+p.code;
+document.getElementById("ppieces").innerHTML =p.ppieces.map(x => `<span>${x}</span>`).join("");
+document.getElementById("pprice").innerHTML =p.price.map(x => `<span>${x}</span>`).join("");
+document.getElementById("pdetails").innerText=p.details;
+let thumbs=document.getElementById("thumbs");
+thumbs.innerHTML="";
+
+p.images.forEach(img=>{
+thumbs.innerHTML+=`
+<img src="${img}" onclick="document.getElementById('mainImg').src='${img}'">
+`;
+});
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+/* ================= SEARCH ================= */
+function searchProduct(){
+
+let input1 = document.getElementById("search").value.toLowerCase();
+let input2 = document.getElementById("ONEsearch").value.toLowerCase();
+
+let input = input1 || input2;
+
+let items = document.querySelectorAll(".product");
+
+items.forEach(item=>{
+if(item.innerText.toLowerCase().includes(input)){
+item.style.display="block";
+}else{
+item.style.display="none";
+}
+});
+
+}
+
+/* ================= search icon open ================= */
+function searchicon(){
+  document.getElementById("opensearchbox").style.display = "block";
+}
+function searchclose(){
+  document.getElementById("opensearchbox").style.display = "none";
+}
+</script>
 </body>
 </html>
