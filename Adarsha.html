@@ -3,8 +3,25 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adarsha Online Shopping</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Store",
+  "name": "Adarsha BD",
+  "url": "https://adarshaagent.com/"
+}
+</script>
+<title>Adarsha BD - Online Shopping in Bangladesh | Fashion, Electronics & More</title>
+<link rel="icon" href="banner.png">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<meta name="description" content="Adarsha BD is an online shopping store in Bangladesh. Buy fashion, electronics, gadgets, home products at best price with fast delivery.">
+<meta name="keywords" content="online shopping Bangladesh, Adarsha BD, ecommerce Bangladesh, fashion, electronics, gadgets, buy online">
+<meta property="og:title" content="Adarsha BD - Online Shopping">
+<meta property="og:description" content="Buy fashion, electronics & gadgets online in Bangladesh">
+<meta property="og:image" content="banner.png">
+<meta property="og:url" content="https://adarshaagent.com/">
+<meta property="og:type" content="website">
+<link rel="canonical" href="https://adarshaagent.com/">
 <style>
 body{font-family:Arial;margin:0;padding:0}
 
@@ -36,7 +53,7 @@ header{
 }
 
 .product{
-  width:200px;
+  width:200px;border-radius:4px;
   height:300px;
   border:1px solid #ccc;
   cursor:pointer;
@@ -71,7 +88,8 @@ header{
 .modal-content{
   background:white;
   max-width:500px;
-  margin:50px auto;
+  height:1000px;
+  margin: auto;
   padding:10px;
 }
 #back{
@@ -114,7 +132,7 @@ h4{
 .modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
+  top: 0; left: 0;z-index:999;
   width: 100%;
   height: 100%;
   background: rgba(0,0,0,0.7);
@@ -125,6 +143,10 @@ h4{
 }
 .fa-angle-left{
   font-size:30px;margin-left:5%;
+}
+#mainImg{
+ 
+  max-width:500px;height:500px;
 }
 @media(max-width:600px){
   .header1{
@@ -189,7 +211,7 @@ h4{
 }
 .product{
   width:45%;
-  height:230px;
+  height:250px;
   border:1px solid #ccc;
   cursor:pointer;
   padding:5px;
@@ -203,13 +225,16 @@ h4{
 h2{
   margin-left:7%;
 }
+#mainImg{
+  max-width:500px;height:350px;margin-top:50px;
+}
 }
 </style>
 </head>
 <body>
 <header>
   <div class="header1">
-      <h1 onclick="loadProducts()">Adarsha</h1>
+      <h1>Adarsha</h1>
   <input id="search" placeholder="Search..." onkeyup="searchProduct()">
   <i class="fa-solid fa-magnifying-glass" onclick="searchicon()"></i>
   <i class="fa-solid fa-list" onclick="demo()"  id="list"></i>
@@ -339,7 +364,7 @@ box.innerHTML="";
 products.forEach(p=>{
 box.innerHTML += `
 <div class="product" onclick="openModal(${p.id})">
-<img src="${p.images[0]}">
+<img src="${p.images[0]}" alt="${p.name} online shopping Bangladesh">
 <p>${p.name}</p>
 </div>
 `;
