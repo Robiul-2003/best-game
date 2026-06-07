@@ -289,8 +289,8 @@ h2{
   <div class="clickbox" onclick="filterProducts('woman')"><img src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png" class="click"> woman </div>
   <div class="clickbox" onclick="filterProducts('baby')"><img src="baby.png" class="click"> baby </div>
   <div class="clickbox" onclick="filterProducts('Electrical')"> <img src="https://cdn-icons-png.flaticon.com/512/702/702797.png" alt="light bulb" class="click"> Electrical </div>
-   <div class="clickbox" onclick="filterProducts('Home')"><img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" alt="frying pan"  class="click"> Kitchen </div>
-   <div class="clickbox" onclick="filterProducts('accessories')"><img src="https://cdn-icons-png.flaticon.com/512/3659/3659898.png" alt="Phone Accessories" class="click">accessories </div>
+  <div class="clickbox" onclick="filterProducts('Kitchen')"><img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" alt="frying pan"  class="click"> Kitchen </div>
+  <div class="clickbox" onclick="filterProducts('accessories')"><img src="https://cdn-icons-png.flaticon.com/512/3659/3659898.png" alt="Phone Accessories" class="click">accessories </div>
  </div>
 
 <!-- PRODUCTS -->
@@ -321,7 +321,7 @@ h2{
 const products = [
 {
 id:1,
-category:["woman","man"],
+category:["man","woman"],
 name:"Adjustable Back Strap",
 code:"1010",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
@@ -331,6 +331,7 @@ details:"best product ",
 },
 {
 id:2,
+category:"kitchen",
 name:"Water Bottle",
 code:"0011",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
@@ -340,6 +341,7 @@ details:"best price",
 },
 {
 id:3,
+category:"baby",
 name:"LCD Tablet",
 code:"5050",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
@@ -349,6 +351,7 @@ details:" aaaaaaaaaaaaaaa",
 },
 {
 id:4,
+category:"accessories",
 name:"Headphon",
 code:"5050",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
@@ -368,7 +371,7 @@ details:" aaaaaaaaaaaaaaa",
 },
 {
 id:6,
-category:"home",
+category:"accessories",
 name:"Headphon",
 code:"5050",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-50"],
@@ -378,7 +381,7 @@ details:"bbbbbbbbbb",
 },
 {
 id:7,
-category:"woman",
+category:"accessories",
 name:"whatch",
 code:"5050",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-50"],
@@ -459,7 +462,6 @@ item.style.display="none";
 });
 
 }
-/* =================category================= */
 function filterProducts(category){
 
 let box = document.getElementById("productList");
@@ -467,7 +469,14 @@ box.innerHTML = "";
 
 let filtered = category === "all"
   ? products
-  : products.filter(p => p.category === category);
+  : products.filter(p => {
+
+      if(Array.isArray(p.category)){
+        return p.category.includes(category);
+      }
+
+      return p.category === category;
+  });
 
 filtered.forEach(p=>{
 box.innerHTML += `
@@ -479,26 +488,28 @@ box.innerHTML += `
 });
 
 }
-/* ================= search icon open ================= */
-function filterProducts(category){
 
-let box = document.getElementById("productList");
-box.innerHTML = "";
+ // <-- এই ব্র্যাকেটটা যোগ করতে হবে
 
-let filtered = category === "all"
-  ? products
-  : products.filter(p => p.category && p.category.includes(category));
-
-filtered.forEach(p=>{
-box.innerHTML += `
-<div class="product" onclick="openModal(${p.id})">
-<img src="${p.images[0]}">
-<p>${p.name}</p>
-</div>
-`;
-});
-
+/* ================= click icon open ================= */
+function searchicon(){
+   document.getElementById("opensearchbox").style.display= "block";
 }
+/* ================= click icon open ================= */
+function searchicon(){
+   document.getElementById("opensearchbox").style.display= "block";
+}
+function searchclose(){
+   document.getElementById("opensearchbox").style.display= "none";
+}
+
+function demo(){
+   document.getElementById("openlistbox").style.display= "block";
+}
+function listclose(){
+ document.getElementById("openlistbox").style.display= "none";
+}
+
 </script>
 </body>
 </html>
