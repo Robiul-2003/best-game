@@ -148,6 +148,16 @@ h4{
  
   max-width:500px;height:500px;
 }
+.box{
+  display:none;
+
+}
+.clickbo{
+  display:none;
+}
+.click{
+  display:none;
+}
 @media(max-width:600px){
   .header1{
     width:100%;
@@ -168,6 +178,25 @@ h4{
   margin-top:70px;
   width:98%;margin-left:1%;
   height:100px; animation: shrink 2s ease-in-out infinite alternate;
+}
+.box{
+  width:97%; display: flex;margin-left:2%;margin-top:15px;
+  height:80px;border:px solid red;gap:8px;text-align: center;
+  overflow-x:auto;     /* 👈 এটা must */
+  white-space:nowrap;  /* 👈 important */
+  scroll-behavior:smooth;
+}
+.box::-webkit-scrollbar{
+  display:none;
+}
+.clickbox{
+  scroll-snap-align:start;
+}
+.clickbox{
+  border:px solid rgb(230, 218, 218);width:55px;height:60px;border-radius:5px;font-size:13px;font-family: 'Poppins', sans-serif;
+}
+.click{
+  width:50px;height:50px;border-radius:5px;display: block;margin: auto;
 }
 @keyframes shrink{
   from{
@@ -254,7 +283,15 @@ h2{
   </div>
 </div>
   <img src="banner.png" class="banner"> 
-
+ <div class="box">
+  <div class="clickbox" onclick="filterProducts('all')"><img src="free delivary.png" class="click"> Free <br>Delivery</div>
+  <div class="clickbox" onclick="filterProducts('man')"><img src="https://cdn-icons-png.flaticon.com/512/1999/1999625.png" class="click"> man </div>
+  <div class="clickbox" onclick="filterProducts('woman')"><img src="https://cdn-icons-png.flaticon.com/512/4140/4140047.png" class="click"> woman </div>
+  <div class="clickbox" onclick="filterProducts('baby')"><img src="baby.png" class="click"> baby </div>
+  <div class="clickbox" onclick="filterProducts('Electrical')"> <img src="https://cdn-icons-png.flaticon.com/512/702/702797.png" alt="light bulb" class="click"> Electrical </div>
+   <div class="clickbox" onclick="filterProducts('Home')"><img src="https://cdn-icons-png.flaticon.com/512/1046/1046857.png" alt="frying pan"  class="click"> Kitchen </div>
+   <div class="clickbox" onclick="filterProducts('accessories')"><img src="https://cdn-icons-png.flaticon.com/512/3659/3659898.png" alt="Phone Accessories" class="click">accessories </div>
+ </div>
 
 <!-- PRODUCTS -->
 <div class="container" id="productList"></div>
@@ -284,6 +321,7 @@ h2{
 const products = [
 {
 id:1,
+category:["woman","man"],
 name:"Adjustable Back Strap",
 code:"1010",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
@@ -320,6 +358,7 @@ details:" aaaaaaaaaaaaaaa",
 },
 {
 id:5,
+category:"woman",
 name:"3pc",
 code:"5050",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-30"],
@@ -329,6 +368,7 @@ details:" aaaaaaaaaaaaaaa",
 },
 {
 id:6,
+category:"home",
 name:"Headphon",
 code:"5050",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-50"],
@@ -338,6 +378,7 @@ details:"bbbbbbbbbb",
 },
 {
 id:7,
+category:"woman",
 name:"whatch",
 code:"5050",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-50"],
@@ -347,6 +388,7 @@ details:"bbbbbbbbbb",
 },
 {
 id:8,
+category:"woman",
 name:"ring",
 code:"5050",
 ppieces:["pieces 1-10","pieces 12-20","pieces 22-50"],
@@ -417,19 +459,45 @@ item.style.display="none";
 });
 
 }
+/* =================category================= */
+function filterProducts(category){
 
+let box = document.getElementById("productList");
+box.innerHTML = "";
+
+let filtered = category === "all"
+  ? products
+  : products.filter(p => p.category === category);
+
+filtered.forEach(p=>{
+box.innerHTML += `
+<div class="product" onclick="openModal(${p.id})">
+<img src="${p.images[0]}">
+<p>${p.name}</p>
+</div>
+`;
+});
+
+}
 /* ================= search icon open ================= */
-function searchicon(){
-  document.getElementById("opensearchbox").style.display = "block";
-}
-function searchclose(){
-  document.getElementById("opensearchbox").style.display = "none";
-}
-function demo(){
-  document.getElementById("openlistbox").style.display = "block";
-}
-function listclose(){
-  document.getElementById("openlistbox").style.display = "none";
+function filterProducts(category){
+
+let box = document.getElementById("productList");
+box.innerHTML = "";
+
+let filtered = category === "all"
+  ? products
+  : products.filter(p => p.category && p.category.includes(category));
+
+filtered.forEach(p=>{
+box.innerHTML += `
+<div class="product" onclick="openModal(${p.id})">
+<img src="${p.images[0]}">
+<p>${p.name}</p>
+</div>
+`;
+});
+
 }
 </script>
 </body>
