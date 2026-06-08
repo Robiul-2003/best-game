@@ -1,61 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Adarsha Agent Login in</title>
-    <link rel="icon" type="img/png" href="logo.png">
-</head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Adarsha BD - Login System</title>
+
 <style>
-    body{
-        overflow: hidden;
-    }
-    .fa-xmark{
-        margin-top:15px;
-     margin-left:92%; font-size:20px;
-    }
-    .box{
-        border-radius:15px;
-        margin: auto;
-        width:350px;
-        height:430px;
-        background:rgb(248, 245, 245); text-align: center;
-    }
-    input{
-        margin-top:15px;
-        width:60%;
-        height:30px;border:1px solid black;
-        border-radius:10px;
-    }
-    #btn1{
-        margin-top:50px;
-        width:60%;
-        height:30px;
-        border-radius:5px; border:none;
-        background:rgb(161, 211, 44);color:black;font-size:17px;
-    }
-    #btn2{
-        margin-top:20px;
-      width:60%;
-      height:30px;  font-size:15px;
-    border-radius:5px;border:none;
-        background:rgb(161, 211, 44);color:black;font-size:17px;
-    }
+body {
+    font-family: Arial;
+    background: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    background: white;
+    padding: 25px;
+    width: 320px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.signup { background: #28a745; color: white; }
+.login { background: #007bff; color: white; }
+
+button:hover { opacity: 0.9; }
 </style>
+</head>
+
 <body>
-    <i class="fa-solid fa-xmark" onclick="window.location.href='index.html'"></i><br><br>
-   <div class="box">
-    <h1>Log in your Account</h1>
 
-    <!-- Form start -->
-    <form action="login.php" method="post">
-        <input type="text" name="username" placeholder="Your Name" required><br><br>
-        <input type="password" name="password" placeholder="Password" required><br><br>
-        <button type="submit" name="login" id="btn1">Login</button><br><br>
-    </form>
+<div class="box">
+    <h2>Adarsha BD</h2>
 
-    <button id="btn2" onclick="window.location.href='register.html'">Create new Account</button>
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="text" id="phone" placeholder="Phone Number">
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="password" placeholder="Password">
+
+    <button class="signup" onclick="signup()">Sign Up</button>
+    <button class="login" onclick="login()">Login</button>
 </div>
+
+<script type="module">
+
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { 
+    getAuth,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword 
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+import { 
+    getFirestore,
+    setDoc,
+    doc
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+
+
+// 🔥 Firebase Config (your project)
+const firebaseConfig = {
+  apiKey: "AIzaSyAfFIdMnjruh3850JTePGMH7UI7IGO5srg",
+  authDomain: "adarsha-bd-7199f.firebaseapp.com",
+  projectId: "adarsha-bd-7199f",
+  storageBucket: "adarsha-bd-7199f.firebasestorage.app",
+  messagingSenderId: "619545177487",
+  appId: "1:619545177487:web:b506ae7f53756a120b6ffa"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+let loading = false;
+
+
+// ================= SIGN UP =================
+window.signup = async function () {
+
+    if (loading) return;
+    loading = true;
+
+    let name = document.getElementById("name").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let email = document.getElementById("email").value.trim().toLowerCase();
+    let password = document.getElementById("password").value;
+
+    if (!name || !phone || !email || !password) {
+        alert("সব ঘর পূরণ করুন!");
+        loading = false;
+        return;
+    }
+
+    if (password.length < 6) {
+        alert("Password কমপক্ষে 6 character হতে হবে!");
+        loading = false;
+        return;
+    }
+
+    try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
+
+        await setDoc(doc(db, "users", user.uid), {
+            uid: user.uid,
+            name: name,
+            phone: phone,
+            email: email,
+            role: "user",
+            createdAt: new Date()
+        });
+
+        alert("Sign Up Successful!");
+        window.location.href = "index.html";
+
+    } catch (error) {
+        alert(error.message);
+    }
+
+    loading = false;
+};
+
+
+// ================= LOGIN =================
+window.login = async function () {
+
+    if (loading) return;
+    loading = true;
+
+    let email = document.getElementById("email").value.trim().toLowerCase();
+    let password = document.getElementById("password").value;
+
+    if (!email || !password) {
+        alert("Email এবং Password দিন!");
+        loading = false;
+        return;
+    }
+
+    try {
+        await signInWithEmailAndPassword(auth, email, password);
+
+        alert("Login Successful!");
+        window.location.href = "index.html";
+
+    } catch (error) {
+        alert(error.message);
+    }
+
+    loading = false;
+};
+
+</script>
+
 </body>
 </html>
