@@ -281,8 +281,7 @@ h2{
   <h2>Notification</h2><hr>
   <h2 onclick="window.location.href='index.html'">Service</h2><hr>
   <h2 onclick="window.location.href='login.html'">login</h2><hr>
-  <h2 onclick="window.location.href='login.html'">login</h2><hr>
-  <h2 onclick="window.location.href='login.html'">Sign in</h2><hr>
+  <h2 onclick="window.location.href='signin.html'">Sign in</h2><hr>
   </div>
 </div>
   <img src="banner.png" class="banner"> 
@@ -313,7 +312,7 @@ h2{
     <p id="pcode"></p>
     <p id="ppieces"><span>pieces</span><span>pieces</span></p>
     <p id="pprice"><span>Price</span><span>180 TK</span></p>
-    <button onclick="window.location='https://wa.me/8801614153820?text=Hello%20I%20want%20service', '_blank'" id="Obtn">Order Now</button> <button onclick="window.location=''" id="Obtn1">Add To Cart</button>
+   <button onclick="orderNow()" id="Obtn">Order Now</button> <button onclick="window.location=''" id="Obtn1">Add To Cart</button>
     <h4>Details</h4><hr>
     <p id="pdetails"></p>
   </div>
@@ -514,6 +513,18 @@ function listclose(){
  document.getElementById("openlistbox").style.display= "none";
 }
 
+
+/* ================= whaisapp click  open massage ================= */
+function orderNow(){
+  let productName = document.getElementById("pname").innerText;
+  let productCode = document.getElementById("pcode").innerText;
+
+  let message = `Hello, I want to order:\n\nProduct: ${productName}\n${productCode}\n\nPlease confirm details.`;
+
+  let url = "https://wa.me/8801614153820?text=" + encodeURIComponent(message);
+
+  window.open(url, "_blank");
+}
 </script>
 </body>
 </html>

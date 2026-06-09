@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-<title>Login - Adarsha BD</title>
+<title>Adarsha BD - Sign Up</title>
 
 <style>
 body{
@@ -24,12 +24,14 @@ body{
     position:relative;
 }
 
+/* BACK BUTTON */
 .back{
     position:absolute;
     top:10px;
     left:10px;
     font-size:20px;
     cursor:pointer;
+    color:#333;
 }
 
 h2{
@@ -54,23 +56,15 @@ button{
     font-weight:bold;
 }
 
-.login{
-    background:#007bff;
-    color:white;
-}
-
 .signup{
     background:#28a745;
     color:white;
-    margin-top:8px;
 }
 
-.forgot{
-    text-align:right;
-    font-size:13px;
-    margin-top:5px;
-    cursor:pointer;
-    color:#007bff;
+.login{
+    background:#007bff;
+    color:white;
+    margin-top:8px;
 }
 </style>
 </head>
@@ -79,32 +73,35 @@ button{
 
 <div class="box">
 
-    <!-- Back Button -->
+    <!-- BACK BUTTON -->
     <div class="back" onclick="window.location.href='Adarsha.html'">
         <i class="fa-solid fa-arrow-left"></i>
     </div>
 
-    <h2>Login</h2>
+    <h2>Create Account</h2>
 
+    <input type="text" id="name" placeholder="Full Name">
+    <input type="text" id="phone" placeholder="Phone Number">
     <input type="email" id="email" placeholder="Email">
     <input type="password" id="password" placeholder="Password">
 
-    <div class="forgot" onclick="forgotPassword()">
-        Forgot Password?
-    </div>
- <br>
-    <button class="login" onclick="login()">Login</button>
-    <button class="signup" onclick="window.location.href='signin.html'">Create Account</button>
+    <button class="signup" onclick="signup()">Sign Up</button>
+
+    <!-- LOGIN PAGE BUTTON -->
+    <button class="login" onclick="window.location.href='login.html'">
+         Login
+    </button>
+
 </div>
 
 <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { 
-    getAuth,
-    signInWithEmailAndPassword,
-    sendPasswordResetEmail
-} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword } 
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+import { getFirestore, setDoc, doc } 
+from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const firebaseConfig = {
   apiKey: "AIzaSyAfFIdMnjruh3850JTePGMH7UI7IGO5srg",
@@ -114,54 +111,42 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-// ================= LOGIN =================
-window.login = async function(){
+// ================= SIGN UP =================
+window.signup = async function(){
 
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
     let email = document.getElementById("email").value;
     let password = document.getElementById("password").value;
 
-    if(!email || !password){
-        alert("Email এবং Password দিন!");
+    if(!name || !phone || !email || !password){
+        alert("সব ঘর পূরণ করুন!");
+        return;
+    }
+
+    if(password.length < 6){
+        alert("Password কমপক্ষে 6 character হতে হবে!");
         return;
     }
 
     try{
-        await signInWithEmailAndPassword(auth, email, password);
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        const user = userCredential.user;
 
-        alert("Login Successful!");
-        window.location.href = "index.html";
+        await setDoc(doc(db, "users", user.uid), {
+            uid: user.uid,
+            name: name,
+            phone: phone,
+            email: email
+        });
+
+        alert("Account Created Successfully!");
+        window.location.href = "login.html";
 
     }catch(error){
-
-        if(error.code === "auth/user-not-found"){
-            alert("❌ এই account খুঁজে পাওয়া যায়নি!");
-        }
-        else if(error.code === "auth/wrong-password"){
-            alert("❌ Password ভুল!");
-        }
-        else{
-            alert("❌ Login Failed!");
-        }
-    }
-};
-
-
-// ================= FORGOT PASSWORD =================
-window.forgotPassword = async function(){
-
-    let email = document.getElementById("email").value;
-
-    if(!email){
-        alert("আগে Email লিখুন!");
-        return;
-    }
-
-    try{
-        await sendPasswordResetEmail(auth, email);
-        alert("📩 Password reset email পাঠানো হয়েছে!");
-    }catch(error){
-        alert("❌ Email পাওয়া যায়নি!");
+        alert(error.message);
     }
 };
 
