@@ -516,10 +516,16 @@ function listclose(){
 
 /* ================= whaisapp click  open massage ================= */
 function orderNow(){
-  let productName = document.getElementById("pname").innerText;
-  let productCode = document.getElementById("pcode").innerText;
 
-  let message = `Hello, I want to order:\n\nProduct: ${productName}\n${productCode}\n\nPlease confirm details.`;
+  let productName = document.getElementById("pname").innerText;
+  let productCode = document.getElementById("pcode").innerText.replace("Code: ","");
+
+  let message = `🛒 New Order Request
+
+📦 Product: ${productName}
+🔢 Code: ${productCode}
+
+👉 Please confirm availability & price.`;
 
   let url = "https://wa.me/8801614153820?text=" + encodeURIComponent(message);
 
