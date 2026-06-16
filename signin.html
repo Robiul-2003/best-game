@@ -1,4 +1,4 @@
-<!--<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -73,8 +73,8 @@ button{
 
 <div class="box">
 
-    !-- BACK BUTTON --
-    <div class="back" onclick="window.location.href='Adarsha.html'">
+    <!-- BACK BUTTON -->
+    <div class="back" onclick="window.location.href='index.html'">
         <i class="fa-solid fa-arrow-left"></i>
     </div>
 
@@ -88,7 +88,7 @@ button{
 
     <button class="signup" onclick="signup()">Sign Up</button>
 
-    !-- LOGIN PAGE BUTTON --
+    <!-- LOGIN PAGE BUTTON -->
     <button class="login" onclick="window.location.href='login.html'">
          Login
     </button>
@@ -163,152 +163,6 @@ window.addEventListener("load", () => {
         list.appendChild(option);
     });
 });
-</script>
-
-</body>
-</html>-->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adarsha BD - Sign Up</title>
-
-<style>
-body{
-    font-family: Arial;
-    height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-}
-
-.box{
-    width:340px;
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.2);
-}
-
-h2{
-    text-align:center;
-    margin-bottom:15px;
-}
-
-input{
-    width:90%;
-    padding:12px;
-    margin:8px 0;
-    border:1px solid #ddd;
-    border-radius:6px;
-}
-
-button{
-    width:100%;
-    padding:12px;
-    border:none;
-    border-radius:6px;
-    cursor:pointer;
-    font-weight:bold;
-}
-
-.signup{
-    background:#28a745;
-    color:white;
-}
-
-.login{
-    background:#007bff;
-    color:white;
-    margin-top:8px;
-}
-</style>
-</head>
-
-<body>
-
-<div class="box">
-
-    <h2>Create Account</h2>
-
-    <input type="text" id="name" placeholder="Full Name">
-
-    <!-- SINGLE INPUT (EMAIL OR PHONE) -->
-    <input type="text" id="loginInput" placeholder="Email or Phone">
-
-    <input type="password" id="password" placeholder="Password">
-
-    <button class="signup" onclick="signup()">Sign Up</button>
-
-    <button class="login" onclick="window.location.href='login.html'">
-         Login
-    </button>
-
-</div>
-
-<script type="module">
-
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } 
-from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-
-import { getFirestore, setDoc, doc } 
-from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-const firebaseConfig = {
-  apiKey: "AIzaSyAfFIdMnjruh3850JTePGMH7UI7IGO5srg",
-  authDomain: "adarsha-bd-7199f.firebaseapp.com",
-  projectId: "adarsha-bd-7199f",
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
-// ================= SIGN UP =================
-window.signup = async function(){
-
-    let name = document.getElementById("name").value;
-    let loginValue = document.getElementById("loginInput").value;
-    let password = document.getElementById("password").value;
-
-    if(!name || !loginValue || !password){
-        alert("সব ঘর পূরণ করুন!");
-        return;
-    }
-
-    if(password.length < 6){
-        alert("Password কমপক্ষে 6 character হতে হবে!");
-        return;
-    }
-
-    // email or phone detect
-    let email = loginValue.includes("@") 
-        ? loginValue 
-        : loginValue + "@adarshabd.local";
-
-    try{
-        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-
-        await setDoc(doc(db, "users", user.uid), {
-            uid: user.uid,
-            name: name,
-            loginValue: loginValue,
-            email: email
-        });
-
-        alert("Account Created Successfully!");
-        window.location.href = "login.html";
-
-    }catch(error){
-        alert(error.message);
-    }
-    alert("Account Created Successfully!");
-      window.location.href = "Adarsha.html";
-};
-
 </script>
 
 </body>
